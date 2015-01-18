@@ -24,6 +24,12 @@
 {
     if(self = [super init])
     {
+        red = 0.0/255.0;
+        green = 0.0/255.0;
+        blue = 0.0/255.0;
+        brush = 10.0;
+        opacity = 1.0;
+        openSave = YES;
         self.navigationItem.rightBarButtonItem = self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                                                                           initWithTitle:@"Save"
                                                                                           style:UIBarButtonItemStyleDone
@@ -41,8 +47,8 @@
         mainImage.backgroundColor = [UIColor whiteColor];
         mainImage.tintColor = [UIColor clearColor];
         [self.view addSubview:mainImage];
-        //tempDrawImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight)];
-        //[self.view addSubview:tempDrawImage];
+        tempDrawImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight)];
+        [self.view addSubview:tempDrawImage];
         
         //colors
         NSArray *colors = @[[UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1],
@@ -74,8 +80,8 @@
             [self.view addSubview: colorBtns[i]];
         }
     
-        NSArray *topBtnTitles = @[@"Reset", @"Settings", @"Erase"];
-        NSArray *topActions = @[@"reset:", @"settings", @"pencilPressed:"];
+        NSArray *topBtnTitles = @[@"Reset", @"Settings", @"Erase", @"Open"];
+        NSArray *topActions = @[@"reset:", @"settings", @"pencilPressed:", @"openPicture"];
         btnHeight = frameHeight * .05;
         btnWidth = frameWidth / topBtnTitles.count;
         for(int i = 0;i < (sizeof topBtns) / (sizeof topBtns[0]); i++)
@@ -97,23 +103,8 @@
     return self;
 }
 
--(void) done{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    self.navigationItem.title = @"Drawing";
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
-}
-
 - (void)viewDidLoad
 {
-    red = 0.0/255.0;
-    green = 0.0/255.0;
-    blue = 0.0/255.0;
-    brush = 10.0;
-    opacity = 1.0;
-    
     [super viewDidLoad];
 }
 
@@ -128,6 +119,41 @@
     [self setTempDrawImage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationItem.title = @"Drawing";
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+}
+
+-(void) done{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)openPicture{
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    openSave = YES;
+    UIActionSheet *alertMenu = [[UIActionSheet alloc]
+                                initWithTitle:@"Open picture by..."  //Alert Title
+                                delegate:self
+                                cancelButtonTitle:@"Cancel"                         //Cancel Title
+                                destructiveButtonTitle:nil
+                                otherButtonTitles:@"Taking a Photo", @"Selecting From Gallary" , nil];
+    
+    [alertMenu showInView:mainImage];
+
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    NSLog(@"%s imagePickerController", __PRETTY_FUNCTION__);
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    CGSize sz = CGSizeMake(frameWidth, frameHeight);
+    
+    [mainImage setImage:[info objectForKey:@"UIImagePickerControllerEditedImage"]];
+    
+    return;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -213,11 +239,12 @@
     self.mainImage.image = nil;
 }
 
-- (IBAction)settings:(id)sender {
-}
+//- (IBAction)settings:(id)sender {
+//}
 
 - (IBAction)save:(id)sender {
-    
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    openSave = NO;
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@""
                                                              delegate:self
                                                     cancelButtonTitle:nil
@@ -228,18 +255,46 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(buttonIndex == 0) {
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    if(openSave){
+        NSLog(@"%s Opening",__PRETTY_FUNCTION__);
         
-        UIGraphicsBeginImageContextWithOptions(self.mainImage.bounds.size, NO, 0.0);
-        [self.mainImage.image drawInRect:CGRectMake(0, 0, self.mainImage.frame.size.width, self.mainImage.frame.size.height)];
-        UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        UIImageWriteToSavedPhotosAlbum(SaveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        
+        switch (buttonIndex)
+        {
+            case 0:
+                NSLog(@"%s ActionSheet Select Camera",__PRETTY_FUNCTION__);
+                picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                [self  presentViewController:picker animated:YES completion:NULL];
+                break;
+            case 1:
+                NSLog(@"%s ActionSheet Select Gallery",__PRETTY_FUNCTION__);
+                picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                [self presentViewController:picker animated:YES completion:NULL];
+                break;
+        }
+
+    }
+    else
+    {
+        NSLog(@"%s Saving",__PRETTY_FUNCTION__);
+        if(buttonIndex == 0) {
+        
+            UIGraphicsBeginImageContextWithOptions(self.mainImage.bounds.size, NO, 0.0);
+            [self.mainImage.image drawInRect:CGRectMake(0, 0, self.mainImage.frame.size.width, self.mainImage.frame.size.height)];
+            UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            UIImageWriteToSavedPhotosAlbum(SaveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
+        }
     }
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
+    NSLog(@"%s",__PRETTY_FUNCTION__);
     // Was there an error?
     if (error != NULL)
     {
@@ -251,22 +306,22 @@
     }
 }
 
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+    //NSLog(@"%s",__PRETTY_FUNCTION__);
     mouseSwiped = NO;
     UITouch *touch = [touches anyObject];
     lastPoint = [touch locationInView:self.view];
-    mainImage.tintColor = [UIColor clearColor];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+    //NSLog(@"%s",__PRETTY_FUNCTION__);
     mouseSwiped = YES;
     UITouch *touch = [touches anyObject];
     CGPoint currentPoint = [touch locationInView:self.view];
     
     UIGraphicsBeginImageContext(self.view.frame.size);
-    [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.tempDrawImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -275,8 +330,8 @@
     CGContextSetBlendMode(UIGraphicsGetCurrentContext(),kCGBlendModeNormal);
     
     CGContextStrokePath(UIGraphicsGetCurrentContext());
-    self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
-    [self.mainImage setAlpha:opacity];
+    self.tempDrawImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    [self.tempDrawImage setAlpha:opacity];
     UIGraphicsEndImageContext();
     
     lastPoint = currentPoint;
@@ -286,7 +341,7 @@
     
     if(!mouseSwiped) {
         UIGraphicsBeginImageContext(self.view.frame.size);
-        [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        [self.tempDrawImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
         CGContextSetLineWidth(UIGraphicsGetCurrentContext(), brush);
         CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), red, green, blue, opacity);
@@ -294,19 +349,20 @@
         CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
         CGContextStrokePath(UIGraphicsGetCurrentContext());
         CGContextFlush(UIGraphicsGetCurrentContext());
-        self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
+        self.tempDrawImage.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
     }
     
     UIGraphicsBeginImageContext(self.mainImage.frame.size);
     [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:1.0];
-    [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:opacity];
-    //self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
-    //self.tempDrawImage.image = nil;
+    [self.tempDrawImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:opacity];
+    self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    self.tempDrawImage.image = nil;
     UIGraphicsEndImageContext();
 }
 
 - (void)settings {
+    NSLog(@"%s",__PRETTY_FUNCTION__);
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     SettingsViewController * settingsVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
     settingsVC.delegate = self;
@@ -323,7 +379,7 @@
 #pragma mark - SettingsViewControllerDelegate methods
 
 - (void)closeSettings:(id)sender {
-    
+    NSLog(@"%s",__PRETTY_FUNCTION__);
     brush = ((SettingsViewController*)sender).brush;
     opacity = ((SettingsViewController*)sender).opacity;
     red = ((SettingsViewController*)sender).red;

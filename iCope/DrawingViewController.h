@@ -19,7 +19,8 @@
     CGFloat opacity;
     BOOL mouseSwiped;
     UIButton *colorBtns[10];
-    UIButton *topBtns[3];
+    UIButton *topBtns[4];
+    BOOL openSave;
 }
 
 @property (strong, nonatomic) UIImageView *mainImage;
