@@ -35,27 +35,27 @@
         [self.view addSubview: background];
         
         playButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 100, 100)];
-        playButton.center = CGPointMake(frameWidth / 2, frameHeight * .9);
+        playButton.center = CGPointMake(frameWidth / 2, frameHeight * .8);
         [playButton setImage: [UIImage imageNamed: @"play.png"] forState: UIControlStateNormal];
         [playButton addTarget: self action:@selector(playPause:) forControlEvents: UIControlEventTouchDown];
         [self.view addSubview: playButton];
         
         
         fastforward = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 100, 100)];
-        fastforward.center = CGPointMake(frameWidth * .8, frameHeight * .9);
+        fastforward.center = CGPointMake(frameWidth * .8, frameHeight * .8);
         [fastforward setImage: [UIImage imageNamed: @"fastforward.png"] forState: UIControlStateNormal];
         [fastforward addTarget: self action:@selector(nextSong:) forControlEvents: UIControlEventTouchDown];
         [self.view addSubview: fastforward];
         
         
         rewind = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 100, 100)];
-        rewind.center = CGPointMake(frameWidth * .2, frameHeight * .9);
+        rewind.center = CGPointMake(frameWidth * .2, frameHeight * .8);
         [rewind setImage: [UIImage imageNamed: @"rewind.png"] forState: UIControlStateNormal];
         [rewind addTarget: self action:@selector(previousSong:) forControlEvents: UIControlEventTouchDown];
         [self.view addSubview: rewind];
         
         volume = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .7, 30)];
-        volume.center = CGPointMake(frameWidth / 2, frameHeight * .8);
+        volume.center = CGPointMake(frameWidth / 2, frameHeight * .7);
         volume.backgroundColor = [UIColor clearColor];
         volume.minimumValue = 0.0f;
         volume.maximumValue = 1.0f;
@@ -70,7 +70,7 @@
         */
         
         songInfo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .4, frameHeight * .2)];
-        songInfo.center = CGPointMake(frameWidth * .5, frameHeight * .65);
+        songInfo.center = CGPointMake(frameWidth * .5, frameHeight * .55);
         //songInfo.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:songInfo];
         
@@ -100,7 +100,7 @@
 
         showMediaPicker = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         showMediaPicker.frame = CGRectMake(0, 0, frameWidth*.6, frameHeight * .05);
-        showMediaPicker.center = CGPointMake(frameWidth * .5, frameHeight * .52);
+        showMediaPicker.center = CGPointMake(frameWidth * .5, frameHeight * .42);
         showMediaPicker.opaque = YES;
         showMediaPicker.layer.cornerRadius = 12;
         showMediaPicker.clipsToBounds = YES;
@@ -113,7 +113,7 @@
         [self.view addSubview: showMediaPicker];
 
         albumCover = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .6, frameHeight * .3)];
-        albumCover.center = CGPointMake(frameWidth /2, frameHeight * .3);
+        albumCover.center = CGPointMake(frameWidth /2, frameHeight * .2);
         //albumCover.image = [UIImage imageNamed:@"bluredDumbBells.png"];
         //albumCover.backgroundColor = [UIColor whiteColor];
         [self.view addSubview: albumCover];
