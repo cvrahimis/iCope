@@ -10,11 +10,31 @@
 		6360D66D1A6B5D98001171ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66C1A6B5D98001171ED /* main.m */; };
 		6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66F1A6B5D98001171ED /* AppDelegate.m */; };
 		6360D6731A6B5D98001171ED /* iCope.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6711A6B5D98001171ED /* iCope.xcdatamodeld */; };
-		6360D6761A6B5D98001171ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6751A6B5D98001171ED /* ViewController.m */; };
 		6360D6791A6B5D98001171ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6360D6771A6B5D98001171ED /* Main.storyboard */; };
 		6360D67B1A6B5D98001171ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6360D67A1A6B5D98001171ED /* Images.xcassets */; };
 		6360D67E1A6B5D98001171ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6360D67C1A6B5D98001171ED /* LaunchScreen.xib */; };
 		6360D68A1A6B5D98001171ED /* iCopeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6891A6B5D98001171ED /* iCopeTests.m */; };
+		6360D6A11A6B5F02001171ED /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6A01A6B5F02001171ED /* MovieViewController.m */; };
+		6360D6A41A6B5F09001171ED /* MachinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6A31A6B5F09001171ED /* MachinesViewController.m */; };
+		6360D6A91A6B5F11001171ED /* WorkoutSumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6A61A6B5F11001171ED /* WorkoutSumViewController.m */; };
+		6360D6AA1A6B5F11001171ED /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6A81A6B5F11001171ED /* EditViewController.m */; };
+		6360D6AD1A6B5F1B001171ED /* JournalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6AC1A6B5F1B001171ED /* JournalViewController.m */; };
+		6360D6B31A6B5F26001171ED /* fastforward.png in Resources */ = {isa = PBXBuildFile; fileRef = 6360D6AE1A6B5F26001171ED /* fastforward.png */; };
+		6360D6B41A6B5F26001171ED /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 6360D6AF1A6B5F26001171ED /* play.png */; };
+		6360D6B51A6B5F26001171ED /* rewind.png in Resources */ = {isa = PBXBuildFile; fileRef = 6360D6B01A6B5F26001171ED /* rewind.png */; };
+		6360D6B61A6B5F26001171ED /* MusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6B21A6B5F26001171ED /* MusicViewController.m */; };
+		6360D6C31A6B5F32001171ED /* RNDirectionPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6B81A6B5F32001171ED /* RNDirectionPanGestureRecognizer.m */; };
+		6360D6C41A6B5F32001171ED /* RNSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6BA1A6B5F32001171ED /* RNSwipeViewController.m */; };
+		6360D6C51A6B5F32001171ED /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6BE1A6B5F32001171ED /* UIView+Sizes.m */; };
+		6360D6C61A6B5F32001171ED /* UIViewController+RNSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6C01A6B5F32001171ED /* UIViewController+RNSwipeViewController.m */; };
+		6360D6C71A6B5F32001171ED /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6C21A6B5F32001171ED /* UIApplication+AppDimensions.m */; };
+		6360D6CC1A6B5F43001171ED /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6C91A6B5F43001171ED /* SettingsViewController.m */; };
+		6360D6CD1A6B5F43001171ED /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6CB1A6B5F43001171ED /* DrawingViewController.m */; };
+		6360D6D01A6B5F4D001171ED /* ReadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6CF1A6B5F4D001171ED /* ReadingViewController.m */; };
+		6360D6D91A6B5F59001171ED /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6D21A6B5F59001171ED /* HomeViewController.m */; };
+		6360D6DA1A6B5F59001171ED /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6D41A6B5F59001171ED /* RightViewController.m */; };
+		6360D6DB1A6B5F59001171ED /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6D61A6B5F59001171ED /* LeftViewController.m */; };
+		6360D6DC1A6B5F59001171ED /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6D81A6B5F59001171ED /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +54,54 @@
 		6360D66E1A6B5D98001171ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6360D66F1A6B5D98001171ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6360D6721A6B5D98001171ED /* iCope.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iCope.xcdatamodel; sourceTree = "<group>"; };
-		6360D6741A6B5D98001171ED /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6360D6751A6B5D98001171ED /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6360D6781A6B5D98001171ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6360D67A1A6B5D98001171ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6360D67A1A6B5D98001171ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = iCope/Images.xcassets; sourceTree = "<group>"; };
 		6360D67D1A6B5D98001171ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6360D6831A6B5D98001171ED /* iCopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCopeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6360D6881A6B5D98001171ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6360D6891A6B5D98001171ED /* iCopeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCopeTests.m; sourceTree = "<group>"; };
+		6360D69E1A6B5F02001171ED /* ViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDelegate.h; sourceTree = "<group>"; };
+		6360D69F1A6B5F02001171ED /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
+		6360D6A01A6B5F02001171ED /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
+		6360D6A21A6B5F09001171ED /* MachinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MachinesViewController.h; sourceTree = "<group>"; };
+		6360D6A31A6B5F09001171ED /* MachinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MachinesViewController.m; sourceTree = "<group>"; };
+		6360D6A51A6B5F11001171ED /* WorkoutSumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSumViewController.h; sourceTree = "<group>"; };
+		6360D6A61A6B5F11001171ED /* WorkoutSumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSumViewController.m; sourceTree = "<group>"; };
+		6360D6A71A6B5F11001171ED /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		6360D6A81A6B5F11001171ED /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		6360D6AB1A6B5F1B001171ED /* JournalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JournalViewController.h; sourceTree = "<group>"; };
+		6360D6AC1A6B5F1B001171ED /* JournalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JournalViewController.m; sourceTree = "<group>"; };
+		6360D6AE1A6B5F26001171ED /* fastforward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fastforward.png; sourceTree = "<group>"; };
+		6360D6AF1A6B5F26001171ED /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		6360D6B01A6B5F26001171ED /* rewind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewind.png; sourceTree = "<group>"; };
+		6360D6B11A6B5F26001171ED /* MusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicViewController.h; sourceTree = "<group>"; };
+		6360D6B21A6B5F26001171ED /* MusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicViewController.m; sourceTree = "<group>"; };
+		6360D6B71A6B5F32001171ED /* RNDirectionPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNDirectionPanGestureRecognizer.h; sourceTree = "<group>"; };
+		6360D6B81A6B5F32001171ED /* RNDirectionPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNDirectionPanGestureRecognizer.m; sourceTree = "<group>"; };
+		6360D6B91A6B5F32001171ED /* RNSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSwipeViewController.h; sourceTree = "<group>"; };
+		6360D6BA1A6B5F32001171ED /* RNSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSwipeViewController.m; sourceTree = "<group>"; };
+		6360D6BB1A6B5F32001171ED /* RNRevealViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNRevealViewControllerProtocol.h; sourceTree = "<group>"; };
+		6360D6BC1A6B5F32001171ED /* RNSwipeViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSwipeViewControllerDelegate.h; sourceTree = "<group>"; };
+		6360D6BD1A6B5F32001171ED /* UIView+Sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Sizes.h"; sourceTree = "<group>"; };
+		6360D6BE1A6B5F32001171ED /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Sizes.m"; sourceTree = "<group>"; };
+		6360D6BF1A6B5F32001171ED /* UIViewController+RNSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RNSwipeViewController.h"; sourceTree = "<group>"; };
+		6360D6C01A6B5F32001171ED /* UIViewController+RNSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RNSwipeViewController.m"; sourceTree = "<group>"; };
+		6360D6C11A6B5F32001171ED /* UIApplication+AppDimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AppDimensions.h"; sourceTree = "<group>"; };
+		6360D6C21A6B5F32001171ED /* UIApplication+AppDimensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AppDimensions.m"; sourceTree = "<group>"; };
+		6360D6C81A6B5F43001171ED /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		6360D6C91A6B5F43001171ED /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		6360D6CA1A6B5F43001171ED /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
+		6360D6CB1A6B5F43001171ED /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
+		6360D6CE1A6B5F4D001171ED /* ReadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingViewController.h; sourceTree = "<group>"; };
+		6360D6CF1A6B5F4D001171ED /* ReadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingViewController.m; sourceTree = "<group>"; };
+		6360D6D11A6B5F59001171ED /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		6360D6D21A6B5F59001171ED /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		6360D6D31A6B5F59001171ED /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
+		6360D6D41A6B5F59001171ED /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
+		6360D6D51A6B5F59001171ED /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		6360D6D61A6B5F59001171ED /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		6360D6D71A6B5F59001171ED /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		6360D6D81A6B5F59001171ED /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +125,10 @@
 		6360D65E1A6B5D98001171ED = {
 			isa = PBXGroup;
 			children = (
+				6360D6771A6B5D98001171ED /* Main.storyboard */,
+				6360D67C1A6B5D98001171ED /* LaunchScreen.xib */,
+				6360D67A1A6B5D98001171ED /* Images.xcassets */,
+				6360D6711A6B5D98001171ED /* iCope.xcdatamodeld */,
 				6360D6691A6B5D98001171ED /* iCope */,
 				6360D6861A6B5D98001171ED /* iCopeTests */,
 				6360D6681A6B5D98001171ED /* Products */,
@@ -85,12 +149,14 @@
 			children = (
 				6360D66E1A6B5D98001171ED /* AppDelegate.h */,
 				6360D66F1A6B5D98001171ED /* AppDelegate.m */,
-				6360D6741A6B5D98001171ED /* ViewController.h */,
-				6360D6751A6B5D98001171ED /* ViewController.m */,
-				6360D6771A6B5D98001171ED /* Main.storyboard */,
-				6360D67A1A6B5D98001171ED /* Images.xcassets */,
-				6360D67C1A6B5D98001171ED /* LaunchScreen.xib */,
-				6360D6711A6B5D98001171ED /* iCope.xcdatamodeld */,
+				6360D6931A6B5DBA001171ED /* DBObjects */,
+				6360D6941A6B5DD6001171ED /* PhysicalActivityControllers */,
+				6360D6951A6B5E1F001171ED /* WritingControllers */,
+				6360D6961A6B5E3A001171ED /* MusicControllers */,
+				6360D6971A6B5E49001171ED /* SwipeCode */,
+				6360D6981A6B5E53001171ED /* DrawingControllers */,
+				6360D6991A6B5E63001171ED /* ReadingQuotesControllers */,
+				6360D69A1A6B5E74001171ED /* MainControllers */,
 				6360D66A1A6B5D98001171ED /* Supporting Files */,
 			);
 			path = iCope;
@@ -120,6 +186,128 @@
 				6360D6881A6B5D98001171ED /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6360D6931A6B5DBA001171ED /* DBObjects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DBObjects;
+			sourceTree = "<group>";
+		};
+		6360D6941A6B5DD6001171ED /* PhysicalActivityControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6360D69B1A6B5EC6001171ED /* VideoPlayFunction */,
+				6360D69C1A6B5ED4001171ED /* ExerciseOptionsControllers */,
+				6360D69D1A6B5EE9001171ED /* WorkoutSummary */,
+			);
+			name = PhysicalActivityControllers;
+			sourceTree = "<group>";
+		};
+		6360D6951A6B5E1F001171ED /* WritingControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6360D6AB1A6B5F1B001171ED /* JournalViewController.h */,
+				6360D6AC1A6B5F1B001171ED /* JournalViewController.m */,
+			);
+			name = WritingControllers;
+			sourceTree = "<group>";
+		};
+		6360D6961A6B5E3A001171ED /* MusicControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6360D6AE1A6B5F26001171ED /* fastforward.png */,
+				6360D6AF1A6B5F26001171ED /* play.png */,
+				6360D6B01A6B5F26001171ED /* rewind.png */,
+				6360D6B11A6B5F26001171ED /* MusicViewController.h */,
+				6360D6B21A6B5F26001171ED /* MusicViewController.m */,
+			);
+			name = MusicControllers;
+			sourceTree = "<group>";
+		};
+		6360D6971A6B5E49001171ED /* SwipeCode */ = {
+			isa = PBXGroup;
+			children = (
+				6360D6B71A6B5F32001171ED /* RNDirectionPanGestureRecognizer.h */,
+				6360D6B81A6B5F32001171ED /* RNDirectionPanGestureRecognizer.m */,
+				6360D6B91A6B5F32001171ED /* RNSwipeViewController.h */,
+				6360D6BA1A6B5F32001171ED /* RNSwipeViewController.m */,
+				6360D6BB1A6B5F32001171ED /* RNRevealViewControllerProtocol.h */,
+				6360D6BC1A6B5F32001171ED /* RNSwipeViewControllerDelegate.h */,
+				6360D6BD1A6B5F32001171ED /* UIView+Sizes.h */,
+				6360D6BE1A6B5F32001171ED /* UIView+Sizes.m */,
+				6360D6BF1A6B5F32001171ED /* UIViewController+RNSwipeViewController.h */,
+				6360D6C01A6B5F32001171ED /* UIViewController+RNSwipeViewController.m */,
+				6360D6C11A6B5F32001171ED /* UIApplication+AppDimensions.h */,
+				6360D6C21A6B5F32001171ED /* UIApplication+AppDimensions.m */,
+			);
+			name = SwipeCode;
+			sourceTree = "<group>";
+		};
+		6360D6981A6B5E53001171ED /* DrawingControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6360D6C81A6B5F43001171ED /* SettingsViewController.h */,
+				6360D6C91A6B5F43001171ED /* SettingsViewController.m */,
+				6360D6CA1A6B5F43001171ED /* DrawingViewController.h */,
+				6360D6CB1A6B5F43001171ED /* DrawingViewController.m */,
+			);
+			name = DrawingControllers;
+			sourceTree = "<group>";
+		};
+		6360D6991A6B5E63001171ED /* ReadingQuotesControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6360D6CE1A6B5F4D001171ED /* ReadingViewController.h */,
+				6360D6CF1A6B5F4D001171ED /* ReadingViewController.m */,
+			);
+			name = ReadingQuotesControllers;
+			sourceTree = "<group>";
+		};
+		6360D69A1A6B5E74001171ED /* MainControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6360D6D11A6B5F59001171ED /* HomeViewController.h */,
+				6360D6D21A6B5F59001171ED /* HomeViewController.m */,
+				6360D6D31A6B5F59001171ED /* RightViewController.h */,
+				6360D6D41A6B5F59001171ED /* RightViewController.m */,
+				6360D6D51A6B5F59001171ED /* LeftViewController.h */,
+				6360D6D61A6B5F59001171ED /* LeftViewController.m */,
+				6360D6D71A6B5F59001171ED /* MainViewController.h */,
+				6360D6D81A6B5F59001171ED /* MainViewController.m */,
+			);
+			name = MainControllers;
+			sourceTree = "<group>";
+		};
+		6360D69B1A6B5EC6001171ED /* VideoPlayFunction */ = {
+			isa = PBXGroup;
+			children = (
+				6360D69E1A6B5F02001171ED /* ViewControllerDelegate.h */,
+				6360D69F1A6B5F02001171ED /* MovieViewController.h */,
+				6360D6A01A6B5F02001171ED /* MovieViewController.m */,
+			);
+			name = VideoPlayFunction;
+			sourceTree = "<group>";
+		};
+		6360D69C1A6B5ED4001171ED /* ExerciseOptionsControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6360D6A21A6B5F09001171ED /* MachinesViewController.h */,
+				6360D6A31A6B5F09001171ED /* MachinesViewController.m */,
+			);
+			name = ExerciseOptionsControllers;
+			sourceTree = "<group>";
+		};
+		6360D69D1A6B5EE9001171ED /* WorkoutSummary */ = {
+			isa = PBXGroup;
+			children = (
+				6360D6A51A6B5F11001171ED /* WorkoutSumViewController.h */,
+				6360D6A61A6B5F11001171ED /* WorkoutSumViewController.m */,
+				6360D6A71A6B5F11001171ED /* EditViewController.h */,
+				6360D6A81A6B5F11001171ED /* EditViewController.m */,
+			);
+			name = WorkoutSummary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,7 +391,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6360D6791A6B5D98001171ED /* Main.storyboard in Resources */,
+				6360D6B41A6B5F26001171ED /* play.png in Resources */,
+				6360D6B31A6B5F26001171ED /* fastforward.png in Resources */,
 				6360D67E1A6B5D98001171ED /* LaunchScreen.xib in Resources */,
+				6360D6B51A6B5F26001171ED /* rewind.png in Resources */,
 				6360D67B1A6B5D98001171ED /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,10 +413,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6360D6A91A6B5F11001171ED /* WorkoutSumViewController.m in Sources */,
+				6360D6DB1A6B5F59001171ED /* LeftViewController.m in Sources */,
 				6360D6731A6B5D98001171ED /* iCope.xcdatamodeld in Sources */,
 				6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */,
-				6360D6761A6B5D98001171ED /* ViewController.m in Sources */,
+				6360D6DC1A6B5F59001171ED /* MainViewController.m in Sources */,
+				6360D6C71A6B5F32001171ED /* UIApplication+AppDimensions.m in Sources */,
+				6360D6D01A6B5F4D001171ED /* ReadingViewController.m in Sources */,
+				6360D6D91A6B5F59001171ED /* HomeViewController.m in Sources */,
+				6360D6B61A6B5F26001171ED /* MusicViewController.m in Sources */,
+				6360D6AA1A6B5F11001171ED /* EditViewController.m in Sources */,
+				6360D6AD1A6B5F1B001171ED /* JournalViewController.m in Sources */,
+				6360D6C61A6B5F32001171ED /* UIViewController+RNSwipeViewController.m in Sources */,
 				6360D66D1A6B5D98001171ED /* main.m in Sources */,
+				6360D6C51A6B5F32001171ED /* UIView+Sizes.m in Sources */,
+				6360D6C31A6B5F32001171ED /* RNDirectionPanGestureRecognizer.m in Sources */,
+				6360D6A41A6B5F09001171ED /* MachinesViewController.m in Sources */,
+				6360D6CC1A6B5F43001171ED /* SettingsViewController.m in Sources */,
+				6360D6DA1A6B5F59001171ED /* RightViewController.m in Sources */,
+				6360D6CD1A6B5F43001171ED /* DrawingViewController.m in Sources */,
+				6360D6A11A6B5F02001171ED /* MovieViewController.m in Sources */,
+				6360D6C41A6B5F32001171ED /* RNSwipeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +462,7 @@
 				6360D6781A6B5D98001171ED /* Base */,
 			);
 			name = Main.storyboard;
+			path = iCope;
 			sourceTree = "<group>";
 		};
 		6360D67C1A6B5D98001171ED /* LaunchScreen.xib */ = {
@@ -262,6 +471,7 @@
 				6360D67D1A6B5D98001171ED /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = iCope;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -434,7 +644,8 @@
 				6360D6721A6B5D98001171ED /* iCope.xcdatamodel */,
 			);
 			currentVersion = 6360D6721A6B5D98001171ED /* iCope.xcdatamodel */;
-			path = iCope.xcdatamodeld;
+			name = iCope.xcdatamodeld;
+			path = iCope/iCope.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
