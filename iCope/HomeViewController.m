@@ -123,6 +123,17 @@
     //[self.navigationController presentViewController:draw animated:YES completion:nil];
 }
 
+- (IBAction)journalPress:(id)sender {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    JournalViewController *journal = [self.storyboard instantiateViewControllerWithIdentifier:@"journalViewController"];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:journal];
+    
+    //now present this navigation controller modally
+    [self presentViewController:navigationController
+                       animated:YES
+                     completion:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

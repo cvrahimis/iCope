@@ -258,6 +258,95 @@
             </objects>
             <point key="canvasLocation" x="-3733" y="-1163"/>
         </scene>
+        <!--Journal View Controller-->
+        <scene sceneID="gFE-DQ-2PC">
+            <objects>
+                <viewController storyboardIdentifier="journalViewController" id="Ls9-15-XM0" customClass="JournalViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oi4-J4-HC2"/>
+                        <viewControllerLayoutGuide type="bottom" id="ThH-6y-Rxz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MWS-p0-fv5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qHj-4l-C2y">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xV-Pu-Xhs">
+                                <rect key="frame" x="159" y="107" width="283" height="323"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qyc-4j-kne">
+                                <rect key="frame" x="198" y="64" width="205" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint=""/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ZO-kV-NeL">
+                                <rect key="frame" x="214" y="445" width="173" height="30"/>
+                                <color key="backgroundColor" red="0.065111439529999995" green="0.15607068900000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePress:" destination="Ls9-15-XM0" eventType="touchUpInside" id="mQJ-98-JFi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="2xV-Pu-Xhs" secondAttribute="centerX" id="BG2-wK-PEa"/>
+                            <constraint firstAttribute="width" secondItem="qHj-4l-C2y" secondAttribute="width" id="RuF-C8-WBV"/>
+                            <constraint firstAttribute="centerX" secondItem="9ZO-kV-NeL" secondAttribute="centerX" constant="-0.5" id="auU-da-wxG"/>
+                            <constraint firstItem="9ZO-kV-NeL" firstAttribute="top" secondItem="2xV-Pu-Xhs" secondAttribute="bottom" constant="20" id="czs-W3-e1S"/>
+                            <constraint firstAttribute="centerX" secondItem="Qyc-4j-kne" secondAttribute="centerX" constant="-0.5" id="eDY-ZJ-Qja"/>
+                            <constraint firstAttribute="height" secondItem="qHj-4l-C2y" secondAttribute="height" id="t2n-1Y-3Xq"/>
+                            <constraint firstItem="2xV-Pu-Xhs" firstAttribute="top" secondItem="Qyc-4j-kne" secondAttribute="bottom" constant="8" id="viG-4d-eM1"/>
+                            <constraint firstAttribute="centerX" secondItem="qHj-4l-C2y" secondAttribute="centerX" id="x4n-Dr-8rd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="background" destination="qHj-4l-C2y" id="K7O-ha-QOK"/>
+                        <outlet property="entryTV" destination="2xV-Pu-Xhs" id="6lz-cl-qf0"/>
+                        <outlet property="saveBtn" destination="9ZO-kV-NeL" id="r0m-1E-4d4"/>
+                        <outlet property="titleTF" destination="Qyc-4j-kne" id="C7c-ia-xc6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T33-FN-cMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2998" y="-1163"/>
+        </scene>
+        <!--Open Entries View Controller-->
+        <scene sceneID="P0i-py-YTW">
+            <objects>
+                <tableViewController storyboardIdentifier="openEntriesViewController" id="zvR-j2-mcz" customClass="OpenEntriesViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RSr-ne-cHW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="cwB-ZK-iew" customClass="OpenEntriesTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cwB-ZK-iew" id="Jwd-gN-JEo">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zvR-j2-mcz" id="EUP-SB-q7l"/>
+                            <outlet property="delegate" destination="zvR-j2-mcz" id="cAG-23-kE1"/>
+                        </connections>
+                    </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TcU-4H-2Gl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2267" y="-1163"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="ZyE-1m-7CC">
             <objects>
@@ -299,9 +388,22 @@
                                     <action selector="musicPress:" destination="6gv-84-NAq" eventType="touchUpInside" id="Aza-P6-IQz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIn-K7-Xg7">
+                                <rect key="frame" x="232" y="415" width="135" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Journal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="journalPress:" destination="6gv-84-NAq" eventType="touchUpInside" id="YeB-BS-h8i"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="QIn-K7-Xg7" secondAttribute="centerX" constant="0.5" id="0zG-hH-EVa"/>
                             <constraint firstItem="EN3-4G-VFN" firstAttribute="width" secondItem="aqQ-YS-oRS" secondAttribute="width" id="Azt-VC-Kww"/>
                             <constraint firstItem="y5D-C6-q55" firstAttribute="centerX" secondItem="EN3-4G-VFN" secondAttribute="centerX" constant="-0.5" id="Me5-ND-bPZ"/>
                             <constraint firstItem="y5D-C6-q55" firstAttribute="width" secondItem="f2a-k7-t9W" secondAttribute="width" id="ZPn-1z-kjK"/>
@@ -312,6 +414,8 @@
                             <constraint firstAttribute="centerX" secondItem="f2a-k7-t9W" secondAttribute="centerX" constant="0.5" id="jzZ-zM-NlT"/>
                             <constraint firstItem="EN3-4G-VFN" firstAttribute="height" secondItem="aqQ-YS-oRS" secondAttribute="height" id="lYj-U3-LVu"/>
                             <constraint firstAttribute="centerX" secondItem="EN3-4G-VFN" secondAttribute="centerX" id="ljL-l6-1WQ"/>
+                            <constraint firstItem="y5D-C6-q55" firstAttribute="width" secondItem="QIn-K7-Xg7" secondAttribute="width" id="nqn-J8-Gqz"/>
+                            <constraint firstItem="QIn-K7-Xg7" firstAttribute="top" secondItem="y5D-C6-q55" secondAttribute="bottom" constant="45" id="q9U-JQ-yLm"/>
                         </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="320" height="568"/>

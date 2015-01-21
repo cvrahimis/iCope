@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MusicViewController.h"
 #import "DrawingViewController.h"
+#import "JournalViewController.h"
 
 @interface HomeViewController : UIViewController{
     UILabel *home;
@@ -27,6 +28,7 @@
 
 - (IBAction)musicPress:(id)sender;
 - (IBAction)drawingPress:(id)sender;
+- (IBAction)journalPress:(id)sender;
 
 -(id) init;
 

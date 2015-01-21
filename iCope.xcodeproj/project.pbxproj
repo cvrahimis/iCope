@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		635352831A6F61B80030F5CE /* OpenEntriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */; };
 		6360D66D1A6B5D98001171ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66C1A6B5D98001171ED /* main.m */; };
 		6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66F1A6B5D98001171ED /* AppDelegate.m */; };
 		6360D6731A6B5D98001171ED /* iCope.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6711A6B5D98001171ED /* iCope.xcdatamodeld */; };
@@ -35,6 +36,8 @@
 		6360D6DA1A6B5F59001171ED /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6D41A6B5F59001171ED /* RightViewController.m */; };
 		6360D6DB1A6B5F59001171ED /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6D61A6B5F59001171ED /* LeftViewController.m */; };
 		6360D6DC1A6B5F59001171ED /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6D81A6B5F59001171ED /* MainViewController.m */; };
+		6360D6E21A6BA0F8001171ED /* OpenEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6E11A6BA0F8001171ED /* OpenEntriesViewController.m */; };
+		6360D6E51A6BAD15001171ED /* Journal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6E41A6BAD15001171ED /* Journal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		635352811A6F61B80030F5CE /* OpenEntriesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenEntriesTableViewCell.h; sourceTree = "<group>"; };
+		635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenEntriesTableViewCell.m; sourceTree = "<group>"; };
 		6360D6671A6B5D98001171ED /* iCope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6360D66B1A6B5D98001171ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6360D66C1A6B5D98001171ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -102,6 +107,10 @@
 		6360D6D61A6B5F59001171ED /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		6360D6D71A6B5F59001171ED /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		6360D6D81A6B5F59001171ED /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		6360D6E01A6BA0F8001171ED /* OpenEntriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenEntriesViewController.h; sourceTree = "<group>"; };
+		6360D6E11A6BA0F8001171ED /* OpenEntriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenEntriesViewController.m; sourceTree = "<group>"; };
+		6360D6E31A6BAD15001171ED /* Journal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journal.h; sourceTree = "<group>"; };
+		6360D6E41A6BAD15001171ED /* Journal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +200,8 @@
 		6360D6931A6B5DBA001171ED /* DBObjects */ = {
 			isa = PBXGroup;
 			children = (
+				6360D6E31A6BAD15001171ED /* Journal.h */,
+				6360D6E41A6BAD15001171ED /* Journal.m */,
 			);
 			name = DBObjects;
 			sourceTree = "<group>";
@@ -208,8 +219,12 @@
 		6360D6951A6B5E1F001171ED /* WritingControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6360D6E01A6BA0F8001171ED /* OpenEntriesViewController.h */,
+				6360D6E11A6BA0F8001171ED /* OpenEntriesViewController.m */,
 				6360D6AB1A6B5F1B001171ED /* JournalViewController.h */,
 				6360D6AC1A6B5F1B001171ED /* JournalViewController.m */,
+				635352811A6F61B80030F5CE /* OpenEntriesTableViewCell.h */,
+				635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */,
 			);
 			name = WritingControllers;
 			sourceTree = "<group>";
@@ -419,11 +434,13 @@
 				6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */,
 				6360D6DC1A6B5F59001171ED /* MainViewController.m in Sources */,
 				6360D6C71A6B5F32001171ED /* UIApplication+AppDimensions.m in Sources */,
+				6360D6E21A6BA0F8001171ED /* OpenEntriesViewController.m in Sources */,
 				6360D6D01A6B5F4D001171ED /* ReadingViewController.m in Sources */,
 				6360D6D91A6B5F59001171ED /* HomeViewController.m in Sources */,
 				6360D6B61A6B5F26001171ED /* MusicViewController.m in Sources */,
 				6360D6AA1A6B5F11001171ED /* EditViewController.m in Sources */,
 				6360D6AD1A6B5F1B001171ED /* JournalViewController.m in Sources */,
+				6360D6E51A6BAD15001171ED /* Journal.m in Sources */,
 				6360D6C61A6B5F32001171ED /* UIViewController+RNSwipeViewController.m in Sources */,
 				6360D66D1A6B5D98001171ED /* main.m in Sources */,
 				6360D6C51A6B5F32001171ED /* UIView+Sizes.m in Sources */,
@@ -431,6 +448,7 @@
 				6360D6A41A6B5F09001171ED /* MachinesViewController.m in Sources */,
 				6360D6CC1A6B5F43001171ED /* SettingsViewController.m in Sources */,
 				6360D6DA1A6B5F59001171ED /* RightViewController.m in Sources */,
+				635352831A6F61B80030F5CE /* OpenEntriesTableViewCell.m in Sources */,
 				6360D6CD1A6B5F43001171ED /* DrawingViewController.m in Sources */,
 				6360D6A11A6B5F02001171ED /* MovieViewController.m in Sources */,
 				6360D6C41A6B5F32001171ED /* RNSwipeViewController.m in Sources */,
@@ -626,6 +644,7 @@
 				6360D68F1A6B5D98001171ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6360D6901A6B5D98001171ED /* Build configuration list for PBXNativeTarget "iCopeTests" */ = {
 			isa = XCConfigurationList;
@@ -634,6 +653,7 @@
 				6360D6921A6B5D98001171ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
