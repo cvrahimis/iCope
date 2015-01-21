@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bAu-52-ifZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -365,8 +364,8 @@
                                     <constraint firstAttribute="width" constant="600" id="QrT-Jh-ZRp"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5D-C6-q55">
-                                <rect key="frame" x="232" y="340" width="135" height="30"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5D-C6-q55">
+                                <rect key="frame" x="232" y="411" width="135" height="30"/>
                                 <color key="backgroundColor" red="0.22766476220000001" green="0.96819295370000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Drawing">
@@ -374,22 +373,22 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="drawingPress:" destination="6gv-84-NAq" eventType="touchUpInside" id="Rb5-I6-OIq"/>
+                                    <action selector="activityPress:" destination="6gv-84-NAq" eventType="touchUpInside" id="R8k-Ci-Mk8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2a-k7-t9W">
-                                <rect key="frame" x="232" y="260" width="135" height="30"/>
+                                <rect key="frame" x="232" y="303" width="135" height="30"/>
                                 <color key="backgroundColor" red="0.073263703659999999" green="0.807660445" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Music">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="musicPress:" destination="6gv-84-NAq" eventType="touchUpInside" id="Aza-P6-IQz"/>
+                                    <action selector="activityPress:" destination="6gv-84-NAq" eventType="touchUpInside" id="xbR-zy-IIC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIn-K7-Xg7">
-                                <rect key="frame" x="232" y="415" width="135" height="30"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIn-K7-Xg7">
+                                <rect key="frame" x="232" y="465" width="135" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Journal">
@@ -397,32 +396,54 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="journalPress:" destination="6gv-84-NAq" eventType="touchUpInside" id="YeB-BS-h8i"/>
+                                    <action selector="activityPress:" destination="6gv-84-NAq" eventType="touchUpInside" id="V0L-BM-i0t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqs-CV-kuf">
+                                <rect key="frame" x="232" y="357" width="135" height="30"/>
+                                <color key="backgroundColor" red="0.10734703650000001" green="1" blue="0.00066504108440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Reading">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="activityPress:" destination="6gv-84-NAq" eventType="touchUpInside" id="UWP-I1-tSZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37y-7E-W8A">
+                                <rect key="frame" x="232" y="519" width="135" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.89954377689999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Exercise">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="activityPress:" destination="6gv-84-NAq" eventType="touchUpInside" id="OQE-4l-UPm"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="QIn-K7-Xg7" secondAttribute="centerX" constant="0.5" id="0zG-hH-EVa"/>
                             <constraint firstItem="EN3-4G-VFN" firstAttribute="width" secondItem="aqQ-YS-oRS" secondAttribute="width" id="Azt-VC-Kww"/>
-                            <constraint firstItem="y5D-C6-q55" firstAttribute="centerX" secondItem="EN3-4G-VFN" secondAttribute="centerX" constant="-0.5" id="Me5-ND-bPZ"/>
-                            <constraint firstItem="y5D-C6-q55" firstAttribute="width" secondItem="f2a-k7-t9W" secondAttribute="width" id="ZPn-1z-kjK"/>
+                            <constraint firstAttribute="centerX" secondItem="QIn-K7-Xg7" secondAttribute="centerX" constant="0.5" id="Fxc-Zk-wrJ"/>
+                            <constraint firstItem="QIn-K7-Xg7" firstAttribute="top" secondItem="y5D-C6-q55" secondAttribute="bottom" constant="24" id="G7u-mW-0Y5"/>
+                            <constraint firstItem="Dqs-CV-kuf" firstAttribute="top" secondItem="f2a-k7-t9W" secondAttribute="bottom" constant="24" id="Tvd-RT-a2d"/>
                             <constraint firstItem="EN3-4G-VFN" firstAttribute="top" secondItem="1fm-mX-BUM" secondAttribute="bottom" id="dCC-DF-uTt"/>
-                            <constraint firstItem="y5D-C6-q55" firstAttribute="centerY" secondItem="EN3-4G-VFN" secondAttribute="centerY" constant="45" id="dzA-cw-cIe"/>
-                            <constraint firstItem="y5D-C6-q55" firstAttribute="height" secondItem="f2a-k7-t9W" secondAttribute="height" id="fAt-ay-Zdo"/>
-                            <constraint firstItem="y5D-C6-q55" firstAttribute="width" secondItem="f2a-k7-t9W" secondAttribute="height" multiplier="9:2" id="gas-h2-Ttp"/>
-                            <constraint firstAttribute="centerX" secondItem="f2a-k7-t9W" secondAttribute="centerX" constant="0.5" id="jzZ-zM-NlT"/>
+                            <constraint firstItem="y5D-C6-q55" firstAttribute="top" secondItem="Dqs-CV-kuf" secondAttribute="bottom" constant="24" id="hBI-d9-p5Q"/>
+                            <constraint firstAttribute="centerX" secondItem="y5D-C6-q55" secondAttribute="centerX" constant="0.5" id="iuK-Oi-X6k"/>
                             <constraint firstItem="EN3-4G-VFN" firstAttribute="height" secondItem="aqQ-YS-oRS" secondAttribute="height" id="lYj-U3-LVu"/>
                             <constraint firstAttribute="centerX" secondItem="EN3-4G-VFN" secondAttribute="centerX" id="ljL-l6-1WQ"/>
-                            <constraint firstItem="y5D-C6-q55" firstAttribute="width" secondItem="QIn-K7-Xg7" secondAttribute="width" id="nqn-J8-Gqz"/>
-                            <constraint firstItem="QIn-K7-Xg7" firstAttribute="top" secondItem="y5D-C6-q55" secondAttribute="bottom" constant="45" id="q9U-JQ-yLm"/>
+                            <constraint firstAttribute="centerX" secondItem="37y-7E-W8A" secondAttribute="centerX" constant="0.5" id="p2i-ij-yIL"/>
+                            <constraint firstAttribute="centerX" secondItem="f2a-k7-t9W" secondAttribute="centerX" constant="0.5" id="yJH-eF-kqP"/>
+                            <constraint firstItem="37y-7E-W8A" firstAttribute="top" secondItem="QIn-K7-Xg7" secondAttribute="bottom" constant="24" id="yY9-Va-AXq"/>
+                            <constraint firstAttribute="centerX" secondItem="Dqs-CV-kuf" secondAttribute="centerX" constant="0.5" id="zlf-n8-LGT"/>
                         </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="320" height="568"/>
                     <connections>
-                        <outlet property="Drawing" destination="y5D-C6-q55" id="azk-ev-5yw"/>
                         <outlet property="contentImgView" destination="EN3-4G-VFN" id="7kq-IO-KXf"/>
-                        <outlet property="drawing" destination="y5D-C6-q55" id="0EL-ny-hAW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQ0-F6-SNf" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -58,14 +58,14 @@
 
 -(void) initLabels {
     
-    greetingLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frameWidth, frameHeight * .2)];
-    greetingLabel.center = CGPointMake(frameWidth * .5, frameHeight * .2);
-    greetingLabel.text = [self Greeting];
-    greetingLabel.textAlignment = NSTextAlignmentCenter;
-    greetingLabel.numberOfLines = 2;
-    greetingLabel.font = [UIFont fontWithName: @"Courier-BoldOblique" size: 40];
-    greetingLabel.textColor = [UIColor whiteColor];
-    [self.view addSubview: greetingLabel];
+    greetingLbl = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frameWidth, frameHeight * .2)];
+    greetingLbl.center = CGPointMake(frameWidth * .5, frameHeight * .2);
+    greetingLbl.text = [self Greeting];
+    greetingLbl.textAlignment = NSTextAlignmentCenter;
+    greetingLbl.numberOfLines = 2;
+    greetingLbl.font = [UIFont fontWithName: @"Courier-BoldOblique" size: 40];
+    greetingLbl.textColor = [UIColor whiteColor];
+    [self.view addSubview: greetingLbl];
     
 }
 
@@ -104,34 +104,53 @@
     //contentView.frame = CGRectMake(0, 0, frameWidth, frameHeight);
 }
 
-
-- (IBAction)musicPress:(id)sender{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    MusicViewController *musicVC = [[MusicViewController alloc] init];
-    [self.navigationController pushViewController:musicVC animated:YES];
-}
-
-- (IBAction)drawingPress:(id)sender {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    DrawingViewController *draw = [[DrawingViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:draw];
-    
-    //now present this navigation controller modally
-    [self presentViewController:navigationController
-                       animated:YES
-                     completion:nil];
-    //[self.navigationController presentViewController:draw animated:YES completion:nil];
-}
-
-- (IBAction)journalPress:(id)sender {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    JournalViewController *journal = [self.storyboard instantiateViewControllerWithIdentifier:@"journalViewController"];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:journal];
-    
-    //now present this navigation controller modally
-    [self presentViewController:navigationController
-                       animated:YES
-                     completion:nil];
+- (IBAction)activityPress:(id)sender {
+    switch (((UIButton*)sender).tag) {
+        case 0:
+        {
+            NSLog(@"%s ================== Music Button Pressed", __PRETTY_FUNCTION__);
+            MusicViewController *musicVC = [[MusicViewController alloc] init];
+            [self.navigationController pushViewController:musicVC animated:YES];
+            break;
+        }
+        case 1:
+        {
+            NSLog(@"%s ================== Reading Button Pressed", __PRETTY_FUNCTION__);
+            break;
+        }
+        case 2:
+        {
+            NSLog(@"%s ================== Drawing Button Pressed", __PRETTY_FUNCTION__);
+            DrawingViewController *draw = [[DrawingViewController alloc] init];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:draw];
+            
+            //now present this navigation controller modally
+            [self presentViewController:navigationController
+                               animated:YES
+                             completion:nil];
+            //[self.navigationController presentViewController:draw animated:YES completion:nil];
+            break;
+        }
+        case 3:
+        {
+            NSLog(@"%s ================== Journal Button Pressed", __PRETTY_FUNCTION__);
+            JournalViewController *journal = [self.storyboard instantiateViewControllerWithIdentifier:@"journalViewController"];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:journal];
+            
+            //now present this navigation controller modally
+            [self presentViewController:navigationController
+                               animated:YES
+                             completion:nil];
+            break;
+        }
+        case 4:
+        {
+            NSLog(@"%s ================== Exercise Button Pressed", __PRETTY_FUNCTION__);
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -149,7 +168,7 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    NSLog(@"%s==========================", __PRETTY_FUNCTION__);
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     //[background bringSubviewToFront:musicBtn];
 }
 

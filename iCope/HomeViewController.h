@@ -13,23 +13,19 @@
 
 @interface HomeViewController : UIViewController{
     UILabel *home;
-    UIButton *musicBtn;
     UIImageView *contentImgView;
-    UILabel *greetingLabel;
+    UILabel *greetingLbl;
     NSString *name;
     NSString *morningGreeting;
     NSString *afternoonGreeting;
     NSString *eveningGreeting;
     NSInteger *currentTime;
 }
-//@property (strong, nonatomic) IBOutlet UIButton *musicBtn;
-@property (strong, nonatomic) IBOutlet UIImageView *contentImgView;
-@property (strong, nonatomic) IBOutlet UIButton *drawing;
 
-- (IBAction)musicPress:(id)sender;
-- (IBAction)drawingPress:(id)sender;
-- (IBAction)journalPress:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *contentImgView;
+//@property (strong, nonatomic) IBOutlet UILabel *greetingLbl;
 
 -(id) init;
+- (IBAction)activityPress:(id)sender;
 
 @end
