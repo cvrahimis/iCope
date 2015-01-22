@@ -186,14 +186,10 @@ static CGFloat kRNSwipeDefaultDuration = 0.3f;
     NSLog(@"%s",__PRETTY_FUNCTION__);
     [super viewWillAppear:animated];
     
-    /*if(_activeContainer == _leftContainer)
-        self.navigationItem.title = @"Left";
-    if(_activeContainer == _centerContainer)
-        self.navigationItem.title = @"Home";
-    if(_activeContainer == _rightContainer)
-        self.navigationItem.title = @"Right";*/
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    self.navigationItem.title = @"Home";
     self.navigationController.navigationBar.translucent = NO;
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    
     [self _layoutContainersAnimated:NO duration:0.f];
 }
 

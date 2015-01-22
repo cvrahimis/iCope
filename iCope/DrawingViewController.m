@@ -18,6 +18,7 @@
 
 @synthesize mainImage;
 @synthesize tempDrawImage;
+@synthesize colors;
 
 
 -(id) init
@@ -51,7 +52,7 @@
         [self.view addSubview:tempDrawImage];
         
         //colors
-        NSArray *colors = @[[UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1],
+        colors = @[[UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1],
                             [UIColor colorWithRed:105.0/255.0 green:105.0/255.0 blue:105.0/255.0 alpha:1],
                             [UIColor colorWithRed:255.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1],
                             [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:255.0/255.0 alpha:1],
@@ -79,26 +80,8 @@
             [colorBtns[i] addTarget:self action:@selector(pencilPressed:) forControlEvents:UIControlEventTouchUpInside];
             [self.view addSubview: colorBtns[i]];
         }
+        
     
-        NSArray *topBtnTitles = @[@"Reset", @"Settings", @"Erase", @"Open"];
-        NSArray *topActions = @[@"reset:", @"settings", @"pencilPressed:", @"openPicture"];
-        btnHeight = frameHeight * .05;
-        btnWidth = frameWidth / topBtnTitles.count;
-        for(int i = 0;i < (sizeof topBtns) / (sizeof topBtns[0]); i++)
-        {
-            topBtns[i] = [UIButton buttonWithType: UIButtonTypeSystem];
-            [topBtns[i] setFrame:CGRectMake(i * btnWidth, frameHeight * .1, btnWidth, btnHeight)];
-            topBtns[i].tintColor = [UIColor clearColor];
-            topBtns[i].backgroundColor = [UIColor clearColor];
-            topBtns[i].tag = i + colors.count;
-            //topBtns[i].layer.borderWidth = 0.5f;
-            //topBtns[i].layer.borderColor = [[UIColor blackColor] CGColor];
-            [topBtns[i] setTitle:[topBtnTitles objectAtIndex:i]  forState:UIControlStateNormal];
-            [topBtns[i] setTitleColor: [UIColor colorWithRed:36.0/255.0 green:107.0/255.0 blue:244.0/255.0 alpha:1] forState: UIControlStateNormal];
-            [topBtns[i].titleLabel setFont:[UIFont systemFontOfSize: 16]];
-            [topBtns[i] addTarget:self action:NSSelectorFromString([topActions objectAtIndex:i]) forControlEvents:UIControlEventTouchUpInside];
-            [self.view addSubview:topBtns[i]];
-        }
     }
     return self;
 }
@@ -124,6 +107,30 @@
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.title = @"Drawing";
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    NSLog(@"%f",self.navigationController.navigationBar.frame.size.height);
+    
+    NSArray *topBtnTitles = @[@"Reset", @"Settings", @"Erase", @"Open"];
+    NSArray *topActions = @[@"reset:", @"settings", @"pencilPressed:", @"openPicture"];
+    CGFloat btnHeight = frameHeight * .05;
+    CGFloat btnWidth = frameWidth / topBtnTitles.count;
+    
+    
+    
+    for(int i = 0;i < (sizeof topBtns) / (sizeof topBtns[0]); i++)
+    {
+        topBtns[i] = [UIButton buttonWithType: UIButtonTypeSystem];
+        [topBtns[i] setFrame:CGRectMake(i * btnWidth, self.navigationController.navigationBar.frame.size.height + btnHeight, btnWidth, btnHeight)];
+        topBtns[i].tintColor = [UIColor clearColor];
+        topBtns[i].backgroundColor = [UIColor clearColor];
+        topBtns[i].tag = i + colors.count;
+        //topBtns[i].layer.borderWidth = 0.5f;
+        //topBtns[i].layer.borderColor = [[UIColor blackColor] CGColor];
+        [topBtns[i] setTitle:[topBtnTitles objectAtIndex:i]  forState:UIControlStateNormal];
+        [topBtns[i] setTitleColor: [UIColor colorWithRed:36.0/255.0 green:107.0/255.0 blue:244.0/255.0 alpha:1] forState: UIControlStateNormal];
+        [topBtns[i].titleLabel setFont:[UIFont systemFontOfSize: 16]];
+        [topBtns[i] addTarget:self action:NSSelectorFromString([topActions objectAtIndex:i]) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:topBtns[i]];
+    }
 }
 
 -(void) done{
@@ -149,7 +156,7 @@
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    CGSize sz = CGSizeMake(frameWidth, frameHeight);
+    //CGSize sz = CGSizeMake(frameWidth, frameHeight);
     
     [mainImage setImage:[info objectForKey:@"UIImagePickerControllerEditedImage"]];
     

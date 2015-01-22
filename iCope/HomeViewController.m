@@ -160,10 +160,7 @@
 
 - (void) viewWillAppear: (BOOL) animated
 {
-    [super viewWillAppear: animated];
-    self.navigationItem.title = @"Home";
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    
+    [super viewWillAppear: animated];    
 }
 
 -(void) viewDidAppear:(BOOL)animated

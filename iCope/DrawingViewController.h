@@ -21,16 +21,18 @@
     UIButton *colorBtns[10];
     UIButton *topBtns[4];
     BOOL openSave;
+    NSArray *colors;
 }
 
 @property (strong, nonatomic) UIImageView *mainImage;
 @property (strong, nonatomic) UIImageView *tempDrawImage;
+@property (strong, nonatomic) NSArray *colors;
 
 
 - (IBAction)pencilPressed:(id)sender;
-- (IBAction)eraserPressed:(id)sender;
+//- (IBAction)eraserPressed:(id)sender;
 - (IBAction)reset:(id)sender;
-- (IBAction)settings:(id)sender;
+- (void)settings;
 - (IBAction)save:(id)sender;
 
 @end
