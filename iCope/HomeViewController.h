@@ -22,6 +22,7 @@
     NSInteger *currentTime;
 }
 
+@property (strong, nonatomic) IBOutlet UILabel *greetingLbl;
 @property (strong, nonatomic) IBOutlet UIImageView *contentImgView;
 //@property (strong, nonatomic) IBOutlet UILabel *greetingLbl;
 
