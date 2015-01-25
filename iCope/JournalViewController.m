@@ -48,21 +48,39 @@
 
 - (IBAction)savePress:(id)sender {
     NSLog(@"%s",__PRETTY_FUNCTION__);
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];;
-    
-    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
-    
-    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
-    [dateformate setDateFormat:@"MM/dd/YYYY"];
-    
-    Journal *journal = [NSEntityDescription insertNewObjectForEntityForName: @"Journal" inManagedObjectContext: managedObjectContext];
-    [journal setValue:titleTF.text forKey:@"title"];
-    [journal setValue:entryTV.text forKey:@"entry"];
-    [journal setValue:[dateformate stringFromDate:[NSDate date]] forKey:@"date"];
-    NSError *error = nil;
-    if([managedObjectContext save: &error])
+    if([entryTV.text isEqualToString:@""] && [titleTF.text isEqualToString:@""])
     {
-        NSLog(@"Successsfully added %@",titleTF.text);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"There is no title or entry"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];;
+    
+        NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    
+        NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+        [dateformate setDateFormat:@"MM/dd/YYYY"];
+    
+        Journal *journal = [NSEntityDescription insertNewObjectForEntityForName: @"Journal" inManagedObjectContext: managedObjectContext];
+        [journal setValue:titleTF.text forKey:@"title"];
+        [journal setValue:entryTV.text forKey:@"entry"];
+        [journal setValue:[dateformate stringFromDate:[NSDate date]] forKey:@"date"];
+        NSError *error = nil;
+        if([managedObjectContext save: &error])
+        {
+            NSLog(@"Successsfully added %@",titleTF.text);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success"
+                                                            message:@"Saved entry"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
     }
 
 }

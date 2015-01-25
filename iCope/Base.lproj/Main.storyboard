@@ -450,31 +450,31 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xV-Pu-Xhs">
-                                <rect key="frame" x="159" y="107" width="283" height="323"/>
+                                <rect key="frame" x="170" y="88" width="261" height="298"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="283" id="0rG-UG-YhB"/>
-                                    <constraint firstAttribute="height" constant="323" id="T5C-jy-xd0"/>
+                                    <constraint firstAttribute="height" constant="298" id="I71-2y-M3Y"/>
+                                    <constraint firstAttribute="width" constant="261" id="rh0-uC-IVZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qyc-4j-kne">
-                                <rect key="frame" x="198" y="64" width="205" height="30"/>
+                                <rect key="frame" x="198" y="44" width="205" height="30"/>
                                 <accessibility key="accessibilityConfiguration" hint=""/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="iwz-oa-bHB"/>
-                                    <constraint firstAttribute="width" constant="205" id="mcj-dM-dDS"/>
+                                    <constraint firstAttribute="height" constant="30" id="Etc-O8-s9D"/>
+                                    <constraint firstAttribute="width" constant="205" id="IbX-X8-0lw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ZO-kV-NeL">
-                                <rect key="frame" x="214" y="445" width="173" height="30"/>
+                                <rect key="frame" x="214" y="401" width="173" height="30"/>
                                 <color key="backgroundColor" red="0.065111439529999995" green="0.15607068900000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="XKB-2G-iOA"/>
-                                    <constraint firstAttribute="width" constant="173" id="ve8-45-6fi"/>
+                                    <constraint firstAttribute="height" constant="30" id="3A9-yx-Irl"/>
+                                    <constraint firstAttribute="width" constant="173" id="WFC-QK-2Wv"/>
                                 </constraints>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -487,19 +487,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Qyc-4j-kne" firstAttribute="top" secondItem="Oi4-J4-HC2" secondAttribute="bottom" constant="44" id="B1m-M7-FHt"/>
-                            <constraint firstAttribute="centerX" secondItem="2xV-Pu-Xhs" secondAttribute="centerX" id="BG2-wK-PEa"/>
-                            <constraint firstItem="eAk-3X-bDx" firstAttribute="bottom" secondItem="ThH-6y-Rxz" secondAttribute="top" id="FzJ-Wi-msr"/>
-                            <constraint firstItem="eAk-3X-bDx" firstAttribute="top" secondItem="Oi4-J4-HC2" secondAttribute="bottom" id="MBO-eA-GLU"/>
-                            <constraint firstItem="eAk-3X-bDx" firstAttribute="leading" secondItem="MWS-p0-fv5" secondAttribute="leading" id="Snv-S2-8qK"/>
-                            <constraint firstItem="9ZO-kV-NeL" firstAttribute="top" secondItem="Oi4-J4-HC2" secondAttribute="bottom" constant="425" id="Sqs-7O-Cg7"/>
-                            <constraint firstAttribute="centerX" secondItem="9ZO-kV-NeL" secondAttribute="centerX" constant="-0.5" id="auU-da-wxG"/>
-                            <constraint firstAttribute="centerX" secondItem="Qyc-4j-kne" secondAttribute="centerX" constant="-0.5" id="eDY-ZJ-Qja"/>
-                            <constraint firstItem="2xV-Pu-Xhs" firstAttribute="top" secondItem="Oi4-J4-HC2" secondAttribute="bottom" constant="87" id="j5C-De-yc8"/>
-                            <constraint firstAttribute="centerX" secondItem="eAk-3X-bDx" secondAttribute="centerX" id="tLk-kO-nLv"/>
+                            <constraint firstItem="eAk-3X-bDx" firstAttribute="bottom" secondItem="ThH-6y-Rxz" secondAttribute="top" id="5NG-kX-zPu"/>
+                            <constraint firstItem="9ZO-kV-NeL" firstAttribute="top" secondItem="2xV-Pu-Xhs" secondAttribute="bottom" constant="15" id="5rE-SA-Y66"/>
+                            <constraint firstAttribute="centerX" secondItem="2xV-Pu-Xhs" secondAttribute="centerX" constant="-0.5" id="8Dy-cU-FhB"/>
+                            <constraint firstItem="2xV-Pu-Xhs" firstAttribute="top" secondItem="Oi4-J4-HC2" secondAttribute="bottom" constant="68" id="EqL-oG-xg3"/>
+                            <constraint firstItem="eAk-3X-bDx" firstAttribute="top" secondItem="Oi4-J4-HC2" secondAttribute="bottom" id="R4r-8Q-HVS"/>
+                            <constraint firstAttribute="centerX" secondItem="Qyc-4j-kne" secondAttribute="centerX" constant="-0.5" id="WS0-1T-0KZ"/>
+                            <constraint firstItem="eAk-3X-bDx" firstAttribute="leading" secondItem="MWS-p0-fv5" secondAttribute="leading" id="klI-m5-qdf"/>
+                            <constraint firstItem="eAk-3X-bDx" firstAttribute="centerX" secondItem="Qyc-4j-kne" secondAttribute="centerX" id="mOo-8k-gha"/>
+                            <constraint firstAttribute="centerX" secondItem="9ZO-kV-NeL" secondAttribute="centerX" constant="-0.5" id="ppp-6w-Lhv"/>
+                            <constraint firstItem="2xV-Pu-Xhs" firstAttribute="top" secondItem="Qyc-4j-kne" secondAttribute="bottom" constant="14" id="vK2-Uo-AvN"/>
+                            <constraint firstItem="Qyc-4j-kne" firstAttribute="top" secondItem="Oi4-J4-HC2" secondAttribute="bottom" constant="24" id="zCm-MF-B2u"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="background" destination="eAk-3X-bDx" id="k6S-vP-LYI"/>
                         <outlet property="entryTV" destination="2xV-Pu-Xhs" id="6lz-cl-qf0"/>
                         <outlet property="saveBtn" destination="9ZO-kV-NeL" id="r0m-1E-4d4"/>
                         <outlet property="titleTF" destination="Qyc-4j-kne" id="C7c-ia-xc6"/>
@@ -507,7 +509,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T33-FN-cMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2998" y="-1163"/>
+            <point key="canvasLocation" x="-2999" y="-1163"/>
         </scene>
         <!--Open Entries View Controller-->
         <scene sceneID="P0i-py-YTW">
