@@ -75,7 +75,17 @@
         {
             NSLog(@"Successsfully added %@",titleTF.text);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success"
-                                                            message:@"Saved entry"
+                                                            message:[@"Saved " stringByAppendingString:titleTF.text]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        else
+        {
+            NSLog(@"Could Not add %@",titleTF.text);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed"
+                                                            message:[@"Could not save " stringByAppendingString:titleTF.text]
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
