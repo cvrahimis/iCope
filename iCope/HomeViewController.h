@@ -11,6 +11,7 @@
 #import "DrawingViewController.h"
 #import "JournalViewController.h"
 #import "ExerciseTableViewController.h"
+#import "ReadingViewController.h"
 
 @interface HomeViewController : UIViewController{
     UILabel *home;

@@ -8,15 +8,36 @@
 
 #import "ReadingViewController.h"
 
-@interface ReadingViewController ()
-
-@end
-
 @implementation ReadingViewController
+@synthesize background;
+@synthesize quoteLbl;
+@synthesize quotes;
+@synthesize nextBtn;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    count = 0;
+    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];;
+    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    
+    background.backgroundColor = [UIColor redColor];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Quotes" inManagedObjectContext: managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error = nil;
+    quotes = [managedObjectContext executeFetchRequest:fetchRequest error: &error];
+    
+    
+    
+    if (quotes != nil) {
+        Quotes *q = [quotes objectAtIndex:count];
+        //NSLog(@"%@",[quotes objectAtIndex:count]);
+        quoteLbl.text = [q valueForKey:@"quote"];
+    
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +45,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)nextBtnPress:(id)sender {
+    if (count < quotes.count) count++;
+    else count = 0;
+    Quotes *q = [quotes objectAtIndex:count];
+    quoteLbl.text = [q valueForKey:@"quote"];
 }
-*/
-
 @end

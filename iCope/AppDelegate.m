@@ -36,8 +36,36 @@
         [self setUpExerciseTable];
     }
     
+    fetchRequest = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription entityForName:@"Quotes" inManagedObjectContext:[self managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    error = nil;
+    fetchedObjects = [_managedObjectContext executeFetchRequest:fetchRequest error: &error];
+    
+    if (fetchedObjects.count == 0) {
+        quotes = @[@"\"I do not agree with what you have to say, but I'll defend to the death your right to say it.\"",@"\"It is dangerous to be right in matters on which the established authorities are wrong.\"", @"\"Life is thickly sown with thorns, and I know no other remedy than to pass quickly through them. The longer we dwell on our misfortunes, the greater is their power to harm us.\""];
+        authors = @[@"-Voltaire",@"-Voltaire",@"-Voltaire"];
+        [self setUpQuotesTable];
+    }
+    
     return YES;
 }
+
+-(void)setUpQuotesTable{
+    for (int i = 0; i < [quotes count]; i++)
+    {
+        quote = [NSEntityDescription insertNewObjectForEntityForName: @"Quotes" inManagedObjectContext: _managedObjectContext];
+        [quote setValue:quotes[i] forKey:@"quote"];
+        [quote setValue:authors[i] forKey:@"author"];
+        
+        NSError *error = nil;
+        if([_managedObjectContext save: &error])
+        {
+            NSLog(@"%@", [@"Successsfully added " stringByAppendingString:quotes[i]]);
+        }
+    }
+}
+
 
 -(void)setUpExerciseTable{
     for (int i = 0; i < [exerciseNames count]; i++)

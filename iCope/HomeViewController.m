@@ -116,6 +116,8 @@
         case 1:
         {
             NSLog(@"%s ================== Reading Button Pressed", __PRETTY_FUNCTION__);
+            ReadingViewController *readingVC = [self.storyboard instantiateViewControllerWithIdentifier:@"readingViewController"];
+            [self.navigationController pushViewController:readingVC animated:YES];
             break;
         }
         case 2:

@@ -42,6 +42,7 @@
 		6360D6DC1A6B5F59001171ED /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6D81A6B5F59001171ED /* MainViewController.m */; };
 		6360D6E21A6BA0F8001171ED /* OpenEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6E11A6BA0F8001171ED /* OpenEntriesViewController.m */; };
 		6360D6E51A6BAD15001171ED /* Journal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6E41A6BAD15001171ED /* Journal.m */; };
+		C0245E661A76E9B9008BDD90 /* Quotes.m in Sources */ = {isa = PBXBuildFile; fileRef = C0245E651A76E9B9008BDD90 /* Quotes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,8 @@
 		6360D6E11A6BA0F8001171ED /* OpenEntriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenEntriesViewController.m; sourceTree = "<group>"; };
 		6360D6E31A6BAD15001171ED /* Journal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journal.h; sourceTree = "<group>"; };
 		6360D6E41A6BAD15001171ED /* Journal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journal.m; sourceTree = "<group>"; };
+		C0245E641A76E9B9008BDD90 /* Quotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quotes.h; sourceTree = "<group>"; };
+		C0245E651A76E9B9008BDD90 /* Quotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quotes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +219,8 @@
 				6360D6E41A6BAD15001171ED /* Journal.m */,
 				634FFC741A75A2BA00F24DF6 /* Exercises.h */,
 				634FFC751A75A2BA00F24DF6 /* Exercises.m */,
+				C0245E641A76E9B9008BDD90 /* Quotes.h */,
+				C0245E651A76E9B9008BDD90 /* Quotes.m */,
 			);
 			name = DBObjects;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 				6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */,
 				6360D6DC1A6B5F59001171ED /* MainViewController.m in Sources */,
 				634FFCC21A7616D100F24DF6 /* ExerciseViewController.m in Sources */,
+				C0245E661A76E9B9008BDD90 /* Quotes.m in Sources */,
 				6360D6C71A6B5F32001171ED /* UIApplication+AppDimensions.m in Sources */,
 				6360D6E21A6BA0F8001171ED /* OpenEntriesViewController.m in Sources */,
 				6360D6D01A6B5F4D001171ED /* ReadingViewController.m in Sources */,
