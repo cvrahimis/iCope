@@ -30,7 +30,7 @@
     
     if (fetchedObjects.count == 0) {
         exerciseNames = @[@"Back lifts", @"Crunches", @"Leg lifts", @"Planks"];
-        exerciseImgs= @[@"backlifts1|backlifts2", @"crunches1|curnches2|crunches3", @"leglifts1|leglifts2|leglifts3", @"plank|sideplank"];
+        exerciseImgs= @[@"backlifts1|backlifts2", @"crunches1|crunches2|crunches3", @"leglifts1|leglifts2|leglifts3", @"plank|sideplank"];
         mainImg = @[@"backlifts1", @"crunches1", @"leglifts1", @"plank"];
         
         [self setUpExerciseTable];

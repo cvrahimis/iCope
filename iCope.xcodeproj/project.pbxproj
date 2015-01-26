@@ -10,6 +10,7 @@
 		634FFC701A7596D600F24DF6 /* ExerciseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FFC6F1A7596D600F24DF6 /* ExerciseTableViewController.m */; };
 		634FFC731A75970200F24DF6 /* ExerciseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FFC721A75970200F24DF6 /* ExerciseTableViewCell.m */; };
 		634FFC761A75A2BA00F24DF6 /* Exercises.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FFC751A75A2BA00F24DF6 /* Exercises.m */; };
+		634FFCC21A7616D100F24DF6 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FFCC11A7616D100F24DF6 /* ExerciseViewController.m */; };
 		635352831A6F61B80030F5CE /* OpenEntriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */; };
 		6360D66D1A6B5D98001171ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66C1A6B5D98001171ED /* main.m */; };
 		6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66F1A6B5D98001171ED /* AppDelegate.m */; };
@@ -60,6 +61,8 @@
 		634FFC721A75970200F24DF6 /* ExerciseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTableViewCell.m; sourceTree = "<group>"; };
 		634FFC741A75A2BA00F24DF6 /* Exercises.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercises.h; sourceTree = "<group>"; };
 		634FFC751A75A2BA00F24DF6 /* Exercises.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercises.m; sourceTree = "<group>"; };
+		634FFCC01A7616D100F24DF6 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
+		634FFCC11A7616D100F24DF6 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
 		635352811A6F61B80030F5CE /* OpenEntriesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenEntriesTableViewCell.h; sourceTree = "<group>"; };
 		635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenEntriesTableViewCell.m; sourceTree = "<group>"; };
 		6360D6671A6B5D98001171ED /* iCope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCope.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +230,8 @@
 				634FFC6F1A7596D600F24DF6 /* ExerciseTableViewController.m */,
 				634FFC711A75970200F24DF6 /* ExerciseTableViewCell.h */,
 				634FFC721A75970200F24DF6 /* ExerciseTableViewCell.m */,
+				634FFCC01A7616D100F24DF6 /* ExerciseViewController.h */,
+				634FFCC11A7616D100F24DF6 /* ExerciseViewController.m */,
 			);
 			name = PhysicalActivityControllers;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 				634FFC731A75970200F24DF6 /* ExerciseTableViewCell.m in Sources */,
 				6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */,
 				6360D6DC1A6B5F59001171ED /* MainViewController.m in Sources */,
+				634FFCC21A7616D100F24DF6 /* ExerciseViewController.m in Sources */,
 				6360D6C71A6B5F32001171ED /* UIApplication+AppDimensions.m in Sources */,
 				6360D6E21A6BA0F8001171ED /* OpenEntriesViewController.m in Sources */,
 				6360D6D01A6B5F4D001171ED /* ReadingViewController.m in Sources */,

@@ -593,5 +593,24 @@
             </objects>
             <point key="canvasLocation" x="-1551" y="-1163"/>
         </scene>
+        <!--Exercise View Controller-->
+        <scene sceneID="m35-Xm-6zH">
+            <objects>
+                <viewController id="IXf-th-X2d" customClass="ExerciseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aHB-o4-olR"/>
+                        <viewControllerLayoutGuide type="bottom" id="NZ2-R4-Q5g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gTW-Oo-K6s">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLC-pJ-loC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-809" y="-1163"/>
+        </scene>
     </scenes>
 </document>

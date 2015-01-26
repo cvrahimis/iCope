@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ExerciseTableViewCell.h"
 #import "AppDelegate.h"
+#import "ExerciseViewController.h"
 
 @interface ExerciseTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>{
     NSArray *fetchedObjects;

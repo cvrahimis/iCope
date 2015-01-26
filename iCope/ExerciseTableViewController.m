@@ -58,6 +58,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     static NSString *cellIdentifier = @"exerciseCell";
     ExerciseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
@@ -76,10 +77,20 @@
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     // Return NO if you do not want the specified item to be editable.
     return NO;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ExerciseViewController *evc = [[ExerciseViewController alloc] initWithExercise: [fetchedObjects objectAtIndex:indexPath.row]];
+    //Exercises *exercise = [fetchedObjects objectAtIndex:indexPath.row];
+    //evc.exercises = exercise;
+    [self.navigationController pushViewController:evc animated:YES];
+}
 
 /*
 // Override to support editing the table view.
