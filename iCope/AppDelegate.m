@@ -13,12 +13,48 @@
 @end
 
 @implementation AppDelegate
+@synthesize exerciseNames;
+@synthesize exerciseImgs;
+@synthesize mainImg;
+@synthesize exercise;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Exercises" inManagedObjectContext:[self managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    NSError *error = nil;
+    NSArray *fetchedObjects = [_managedObjectContext executeFetchRequest:fetchRequest error: &error];
+    
+    if (fetchedObjects.count == 0) {
+        exerciseNames = @[@"Back lifts", @"Crunches", @"Leg lifts", @"Planks"];
+        exerciseImgs= @[@"backlifts1|backlifts2", @"crunches1|curnches2|crunches3", @"leglifts1|leglifts2|leglifts3", @"plank|sideplank"];
+        mainImg = @[@"backlifts1", @"crunches1", @"leglifts1", @"plank"];
+        
+        [self setUpExerciseTable];
+    }
+    
     return YES;
 }
+
+-(void)setUpExerciseTable{
+    for (int i = 0; i < [exerciseNames count]; i++)
+    {
+        exercise = [NSEntityDescription insertNewObjectForEntityForName: @"Exercises" inManagedObjectContext: _managedObjectContext];
+        [exercise setValue:exerciseNames[i] forKey:@"exerciseName"];
+        [exercise setValue:exerciseImgs[i] forKey:@"pictures"];
+        [exercise setValue:mainImg[i] forKey:@"mainPicture"];
+        
+        NSError *error = nil;
+        if([_managedObjectContext save: &error])
+        {
+            NSLog(@"%@", [@"Successsfully added " stringByAppendingString:exerciseNames[i]]);
+        }
+    }
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

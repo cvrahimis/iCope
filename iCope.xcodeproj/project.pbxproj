@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		634FFC701A7596D600F24DF6 /* ExerciseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FFC6F1A7596D600F24DF6 /* ExerciseTableViewController.m */; };
+		634FFC731A75970200F24DF6 /* ExerciseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FFC721A75970200F24DF6 /* ExerciseTableViewCell.m */; };
+		634FFC761A75A2BA00F24DF6 /* Exercises.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FFC751A75A2BA00F24DF6 /* Exercises.m */; };
 		635352831A6F61B80030F5CE /* OpenEntriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */; };
 		6360D66D1A6B5D98001171ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66C1A6B5D98001171ED /* main.m */; };
 		6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66F1A6B5D98001171ED /* AppDelegate.m */; };
@@ -51,6 +54,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		634FFC6E1A7596D600F24DF6 /* ExerciseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTableViewController.h; sourceTree = "<group>"; };
+		634FFC6F1A7596D600F24DF6 /* ExerciseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTableViewController.m; sourceTree = "<group>"; };
+		634FFC711A75970200F24DF6 /* ExerciseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTableViewCell.h; sourceTree = "<group>"; };
+		634FFC721A75970200F24DF6 /* ExerciseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTableViewCell.m; sourceTree = "<group>"; };
+		634FFC741A75A2BA00F24DF6 /* Exercises.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercises.h; sourceTree = "<group>"; };
+		634FFC751A75A2BA00F24DF6 /* Exercises.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercises.m; sourceTree = "<group>"; };
 		635352811A6F61B80030F5CE /* OpenEntriesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenEntriesTableViewCell.h; sourceTree = "<group>"; };
 		635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenEntriesTableViewCell.m; sourceTree = "<group>"; };
 		6360D6671A6B5D98001171ED /* iCope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCope.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +211,8 @@
 			children = (
 				6360D6E31A6BAD15001171ED /* Journal.h */,
 				6360D6E41A6BAD15001171ED /* Journal.m */,
+				634FFC741A75A2BA00F24DF6 /* Exercises.h */,
+				634FFC751A75A2BA00F24DF6 /* Exercises.m */,
 			);
 			name = DBObjects;
 			sourceTree = "<group>";
@@ -212,6 +223,10 @@
 				6360D69B1A6B5EC6001171ED /* VideoPlayFunction */,
 				6360D69C1A6B5ED4001171ED /* ExerciseOptionsControllers */,
 				6360D69D1A6B5EE9001171ED /* WorkoutSummary */,
+				634FFC6E1A7596D600F24DF6 /* ExerciseTableViewController.h */,
+				634FFC6F1A7596D600F24DF6 /* ExerciseTableViewController.m */,
+				634FFC711A75970200F24DF6 /* ExerciseTableViewCell.h */,
+				634FFC721A75970200F24DF6 /* ExerciseTableViewCell.m */,
 			);
 			name = PhysicalActivityControllers;
 			sourceTree = "<group>";
@@ -431,6 +446,7 @@
 				6360D6A91A6B5F11001171ED /* WorkoutSumViewController.m in Sources */,
 				6360D6DB1A6B5F59001171ED /* LeftViewController.m in Sources */,
 				6360D6731A6B5D98001171ED /* iCope.xcdatamodeld in Sources */,
+				634FFC731A75970200F24DF6 /* ExerciseTableViewCell.m in Sources */,
 				6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */,
 				6360D6DC1A6B5F59001171ED /* MainViewController.m in Sources */,
 				6360D6C71A6B5F32001171ED /* UIApplication+AppDimensions.m in Sources */,
@@ -439,9 +455,11 @@
 				6360D6D91A6B5F59001171ED /* HomeViewController.m in Sources */,
 				6360D6B61A6B5F26001171ED /* MusicViewController.m in Sources */,
 				6360D6AA1A6B5F11001171ED /* EditViewController.m in Sources */,
+				634FFC701A7596D600F24DF6 /* ExerciseTableViewController.m in Sources */,
 				6360D6AD1A6B5F1B001171ED /* JournalViewController.m in Sources */,
 				6360D6E51A6BAD15001171ED /* Journal.m in Sources */,
 				6360D6C61A6B5F32001171ED /* UIViewController+RNSwipeViewController.m in Sources */,
+				634FFC761A75A2BA00F24DF6 /* Exercises.m in Sources */,
 				6360D66D1A6B5D98001171ED /* main.m in Sources */,
 				6360D6C51A6B5F32001171ED /* UIView+Sizes.m in Sources */,
 				6360D6C31A6B5F32001171ED /* RNDirectionPanGestureRecognizer.m in Sources */,

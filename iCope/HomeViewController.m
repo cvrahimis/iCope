@@ -146,6 +146,9 @@
         case 4:
         {
             NSLog(@"%s ================== Exercise Button Pressed", __PRETTY_FUNCTION__);
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            ExerciseTableViewController *exerciseTVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"exerciseTableViewController"];
+            [self.navigationController pushViewController:exerciseTVC animated:YES];
             break;
         }
         default:

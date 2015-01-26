@@ -10,6 +10,7 @@
 #import "MusicViewController.h"
 #import "DrawingViewController.h"
 #import "JournalViewController.h"
+#import "ExerciseTableViewController.h"
 
 @interface HomeViewController : UIViewController{
     UILabel *home;

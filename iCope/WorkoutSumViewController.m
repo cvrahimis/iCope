@@ -189,7 +189,7 @@
  request.sortDescriptors = sortDescriptors;
  NSError *error = nil;
  summaries = [[managedObjectContext executeFetchRequest: request error: &error] mutableCopy];
- /*
+
 //=============================================================================
  dates = [[NSMutableDictionary alloc] init];
  
