@@ -74,6 +74,13 @@
     return timeOfDayInHours;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    self.navigationItem.title = @"Reading";
+    self.navigationController.navigationBar.translucent = NO;
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
