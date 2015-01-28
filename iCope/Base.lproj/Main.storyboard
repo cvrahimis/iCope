@@ -200,8 +200,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="JournalBtn" destination="eU1-cp-bWa" id="LFs-jL-WzB"/>
                         <outlet property="contentImgView" destination="OeA-Jb-49S" id="lDe-vC-uzi"/>
+                        <outlet property="drawingBtn" destination="oSs-OP-tbz" id="jej-4N-q4g"/>
+                        <outlet property="excerciseBtn" destination="YaL-bc-uUU" id="VfW-q0-ZLW"/>
                         <outlet property="greetingLbl" destination="Hxu-Aq-EMR" id="0NY-wf-HJd"/>
+                        <outlet property="journalBtn" destination="eU1-cp-bWa" id="yDR-ab-wLP"/>
+                        <outlet property="musicBtn" destination="5i4-J9-yhk" id="nda-L5-Mfq"/>
+                        <outlet property="readingBtn" destination="Wq6-4j-RQU" id="Xc3-la-183"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65t-Ho-Rzq" userLabel="First Responder" sceneMemberID="firstResponder"/>

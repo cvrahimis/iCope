@@ -10,6 +10,7 @@
 #import "UIViewController+RNSwipeViewController.h"
 //#import "SwipeViewController.h"
 #import "RNSwipeViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #define frameWidth self.view.frame.size.width
 #define frameHeight self.view.frame.size.height
 
@@ -18,7 +19,12 @@
 @end
 
 @implementation HomeViewController
-//@synthesize musicBtn;
+
+@synthesize musicBtn;
+@synthesize readingBtn;
+@synthesize drawingBtn;
+@synthesize journalBtn;
+@synthesize excerciseBtn;
 @synthesize contentImgView;
 
 -(id) init{
@@ -44,8 +50,6 @@
     if (currentTime < 12) contentImgView.image = [UIImage imageNamed:@"Morning"];
     else if (currentTime > 12 && currentTime < 18) contentImgView.image = [UIImage imageNamed:@"Afternoon"];
     else contentImgView.image = [UIImage imageNamed:@"Evening"];
-    //[self.view addSubview: morningBackground];
-    
 }
 
 // Method so strings only have to be created once.
@@ -65,7 +69,19 @@
     greetingLbl.font = [UIFont fontWithName: @"Courier-BoldOblique" size: 40];
     greetingLbl.textColor = [UIColor whiteColor];
     [self.view addSubview: greetingLbl];
-    
+}
+
+-(void) initButtons {
+    musicBtn.layer.cornerRadius = 10;
+    readingBtn.layer.cornerRadius = 10;
+    drawingBtn.layer.cornerRadius = 10;
+    journalBtn.layer.cornerRadius = 10;
+    excerciseBtn.layer.cornerRadius = 10;
+    musicBtn.clipsToBounds = YES;
+    readingBtn.clipsToBounds = YES;
+    drawingBtn.clipsToBounds = YES;
+    journalBtn.clipsToBounds = YES;
+    excerciseBtn.clipsToBounds = YES;
 }
 
 // Method returns todays current hour.
@@ -99,6 +115,7 @@
     [self initBackground];
     [self initStrings];
     [self initLabels];
+    [self initButtons];
     //background.userInteractionEnabled = YES;
     //contentView.frame = CGRectMake(0, 0, frameWidth, frameHeight);
 }

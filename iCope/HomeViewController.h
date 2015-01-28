@@ -27,6 +27,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *greetingLbl;
 @property (strong, nonatomic) IBOutlet UIImageView *contentImgView;
 //@property (strong, nonatomic) IBOutlet UILabel *greetingLbl;
+@property (strong, nonatomic) IBOutlet UIButton *musicBtn;
+@property (strong, nonatomic) IBOutlet UIButton *readingBtn;
+@property (strong, nonatomic) IBOutlet UIButton *drawingBtn;
+@property (strong, nonatomic) IBOutlet UIButton *journalBtn;
+@property (strong, nonatomic) IBOutlet UIButton *excerciseBtn;
 
 -(id) init;
 - (IBAction)activityPress:(id)sender;
