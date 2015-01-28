@@ -29,7 +29,8 @@
 - (void)viewDidLoad {
     NSLog(@"%s",__PRETTY_FUNCTION__);
     [super viewDidLoad];
-    background.backgroundColor = [UIColor purpleColor];
+    currentTime = [self Time];
+    [self initBackground];
     entryTV.layer.borderWidth = 0.5f;
     entryTV.layer.borderColor = [[UIColor blackColor] CGColor];
     titleTF.placeholder = @"Title";
@@ -162,6 +163,19 @@
     //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(NSInteger *) Time {
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH"];
+    NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
+    NSInteger *timeOfDayInHours = [timeOfDayInHoursString integerValue];
+    return timeOfDayInHours;
+}
 
+-(void) initBackground {
+    if (currentTime < 12) background.image = [UIImage imageNamed:@"Morning"];
+    else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"Afternoon"];
+    else background.image = [UIImage imageNamed:@"Evening"];
+}
 
 @end
