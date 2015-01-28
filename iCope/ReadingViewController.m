@@ -21,9 +21,16 @@
     [super viewDidLoad];
     count = 0;
     currentTime = [self Time];
+    quoteLbl = [[UILabel alloc] initWithFrame:CGRectMake((frameWidth / 2) - ((frameWidth * .95) / 2), self.navigationController.navigationBar.frame.size.height, frameWidth * .95, frameHeight * .6)];
+    
+    
+    authorLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .95, frameHeight * .2)];
+    authorLbl.center = CGPointMake(frameWidth / 2, frameHeight * .8);
     [self initBackground];
     [self initQuotes];
-    [self initLabels];    
+    [self initLabels];
+    [self.view addSubview:quoteLbl];
+    [self.view addSubview:authorLbl];
 }
 
 -(void) initBackground {
@@ -34,7 +41,7 @@
 }
 
 -(void) initQuotes {
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];;
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -49,13 +56,15 @@
 -(void) initLabels {
     quoteLbl.font = [UIFont fontWithName: @"Cochin-BoldItalic" size: 30];
     authorLbl.font = [UIFont fontWithName: @"Cochin-BoldItalic" size: 20];
+    quoteLbl.textAlignment = NSTextAlignmentCenter;
+    authorLbl.textAlignment = NSTextAlignmentCenter;
     //quoteLbl.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:.3];
 }
 
 -(void) formatLabels {
     q = [quotes objectAtIndex:count];
     aQuote = [q valueForKey:@"quote"];
-    lineCount = [aQuote length]/25+1;
+    lineCount = [aQuote length]/15+1;
     quoteLbl.numberOfLines = lineCount;
     [UIView transitionWithView:quoteLbl duration:.7f options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionTransitionFlipFromTop animations:^{
         quoteLbl.text = aQuote;

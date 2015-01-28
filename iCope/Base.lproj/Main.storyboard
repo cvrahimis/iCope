@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bAu-52-ifZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bAu-52-ifZ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -259,22 +259,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Naj-kc-cSZ">
                                 <rect key="frame" x="0.0" y="20" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dof-RP-KRx">
-                                <rect key="frame" x="120" y="122" width="360" height="138"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="138" id="06B-il-zVy"/>
-                                    <constraint firstAttribute="width" constant="360" id="7lX-wF-WP6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdR-Rr-f7V">
-                                <rect key="frame" x="120" y="327" width="360" height="72"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jD5-Ns-LWs">
                                 <rect key="frame" x="0.0" y="20" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -290,28 +274,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cdR-Rr-f7V" firstAttribute="top" secondItem="dof-RP-KRx" secondAttribute="bottom" constant="67" id="44y-yO-EXS"/>
-                            <constraint firstItem="999-Yn-QBT" firstAttribute="top" secondItem="cdR-Rr-f7V" secondAttribute="bottom" constant="201" id="8X5-Ye-ry8"/>
                             <constraint firstAttribute="centerX" secondItem="Naj-kc-cSZ" secondAttribute="centerX" id="Aif-PM-lqw"/>
                             <constraint firstAttribute="height" secondItem="Naj-kc-cSZ" secondAttribute="height" id="Btg-Tn-2Ya"/>
                             <constraint firstItem="jD5-Ns-LWs" firstAttribute="top" secondItem="UAT-qi-ud3" secondAttribute="bottom" id="G1O-up-srK"/>
                             <constraint firstItem="Naj-kc-cSZ" firstAttribute="top" secondItem="UAT-qi-ud3" secondAttribute="bottom" id="Iq7-jT-SdH"/>
                             <constraint firstAttribute="width" secondItem="Naj-kc-cSZ" secondAttribute="width" id="J02-Rc-jAI"/>
                             <constraint firstAttribute="width" secondItem="jD5-Ns-LWs" secondAttribute="width" id="Pdf-mg-F84"/>
-                            <constraint firstItem="dof-RP-KRx" firstAttribute="top" secondItem="UAT-qi-ud3" secondAttribute="bottom" constant="102" id="axm-m5-u4I"/>
                             <constraint firstAttribute="centerX" secondItem="jD5-Ns-LWs" secondAttribute="centerX" id="bla-EW-CfI"/>
                             <constraint firstAttribute="height" secondItem="jD5-Ns-LWs" secondAttribute="height" id="gPz-ha-wXD"/>
-                            <constraint firstAttribute="centerX" secondItem="cdR-Rr-f7V" secondAttribute="centerX" id="oVi-kQ-9qK"/>
-                            <constraint firstItem="cdR-Rr-f7V" firstAttribute="leading" secondItem="dof-RP-KRx" secondAttribute="leading" id="otk-7C-NIy"/>
                             <constraint firstAttribute="centerX" secondItem="jD5-Ns-LWs" secondAttribute="centerX" id="qEs-ez-xod"/>
-                            <constraint firstAttribute="centerX" secondItem="dof-RP-KRx" secondAttribute="centerX" id="w4V-SL-Cpm"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="authorLbl" destination="cdR-Rr-f7V" id="xxm-Jd-Fpp"/>
                         <outlet property="background" destination="Naj-kc-cSZ" id="NRp-yT-ZJa"/>
                         <outlet property="nextBtn" destination="jD5-Ns-LWs" id="NlO-NW-6De"/>
-                        <outlet property="quoteLbl" destination="dof-RP-KRx" id="3jx-AQ-r9F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDF-b9-Oem" userLabel="First Responder" sceneMemberID="firstResponder"/>
