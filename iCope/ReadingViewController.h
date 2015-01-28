@@ -13,11 +13,16 @@
 @interface ReadingViewController : UIViewController
 {
     int count;
+    int lineCount;
+    NSString *aQuote;
+    NSInteger *currentTime;
+    Quotes *q;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *background;
 @property (strong, nonatomic) IBOutlet UILabel *quoteLbl;
 @property (strong, nonatomic) NSArray *quotes;
 @property (strong, nonatomic) IBOutlet UIButton *nextBtn;
+@property (strong, nonatomic) IBOutlet UILabel *authorLbl;
 - (IBAction)nextBtnPress:(id)sender;
 
 @end

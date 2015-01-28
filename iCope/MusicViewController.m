@@ -29,10 +29,8 @@
 -(id)init{
     if(self = [super init])
     {
-        background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight)];
-        //background.image = [UIImage imageNamed:@"bluredDumbBells.png"];
-        background.backgroundColor = [UIColor yellowColor];
-        [self.view addSubview: background];
+        currentTime = [self Time];
+        [self initBackground];
         
         playButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 100, 100)];
         playButton.center = CGPointMake(frameWidth / 2, frameHeight * .8);
@@ -40,13 +38,11 @@
         [playButton addTarget: self action:@selector(playPause:) forControlEvents: UIControlEventTouchDown];
         [self.view addSubview: playButton];
         
-        
         fastforward = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 100, 100)];
         fastforward.center = CGPointMake(frameWidth * .8, frameHeight * .8);
         [fastforward setImage: [UIImage imageNamed: @"fastforward.png"] forState: UIControlStateNormal];
         [fastforward addTarget: self action:@selector(nextSong:) forControlEvents: UIControlEventTouchDown];
         [self.view addSubview: fastforward];
-        
         
         rewind = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 100, 100)];
         rewind.center = CGPointMake(frameWidth * .2, frameHeight * .8);
@@ -310,6 +306,24 @@
 - (IBAction)nextSong:(id)sender 
 {
     [musicPlayer skipToNextItem];
+}
+
+-(NSInteger *) Time {
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH"];
+    NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
+    NSInteger *timeOfDayInHours = [timeOfDayInHoursString integerValue];
+    return timeOfDayInHours;
+}
+
+-(void) initBackground {
+    background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight)];
+    background.backgroundColor = [UIColor yellowColor];
+    if (currentTime < 12) background.image = [UIImage imageNamed:@"Morning"];
+    else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"Afternoon"];
+    else background.image = [UIImage imageNamed:@"Evening"];
+    [self.view addSubview: background];
 }
 
 @end

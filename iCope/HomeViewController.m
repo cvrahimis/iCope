@@ -57,7 +57,6 @@
 }
 
 -(void) initLabels {
-    
     greetingLbl = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frameWidth, frameHeight * .2)];
     greetingLbl.center = CGPointMake(frameWidth * .5, frameHeight * .2);
     greetingLbl.text = [self Greeting];

@@ -7,37 +7,71 @@
 //
 
 #import "ReadingViewController.h"
+#define frameWidth self.view.frame.size.width
+#define frameHeight self.view.frame.size.height
 
 @implementation ReadingViewController
 @synthesize background;
 @synthesize quoteLbl;
 @synthesize quotes;
 @synthesize nextBtn;
+@synthesize authorLbl;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     count = 0;
-    
+    currentTime = [self Time];
+    [self initBackground];
+    [self initQuotes];
+    [self initLabels];    
+}
+
+-(void) initBackground {
+    //background.backgroundColor = [UIColor redColor];
+    if (currentTime < 12) background.image = [UIImage imageNamed:@"Morning"];
+    else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"Afternoon"];
+    else background.image = [UIImage imageNamed:@"Evening"];
+}
+
+-(void) initQuotes {
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];;
     NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
     
-    background.backgroundColor = [UIColor redColor];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Quotes" inManagedObjectContext: managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError *error = nil;
     quotes = [managedObjectContext executeFetchRequest:fetchRequest error: &error];
     
-    
-    
-    if (quotes != nil) {
-        Quotes *q = [quotes objectAtIndex:count];
-        //NSLog(@"%@",[quotes objectAtIndex:count]);
-        quoteLbl.text = [q valueForKey:@"quote"];
-    
-    }
-    
+    if (quotes != nil) [self formatLabels];
+}
+
+-(void) initLabels {
+    quoteLbl.font = [UIFont fontWithName: @"Cochin-BoldItalic" size: 30];
+    authorLbl.font = [UIFont fontWithName: @"Cochin-BoldItalic" size: 20];
+    //quoteLbl.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:.3];
+}
+
+-(void) formatLabels {
+    q = [quotes objectAtIndex:count];
+    aQuote = [q valueForKey:@"quote"];
+    lineCount = [aQuote length]/25+1;
+    quoteLbl.numberOfLines = lineCount;
+    [UIView transitionWithView:quoteLbl duration:.7f options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionTransitionFlipFromTop animations:^{
+        quoteLbl.text = aQuote;
+        authorLbl.text = [q valueForKey:@"author"];
+    } completion:nil];
+    if (count < quotes.count-1) count++;
+    else count = 0;
+}
+
+-(NSInteger *) Time {
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH"];
+    NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
+    NSInteger *timeOfDayInHours = [timeOfDayInHoursString integerValue];
+    return timeOfDayInHours;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,9 +80,6 @@
 }
 
 - (IBAction)nextBtnPress:(id)sender {
-    if (count < quotes.count) count++;
-    else count = 0;
-    Quotes *q = [quotes objectAtIndex:count];
-    quoteLbl.text = [q valueForKey:@"quote"];
+    [self formatLabels];
 }
 @end
