@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "RNRevealViewControllerProtocol.h"
 
-@interface RightViewController : UIViewController <RNRevealViewControllerProtocol>
+@interface RightViewController : UIViewController <RNRevealViewControllerProtocol> {
+    NSInteger *currentTime;
+}
 
 -(id) init;
+@property (strong, nonatomic) IBOutlet UIImageView *background;
 
 @end

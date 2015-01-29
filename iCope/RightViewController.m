@@ -14,11 +14,12 @@
 
 @implementation RightViewController
 
+@synthesize background;
+
 -(id) init{
     NSLog(@"%s", __PRETTY_FUNCTION__);
     if(self = [super init])
     {
-        self.view.backgroundColor = [UIColor colorWithRed: .0 green: .0 blue: .999 alpha: 1.0];
         
     }
     return self;
@@ -34,9 +35,25 @@
     return self;
 }
 
+-(void) initBackground {
+    if (currentTime < 12) background.image = [UIImage imageNamed:@"Morning"];
+    else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"Afternoon"];
+    else background.image = [UIImage imageNamed:@"Evening"];
+}
+
+-(NSInteger *) Time {
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH"];
+    NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
+    NSInteger *timeOfDayInHours = [timeOfDayInHoursString integerValue];
+    return timeOfDayInHours;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    currentTime = [self Time];
+    [self initBackground];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

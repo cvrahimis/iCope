@@ -34,7 +34,6 @@
 }
 
 -(void) initBackground {
-    //background.backgroundColor = [UIColor redColor];
     if (currentTime < 12) background.image = [UIImage imageNamed:@"Morning"];
     else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"Afternoon"];
     else background.image = [UIImage imageNamed:@"Evening"];
