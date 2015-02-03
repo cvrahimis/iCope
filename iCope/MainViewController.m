@@ -33,10 +33,22 @@
     self.rightViewController = [[RightViewController alloc] init];*/
     self.centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"centerViewController"];
     
-    self.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftViewController"];
-    self.rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightViewController"];
-    self.leftVisibleWidth = frameWidth;
-    self.rightVisibleWidth = frameWidth;
+    LeftViewController *leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftViewController"];
+    NSArray *leftSubViews = [leftViewController.view subviews];
+    if(leftSubViews.count > 3)
+    {
+        self.leftViewController = leftViewController;
+        self.leftVisibleWidth = frameWidth;
+    }
+    
+    RightViewController *rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightViewController"];
+    NSArray *rightSubViews = [leftViewController.view subviews];
+    if(rightSubViews.count > 3)
+    {
+        self.rightViewController = rightViewController;
+        self.rightVisibleWidth = frameWidth;
+    }
+    
     self.swipeDelegate = self;
 
     //self.navigationItem.title = @"Home";
