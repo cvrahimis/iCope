@@ -42,7 +42,7 @@
     }
     
     RightViewController *rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightViewController"];
-    NSArray *rightSubViews = [leftViewController.view subviews];
+    NSArray *rightSubViews = [rightViewController.view subviews];
     if(rightSubViews.count > 3)
     {
         self.rightViewController = rightViewController;
