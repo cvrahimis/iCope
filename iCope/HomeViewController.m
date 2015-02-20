@@ -116,8 +116,15 @@
     [self initStrings];
     [self initLabels];
     [self initButtons];
+    [self showRatingScreen];
     //background.userInteractionEnabled = YES;
     //contentView.frame = CGRectMake(0, 0, frameWidth, frameHeight);
+}
+
+-(void) showRatingScreen {
+    NSLog(@"%s ================== Rating Button Pressed", __PRETTY_FUNCTION__);
+    ReadingViewController *ratingVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ratingViewController"];
+    [self.navigationController pushViewController:ratingVC animated:YES];
 }
 
 - (IBAction)activityPress:(id)sender {
@@ -167,6 +174,13 @@
             UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
             ExerciseTableViewController *exerciseTVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"exerciseTableViewController"];
             [self.navigationController pushViewController:exerciseTVC animated:YES];
+            break;
+        }
+        case 5:
+        {
+            NSLog(@"%s ================== Rating Button Pressed", __PRETTY_FUNCTION__);
+            ReadingViewController *ratingVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ratingViewController"];
+            [self.navigationController pushViewController:ratingVC animated:YES];
             break;
         }
         default:

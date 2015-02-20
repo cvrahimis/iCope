@@ -43,6 +43,7 @@
 		6360D6E21A6BA0F8001171ED /* OpenEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6E11A6BA0F8001171ED /* OpenEntriesViewController.m */; };
 		6360D6E51A6BAD15001171ED /* Journal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6E41A6BAD15001171ED /* Journal.m */; };
 		C0245E661A76E9B9008BDD90 /* Quotes.m in Sources */ = {isa = PBXBuildFile; fileRef = C0245E651A76E9B9008BDD90 /* Quotes.m */; };
+		C069B8511A8D1FD90002428E /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C069B8501A8D1FD90002428E /* RatingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,8 @@
 		6360D6E41A6BAD15001171ED /* Journal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journal.m; sourceTree = "<group>"; };
 		C0245E641A76E9B9008BDD90 /* Quotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quotes.h; sourceTree = "<group>"; };
 		C0245E651A76E9B9008BDD90 /* Quotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quotes.m; sourceTree = "<group>"; };
+		C069B84F1A8D1FD90002428E /* RatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingViewController.h; sourceTree = "<group>"; };
+		C069B8501A8D1FD90002428E /* RatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +176,7 @@
 			children = (
 				6360D66E1A6B5D98001171ED /* AppDelegate.h */,
 				6360D66F1A6B5D98001171ED /* AppDelegate.m */,
+				C069B84E1A8D1F990002428E /* RatingScreen */,
 				6360D6931A6B5DBA001171ED /* DBObjects */,
 				6360D6941A6B5DD6001171ED /* PhysicalActivityControllers */,
 				6360D6951A6B5E1F001171ED /* WritingControllers */,
@@ -350,6 +354,15 @@
 			name = WorkoutSummary;
 			sourceTree = "<group>";
 		};
+		C069B84E1A8D1F990002428E /* RatingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C069B84F1A8D1FD90002428E /* RatingViewController.h */,
+				C069B8501A8D1FD90002428E /* RatingViewController.m */,
+			);
+			name = RatingScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -456,6 +469,7 @@
 				6360D6A91A6B5F11001171ED /* WorkoutSumViewController.m in Sources */,
 				6360D6DB1A6B5F59001171ED /* LeftViewController.m in Sources */,
 				6360D6731A6B5D98001171ED /* iCope.xcdatamodeld in Sources */,
+				C069B8511A8D1FD90002428E /* RatingViewController.m in Sources */,
 				634FFC731A75970200F24DF6 /* ExerciseTableViewCell.m in Sources */,
 				6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */,
 				6360D6DC1A6B5F59001171ED /* MainViewController.m in Sources */,
