@@ -32,6 +32,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *drawingBtn;
 @property (strong, nonatomic) IBOutlet UIButton *journalBtn;
 @property (strong, nonatomic) IBOutlet UIButton *excerciseBtn;
+@property (strong, nonatomic) IBOutlet UIButton *ratingBtn;
 
 -(id) init;
 - (IBAction)activityPress:(id)sender;
