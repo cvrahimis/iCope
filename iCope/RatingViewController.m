@@ -124,7 +124,7 @@
         [self.view addSubview:thermometer];
         
         doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, frameWidth * .25, frameHeight * .05)];
-        doneBtn.center = CGPointMake(frameWidth / 2, frameHeight * .9);
+        doneBtn.center = CGPointMake(frameWidth / 2, frameHeight * .85);
         doneBtn.backgroundColor = [UIColor greenColor];
         doneBtn.tag = ++count;
         doneBtn.showsTouchWhenHighlighted = YES;
@@ -161,7 +161,7 @@
     NSLog(@"%s",__PRETTY_FUNCTION__);
     self.navigationItem.title = @"Rating Screen";
     self.navigationController.navigationBar.translucent = NO;
-    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
 }
 
 -(NSInteger *) Time {
@@ -240,7 +240,9 @@
         case 12:
         {
             NSLog(@"%s button 12", __PRETTY_FUNCTION__);
-            MainViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"mainViewController"];
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                                     bundle: nil];
+            MainViewController *mvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainViewController"];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mvc];
             
             //now present this navigation controller modally
@@ -277,16 +279,16 @@
             if ((pos.x - current.x) < 0)
             {
                 if (mesurmentView.frame.size.width + -(pos.x - current.x) > frameWidth * .722)
-                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .672, frameWidth * .722, mesurmentView.frame.size.height);
+                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, frameWidth * .722, mesurmentView.frame.size.height);
                 else
-                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .672, mesurmentView.frame.size.width + -(pos.x - current.x), mesurmentView.frame.size.height);
+                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, mesurmentView.frame.size.width + -(pos.x - current.x), mesurmentView.frame.size.height);
             }
             else
             {
                 if (mesurmentView.frame.size.width + -(pos.x - current.x) < 1)
-                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .672, 1, mesurmentView.frame.size.height);
+                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, 1, mesurmentView.frame.size.height);
                 else
-                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .672, mesurmentView.frame.size.width + -(pos.x - current.x), mesurmentView.frame.size.height);
+                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, mesurmentView.frame.size.width + -(pos.x - current.x), mesurmentView.frame.size.height);
             }
             NSLog(@"%f",mesurmentView.frame.size.width);
         }
