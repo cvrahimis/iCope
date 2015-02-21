@@ -20,7 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"Exercises" inManagedObjectContext:[self managedObjectContext]];
@@ -47,6 +47,19 @@
         authors = @[@"-Voltaire",@"-Voltaire",@"-Voltaire"];
         [self setUpQuotesTable];
     }
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.viewController = [[RatingViewController alloc] init];
+    
+    self.navCtrl = [[UINavigationController alloc] initWithRootViewController: self.viewController];
+    //[self.navCtrl setNavigationBarHidden:NO animated:YES];
+    self.navCtrl.delegate = self.viewController;
+    [self.window 	setRootViewController: self.navCtrl];
+    self.window.userInteractionEnabled = YES;
+    [self.window makeKeyAndVisible];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden: YES];
     
     return YES;
 }

@@ -7,27 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
 
 @interface RatingViewController : UIViewController{
     NSInteger *currentTime;
-    NSArray *emotionBtns;
+    UIButton *emotionBtns[9];
+    UIImageView *background;
+    UIButton *doneBtn;
+    UILabel *topLbl;
+    UILabel *bottomLbl;
+    UIButton *okBtn;
+    UIButton *happyBtn;
+    UIImageView *thermometer;
+    UIView *mesurmentView;
+    CGPoint pos;
+    BOOL swiped;
 }
-@property (strong, nonatomic) IBOutlet UIImageView *background;
-@property (strong, nonatomic) IBOutlet UIButton *Btn1;
-@property (strong, nonatomic) IBOutlet UIButton *Btn2;
-@property (strong, nonatomic) IBOutlet UIButton *Btn3;
-@property (strong, nonatomic) IBOutlet UIButton *Btn4;
-@property (strong, nonatomic) IBOutlet UIButton *Btn5;
-@property (strong, nonatomic) IBOutlet UIButton *Btn6;
-@property (strong, nonatomic) IBOutlet UIButton *Btn7;
-@property (strong, nonatomic) IBOutlet UIButton *Btn8;
-@property (strong, nonatomic) IBOutlet UIButton *Btn9;
-@property (strong, nonatomic) IBOutlet UIButton *Btn10;
-@property (strong, nonatomic) IBOutlet UIButton *Btn11;
-@property (strong, nonatomic) IBOutlet UIButton *Btn12;
-@property (strong, nonatomic) IBOutlet UIButton *doneBtn;
 
-- (IBAction)BtnPress:(id)sender;
+@property (strong, nonatomic) UIImageView *background;
+@property (strong, nonatomic) UIButton *doneBtn;
+@property (strong, nonatomic) UILabel *topLbl;
+@property (strong, nonatomic) UILabel *bottonLbl;
+@property (strong, nonatomic) UIButton *okBtn;
+@property (strong, nonatomic) UIButton *happyBtn;
+@property (strong, nonatomic) UIImageView *thermometer;
+@property (strong, nonatomic) UIView *mesurmentView;
 
 
 @end

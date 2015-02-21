@@ -12,6 +12,7 @@
 #import "JournalViewController.h"
 #import "ExerciseTableViewController.h"
 #import "ReadingViewController.h"
+#import "RatingViewController.h"
 
 @interface HomeViewController : UIViewController{
     UILabel *home;

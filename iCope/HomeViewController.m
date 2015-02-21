@@ -110,22 +110,23 @@
 - (void)viewDidLoad {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     [super viewDidLoad];
+    //[self showRatingScreen];
     // Do any additional setup after loading the view.
     currentTime = [self Time];
     [self initBackground];
     [self initStrings];
     [self initLabels];
     [self initButtons];
-    [self showRatingScreen];
+    //[self showRatingScreen];
     //background.userInteractionEnabled = YES;
     //contentView.frame = CGRectMake(0, 0, frameWidth, frameHeight);
 }
 
--(void) showRatingScreen {
+/*-(void) showRatingScreen {
     NSLog(@"%s ================== Rating Button Pressed", __PRETTY_FUNCTION__);
-    ReadingViewController *ratingVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ratingViewController"];
+    RatingViewController *ratingVC = [[RatingViewController alloc] init];
     [self.navigationController pushViewController:ratingVC animated:YES];
-}
+}*/
 
 - (IBAction)activityPress:(id)sender {
     switch (((UIButton*)sender).tag) {
@@ -179,7 +180,7 @@
         case 5:
         {
             NSLog(@"%s ================== Rating Button Pressed", __PRETTY_FUNCTION__);
-            ReadingViewController *ratingVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ratingViewController"];
+            RatingViewController *ratingVC = [[RatingViewController alloc] init];
             [self.navigationController pushViewController:ratingVC animated:YES];
             break;
         }
