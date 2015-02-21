@@ -136,7 +136,7 @@
             NSLog(@"%s ================== Music Button Pressed", __PRETTY_FUNCTION__);
             MusicViewController *musicVC = [[MusicViewController alloc] init];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:musicVC];
-            
+            [self.navigationController popToRootViewControllerAnimated:YES];
             //now present this navigation controller modally
             [self presentViewController:navigationController
                                animated:YES
@@ -148,7 +148,7 @@
             NSLog(@"%s ================== Reading Button Pressed", __PRETTY_FUNCTION__);
             ReadingViewController *readingVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"readingViewController"];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:readingVC];
-            
+            [self.navigationController popToRootViewControllerAnimated:YES];
             //now present this navigation controller modally
             [self presentViewController:navigationController
                                animated:YES
@@ -161,7 +161,7 @@
             NSLog(@"%s ================== Drawing Button Pressed", __PRETTY_FUNCTION__);
             DrawingViewController *draw = [[DrawingViewController alloc] init];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:draw];
-            
+            [self.navigationController popToRootViewControllerAnimated:YES];
             //now present this navigation controller modally
             [self presentViewController:navigationController
                                animated:YES
@@ -174,7 +174,7 @@
             NSLog(@"%s ================== Journal Button Pressed", __PRETTY_FUNCTION__);
             JournalViewController *journal = [mainStoryboard instantiateViewControllerWithIdentifier:@"journalViewController"];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:journal];
-            
+            [self.navigationController popToRootViewControllerAnimated:YES];
             //now present this navigation controller modally
             [self presentViewController:navigationController
                                animated:YES
@@ -186,7 +186,7 @@
             NSLog(@"%s ================== Exercise Button Pressed", __PRETTY_FUNCTION__);
             ExerciseTableViewController *exerciseTVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"exerciseTableViewController"];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:exerciseTVC];
-            
+            [self.navigationController popToRootViewControllerAnimated:YES];
             //now present this navigation controller modally
             [self presentViewController:navigationController
                                animated:YES
