@@ -134,7 +134,13 @@
 }
 
 -(void) done{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    RatingViewController *rvc = [[RatingViewController alloc]init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
+    
+    //now present this navigation controller modally
+    [self presentViewController:navigationController
+                       animated:YES
+                     completion:nil];
 }
 
 -(void)openPicture{

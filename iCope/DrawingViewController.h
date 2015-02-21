@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
+#import "RatingViewController.h"
 
 @interface DrawingViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate> {
     

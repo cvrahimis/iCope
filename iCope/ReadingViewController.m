@@ -82,8 +82,24 @@
     return timeOfDayInHours;
 }
 
+-(void) done{
+    RatingViewController *rvc = [[RatingViewController alloc]init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
+    
+    //now present this navigation controller modally
+    [self presentViewController:navigationController
+                       animated:YES
+                     completion:nil];
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     NSLog(@"%s",__PRETTY_FUNCTION__);
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                             initWithTitle:@"Done"
+                                             style:UIBarButtonItemStyleDone
+                                             target:self
+                                             action:@selector(done)];
+    
     self.navigationItem.title = @"Reading";
     self.navigationController.navigationBar.translucent = NO;
     [[self navigationController] setNavigationBarHidden:NO animated:YES];

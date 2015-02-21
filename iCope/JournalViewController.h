@@ -10,6 +10,7 @@
 #import "Journal.h"
 #import "AppDelegate.h"
 #import "OpenEntriesViewController.h"
+#import "RatingViewController.h"
 
 @interface JournalViewController : UIViewController <OpenEntriesViewControllerDelegate>{
     NSString *title;

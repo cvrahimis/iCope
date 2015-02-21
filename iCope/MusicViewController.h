@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "RatingViewController.h"
 
 @interface MusicViewController : UIViewController<MPMediaPickerControllerDelegate> {
     UIButton *playButton;

@@ -114,6 +114,12 @@
         //albumCover.backgroundColor = [UIColor whiteColor];
         [self.view addSubview: albumCover];
         
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                                 initWithTitle:@"Done"
+                                                 style:UIBarButtonItemStyleDone
+                                                 target:self
+                                                 action:@selector(done)];
+        
     }
     return self;
 }
@@ -149,6 +155,16 @@
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     self.navigationItem.title = @"Music";
     
+}
+
+-(void) done{
+    RatingViewController *rvc = [[RatingViewController alloc]init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
+    
+    //now present this navigation controller modally
+    [self presentViewController:navigationController
+                       animated:YES
+                     completion:nil];
 }
 
 /*- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

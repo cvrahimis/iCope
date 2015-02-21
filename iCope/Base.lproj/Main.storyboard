@@ -177,30 +177,16 @@
                                     <action selector="activityPress:" destination="XH7-Gy-HJJ" eventType="touchUpInside" id="YkH-Mc-9Un"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAw-Le-5l5">
-                                <rect key="frame" x="198" y="208" width="204" height="30"/>
-                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Rating">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="activityPress:" destination="XH7-Gy-HJJ" eventType="touchUpInside" id="xTR-mX-JcM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OeA-Jb-49S" firstAttribute="leading" secondItem="90t-hk-xDY" secondAttribute="leading" id="4R2-bQ-HIN"/>
                             <constraint firstItem="7GY-dz-shj" firstAttribute="top" secondItem="Wq6-4j-RQU" secondAttribute="bottom" constant="260" id="A1L-w6-yhP"/>
-                            <constraint firstAttribute="centerX" secondItem="iAw-Le-5l5" secondAttribute="centerX" id="KEO-SI-YHk"/>
                             <constraint firstAttribute="centerX" secondItem="Hxu-Aq-EMR" secondAttribute="centerX" constant="-0.5" id="Mjp-lW-9cR"/>
                             <constraint firstAttribute="centerX" secondItem="OeA-Jb-49S" secondAttribute="centerX" id="P0d-OO-9jv"/>
                             <constraint firstAttribute="centerX" secondItem="oSs-OP-tbz" secondAttribute="centerX" id="QeQ-ex-aqz"/>
                             <constraint firstItem="7GY-dz-shj" firstAttribute="top" secondItem="oSs-OP-tbz" secondAttribute="bottom" constant="204" id="R1H-pM-FY8"/>
                             <constraint firstItem="OeA-Jb-49S" firstAttribute="top" secondItem="hv5-ZL-6dy" secondAttribute="bottom" id="TKG-uF-dqm"/>
-                            <constraint firstItem="iAw-Le-5l5" firstAttribute="top" secondItem="hv5-ZL-6dy" secondAttribute="bottom" constant="188" id="TnI-OI-rrW"/>
-                            <constraint firstItem="iAw-Le-5l5" firstAttribute="leading" secondItem="OeA-Jb-49S" secondAttribute="trailing" constant="-402" id="ZIS-Bo-cbN"/>
                             <constraint firstAttribute="centerY" secondItem="OeA-Jb-49S" secondAttribute="centerY" constant="-10" id="Zou-VF-1zG"/>
                             <constraint firstItem="7GY-dz-shj" firstAttribute="top" secondItem="eU1-cp-bWa" secondAttribute="bottom" constant="149" id="bvM-Ir-GAC"/>
                             <constraint firstAttribute="centerX" secondItem="5i4-J9-yhk" secondAttribute="centerX" id="dRa-Ff-6pK"/>
@@ -220,7 +206,6 @@
                         <outlet property="greetingLbl" destination="Hxu-Aq-EMR" id="0NY-wf-HJd"/>
                         <outlet property="journalBtn" destination="eU1-cp-bWa" id="yDR-ab-wLP"/>
                         <outlet property="musicBtn" destination="5i4-J9-yhk" id="nda-L5-Mfq"/>
-                        <outlet property="ratingBtn" destination="iAw-Le-5l5" id="dFa-A7-prF"/>
                         <outlet property="readingBtn" destination="Wq6-4j-RQU" id="Xc3-la-183"/>
                     </connections>
                 </viewController>

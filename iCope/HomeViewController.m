@@ -129,19 +129,31 @@
 }*/
 
 - (IBAction)activityPress:(id)sender {
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     switch (((UIButton*)sender).tag) {
         case 0:
         {
             NSLog(@"%s ================== Music Button Pressed", __PRETTY_FUNCTION__);
             MusicViewController *musicVC = [[MusicViewController alloc] init];
-            [self.navigationController pushViewController:musicVC animated:YES];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:musicVC];
+            
+            //now present this navigation controller modally
+            [self presentViewController:navigationController
+                               animated:YES
+                             completion:nil];
             break;
         }
         case 1:
         {
             NSLog(@"%s ================== Reading Button Pressed", __PRETTY_FUNCTION__);
-            ReadingViewController *readingVC = [self.storyboard instantiateViewControllerWithIdentifier:@"readingViewController"];
-            [self.navigationController pushViewController:readingVC animated:YES];
+            ReadingViewController *readingVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"readingViewController"];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:readingVC];
+            
+            //now present this navigation controller modally
+            [self presentViewController:navigationController
+                               animated:YES
+                             completion:nil];
+            
             break;
         }
         case 2:
@@ -160,7 +172,7 @@
         case 3:
         {
             NSLog(@"%s ================== Journal Button Pressed", __PRETTY_FUNCTION__);
-            JournalViewController *journal = [self.storyboard instantiateViewControllerWithIdentifier:@"journalViewController"];
+            JournalViewController *journal = [mainStoryboard instantiateViewControllerWithIdentifier:@"journalViewController"];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:journal];
             
             //now present this navigation controller modally
@@ -172,9 +184,13 @@
         case 4:
         {
             NSLog(@"%s ================== Exercise Button Pressed", __PRETTY_FUNCTION__);
-            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
             ExerciseTableViewController *exerciseTVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"exerciseTableViewController"];
-            [self.navigationController pushViewController:exerciseTVC animated:YES];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:exerciseTVC];
+            
+            //now present this navigation controller modally
+            [self presentViewController:navigationController
+                               animated:YES
+                             completion:nil];
             break;
         }
         case 5:
