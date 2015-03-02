@@ -124,7 +124,7 @@
         [self.view addSubview:thermometer];
         
         doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, frameWidth * .25, frameHeight * .05)];
-        doneBtn.center = CGPointMake(frameWidth / 2, frameHeight * .85);
+        doneBtn.center = CGPointMake(frameWidth / 2, frameHeight * .8);
         doneBtn.backgroundColor = [UIColor greenColor];
         doneBtn.tag = ++count;
         doneBtn.showsTouchWhenHighlighted = YES;
