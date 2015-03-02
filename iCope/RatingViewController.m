@@ -33,7 +33,7 @@
         topLbl.center = CGPointMake(frameWidth / 2, frameHeight * .1);
         topLbl.text = @"How do you feel?";
         topLbl.backgroundColor	= [UIColor clearColor];
-        topLbl.font = [UIFont fontWithName: @"Helvetica-Bold" size: 30];
+        topLbl.font = [UIFont fontWithName: @"Courier-BoldOblique" size: 32];
         topLbl.textAlignment = NSTextAlignmentCenter;
         topLbl.textColor = [UIColor whiteColor];
         [self.view addSubview: topLbl];
@@ -48,18 +48,21 @@
         {
             for (int col = 1; col <= 3; col++)
             {
-                emotionBtns[count] = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .25, frameHeight * .05)];
+                emotionBtns[count] = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .27, frameHeight * .07)];
                 
+
                 if (col == 2)
                     emotionBtns[count].center = CGPointMake(frameWidth /2, height);
                 else
                     emotionBtns[count].center = CGPointMake(width, height);
-                emotionBtns[count].backgroundColor = [UIColor greenColor];
+                emotionBtns[count].backgroundColor = [UIColor colorWithRed:9 green:.9 blue:1 alpha:.3];
+                emotionBtns[count].layer.cornerRadius = 10;
+                emotionBtns[count].layer.borderWidth=1.0f;
+                emotionBtns[count].layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
                 emotionBtns[count].tag = count;
                 emotionBtns[count].showsTouchWhenHighlighted = YES;
                 [emotionBtns[count] setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
                 [emotionBtns[count].titleLabel setFont:[UIFont systemFontOfSize: 18]];
-                [emotionBtns[count] setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 [emotionBtns[count] setTitle: [titles objectAtIndex: count] forState: UIControlStateNormal];
                 
                 emotionBtns[count].userInteractionEnabled = YES;
@@ -76,28 +79,32 @@
             height += frameHeight * .08;
         }
         
-        okBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, frameWidth * .25, frameHeight * .05)];
+        okBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, frameWidth * .27, frameHeight * .07)];
         okBtn.center = CGPointMake(frameWidth * .35, height);
-        okBtn.backgroundColor = [UIColor greenColor];
+        okBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+        okBtn.layer.cornerRadius = 10;
+        okBtn.layer.borderWidth=1.0f;
+        okBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
         okBtn.tag = ++count;
         okBtn.showsTouchWhenHighlighted = YES;
         [okBtn setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
         [okBtn.titleLabel setFont:[UIFont systemFontOfSize: 18]];
-        [okBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [okBtn setTitle: @"Okay" forState: UIControlStateNormal];
         okBtn.userInteractionEnabled = YES;
         [okBtn addTarget:self action:@selector(btnPress:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:okBtn];
         [self.view bringSubviewToFront:okBtn];
         
-        happyBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, frameWidth * .25, frameHeight * .05)];
+        happyBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, frameWidth * .27, frameHeight * .07)];
         happyBtn.center = CGPointMake(frameWidth * .65, height);
-        happyBtn.backgroundColor = [UIColor greenColor];
+        happyBtn.backgroundColor = [UIColor colorWithRed:9 green:.9 blue:1 alpha:.3];
+        happyBtn.layer.cornerRadius = 10;
+        happyBtn.layer.borderWidth=1.0f;
+        happyBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
         happyBtn.tag = ++count;
         happyBtn.showsTouchWhenHighlighted = YES;
         [happyBtn setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
         [happyBtn.titleLabel setFont:[UIFont systemFontOfSize: 18]];
-        [happyBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [happyBtn setTitle: @"Happy" forState: UIControlStateNormal];
         happyBtn.userInteractionEnabled = YES;
         [happyBtn addTarget:self action:@selector(btnPress:) forControlEvents:UIControlEventTouchUpInside];
@@ -123,14 +130,16 @@
         thermometer.userInteractionEnabled = YES;
         [self.view addSubview:thermometer];
         
-        doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, frameWidth * .25, frameHeight * .05)];
+        doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, frameWidth * .3, frameHeight * .07)];
         doneBtn.center = CGPointMake(frameWidth / 2, frameHeight * .8);
-        doneBtn.backgroundColor = [UIColor greenColor];
+        doneBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+        doneBtn.layer.cornerRadius = 10;
+        doneBtn.layer.borderWidth=1.0f;
+        doneBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
         doneBtn.tag = ++count;
         doneBtn.showsTouchWhenHighlighted = YES;
         [doneBtn setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
         [doneBtn.titleLabel setFont:[UIFont systemFontOfSize: 18]];
-        [doneBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [doneBtn setTitle: @"Done" forState: UIControlStateNormal];
         doneBtn.userInteractionEnabled = YES;
         [doneBtn addTarget:self action:@selector(btnPress:) forControlEvents:UIControlEventTouchUpInside];
@@ -180,61 +189,145 @@
         case 0:
         {
             NSLog(@"%s button 0", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 1:
         {
             NSLog(@"%s button 1", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 2:
         {
             NSLog(@"%s button 2", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 3:
         {
             NSLog(@"%s button 3", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 4:
         {
             NSLog(@"%s button 4", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 5:
         {
             NSLog(@"%s button 5", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 6:
         {
             NSLog(@"%s button 6", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 7:
         {
             NSLog(@"%s button 7", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 8:
         {
             NSLog(@"%s button 8", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 9:
         {
             NSLog(@"%s button 9", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 10:
         {
             NSLog(@"%s button 10", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 11:
         {
             NSLog(@"%s button 11", __PRETTY_FUNCTION__);
+            if (selectedBtn != nil) {
+                selectedBtn.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:1 alpha:.3];
+                selectedBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+                selectedBtn = sender;
+            }
+            selectedBtn = sender;
+            selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
             break;
         }
         case 12:
@@ -266,34 +359,25 @@
 
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+    CGPoint current = [[touches anyObject] locationInView: thermometer];
+    if ((pos.x - current.x) < 0)
+    {
+        if (mesurmentView.frame.size.width + 5 > frameWidth * .722)
+            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, frameWidth * .722, mesurmentView.frame.size.height);
+        else
+            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, mesurmentView.frame.size.width + 5, mesurmentView.frame.size.height);
+    }
+    else
+    {
+        if (mesurmentView.frame.size.width -5 < 1)
+            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, 1, mesurmentView.frame.size.height);
+        else
+            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, mesurmentView.frame.size.width -5, mesurmentView.frame.size.height);
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if ([[event allTouches] count] == 1)
-    {
-        CGPoint current = [[touches anyObject] locationInView: thermometer];
-        if (!swiped && abs(pos.x - current.x) >= 5 && abs(pos.y - current.y) <= 50)
-        {
-            swiped = YES;
-            if ((pos.x - current.x) < 0)
-            {
-                if (mesurmentView.frame.size.width + -(pos.x - current.x) > frameWidth * .722)
-                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, frameWidth * .722, mesurmentView.frame.size.height);
-                else
-                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, mesurmentView.frame.size.width + -(pos.x - current.x), mesurmentView.frame.size.height);
-            }
-            else
-            {
-                if (mesurmentView.frame.size.width + -(pos.x - current.x) < 1)
-                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, 1, mesurmentView.frame.size.height);
-                else
-                    mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, mesurmentView.frame.size.width + -(pos.x - current.x), mesurmentView.frame.size.height);
-            }
-            NSLog(@"%f",mesurmentView.frame.size.width);
-        }
     }
-}
 
 
 

@@ -14,6 +14,7 @@
     UIButton *emotionBtns[9];
     UIImageView *background;
     UIButton *doneBtn;
+    UIButton *selectedBtn;
     UILabel *topLbl;
     UILabel *bottomLbl;
     UIButton *okBtn;
