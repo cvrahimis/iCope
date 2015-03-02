@@ -33,7 +33,7 @@
         topLbl.center = CGPointMake(frameWidth / 2, frameHeight * .1);
         topLbl.text = @"How do you feel?";
         topLbl.backgroundColor	= [UIColor clearColor];
-        topLbl.font = [UIFont fontWithName: @"Courier-BoldOblique" size: 32];
+        topLbl.font = [UIFont fontWithName: @"Baskerville-SemiBoldItalic" size: 35];
         topLbl.textAlignment = NSTextAlignmentCenter;
         topLbl.textColor = [UIColor whiteColor];
         [self.view addSubview: topLbl];
@@ -115,7 +115,7 @@
         bottomLbl.center = CGPointMake(frameWidth / 2, frameHeight * .55);
         bottomLbl.text = @"Urge to self injure?";
         bottomLbl.backgroundColor	= [UIColor clearColor];
-        bottomLbl.font = [UIFont fontWithName: @"Helvetica-Bold" size: 30];
+        bottomLbl.font = [UIFont fontWithName: @"Baskerville-SemiBoldItalic" size: 35];
         bottomLbl.textAlignment = NSTextAlignmentCenter;
         bottomLbl.textColor = [UIColor whiteColor];
         [self.view addSubview: bottomLbl];
@@ -130,8 +130,8 @@
         thermometer.userInteractionEnabled = YES;
         [self.view addSubview:thermometer];
         
-        doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, frameWidth * .3, frameHeight * .07)];
-        doneBtn.center = CGPointMake(frameWidth / 2, frameHeight * .8);
+        doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, frameWidth * .3, frameHeight * .08)];
+        doneBtn.center = CGPointMake(frameWidth / 2, frameHeight * .9);
         doneBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
         doneBtn.layer.cornerRadius = 10;
         doneBtn.layer.borderWidth=1.0f;
@@ -169,8 +169,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     NSLog(@"%s",__PRETTY_FUNCTION__);
     self.navigationItem.title = @"Rating Screen";
-    self.navigationController.navigationBar.translucent = NO;
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    self.navigationController.navigationBar.translucent = YES;
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
 -(NSInteger *) Time {
@@ -363,16 +363,16 @@
     if ((pos.x - current.x) < 0)
     {
         if (mesurmentView.frame.size.width + 5 > frameWidth * .722)
-            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, frameWidth * .722, mesurmentView.frame.size.height);
+            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671, frameWidth * .722, mesurmentView.frame.size.height);
         else
-            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, mesurmentView.frame.size.width + 5, mesurmentView.frame.size.height);
+            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671, mesurmentView.frame.size.width + 5, mesurmentView.frame.size.height);
     }
     else
     {
         if (mesurmentView.frame.size.width -5 < 1)
-            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, 1, mesurmentView.frame.size.height);
+            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671, 1, mesurmentView.frame.size.height);
         else
-            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 + self.navigationController.navigationBar.frame.size.height, mesurmentView.frame.size.width -5, mesurmentView.frame.size.height);
+            mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 , mesurmentView.frame.size.width -5, mesurmentView.frame.size.height);
     }
 }
 
