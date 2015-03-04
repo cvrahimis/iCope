@@ -10,7 +10,7 @@
 #import "MainViewController.h"
 
 @interface RatingViewController : UIViewController{
-    NSInteger *currentTime;
+    int currentTime;
     UIButton *emotionBtns[9];
     UIImageView *background;
     UIButton *doneBtn;

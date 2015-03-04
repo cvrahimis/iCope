@@ -11,6 +11,7 @@
 #import "Exercises.h"
 #import "Quotes.h"
 #import "RatingViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     Exercises *exercise;
@@ -25,7 +26,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UINavigationController *navCtrl;
-@property (strong, nonatomic) RatingViewController *viewController;
+@property (strong, nonatomic) LoginViewController *viewController;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

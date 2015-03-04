@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 cvrahimis. All rights reserved.
 //
 
+#import "Reachability.h";
 #import <UIKit/UIKit.h>
 #import "MusicViewController.h"
 #import "DrawingViewController.h"
@@ -23,7 +24,9 @@
     NSString *afternoonGreeting;
     NSString *eveningGreeting;
     NSInteger *currentTime;
+    
 }
+
 
 @property (strong, nonatomic) IBOutlet UILabel *greetingLbl;
 @property (strong, nonatomic) IBOutlet UIImageView *contentImgView;

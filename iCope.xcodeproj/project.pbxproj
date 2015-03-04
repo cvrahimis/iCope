@@ -12,6 +12,7 @@
 		634FFC761A75A2BA00F24DF6 /* Exercises.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FFC751A75A2BA00F24DF6 /* Exercises.m */; };
 		634FFCC21A7616D100F24DF6 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FFCC11A7616D100F24DF6 /* ExerciseViewController.m */; };
 		635352831A6F61B80030F5CE /* OpenEntriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */; };
+		635533031AA754F100AF865B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635533021AA754F100AF865B /* LoginViewController.m */; };
 		6360D66D1A6B5D98001171ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66C1A6B5D98001171ED /* main.m */; };
 		6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66F1A6B5D98001171ED /* AppDelegate.m */; };
 		6360D6731A6B5D98001171ED /* iCope.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6711A6B5D98001171ED /* iCope.xcdatamodeld */; };
@@ -42,6 +43,13 @@
 		6360D6DC1A6B5F59001171ED /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6D81A6B5F59001171ED /* MainViewController.m */; };
 		6360D6E21A6BA0F8001171ED /* OpenEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6E11A6BA0F8001171ED /* OpenEntriesViewController.m */; };
 		6360D6E51A6BAD15001171ED /* Journal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6E41A6BAD15001171ED /* Journal.m */; };
+		636A44641AA6BF590013DEF9 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 636A44631AA6BF590013DEF9 /* pause.png */; };
+		636A44681AA6CA7D0013DEF9 /* BackEndComunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 636A44671AA6CA7D0013DEF9 /* BackEndComunicator.m */; };
+		636A446A1AA6D2AA0013DEF9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636A44691AA6D2AA0013DEF9 /* SystemConfiguration.framework */; };
+		636A446C1AA6D2B80013DEF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636A446B1AA6D2B80013DEF9 /* UIKit.framework */; };
+		636A446E1AA6D2C50013DEF9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636A446D1AA6D2C50013DEF9 /* CoreData.framework */; };
+		636A44701AA6D2D80013DEF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636A446F1AA6D2D80013DEF9 /* Foundation.framework */; };
+		636A44741AA6D49C0013DEF9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 636A44731AA6D49C0013DEF9 /* Reachability.m */; };
 		C0245E661A76E9B9008BDD90 /* Quotes.m in Sources */ = {isa = PBXBuildFile; fileRef = C0245E651A76E9B9008BDD90 /* Quotes.m */; };
 		C069B8511A8D1FD90002428E /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C069B8501A8D1FD90002428E /* RatingViewController.m */; };
 /* End PBXBuildFile section */
@@ -67,6 +75,8 @@
 		634FFCC11A7616D100F24DF6 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
 		635352811A6F61B80030F5CE /* OpenEntriesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenEntriesTableViewCell.h; sourceTree = "<group>"; };
 		635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenEntriesTableViewCell.m; sourceTree = "<group>"; };
+		635533011AA754F100AF865B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		635533021AA754F100AF865B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6360D6671A6B5D98001171ED /* iCope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6360D66B1A6B5D98001171ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6360D66C1A6B5D98001171ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -125,6 +135,15 @@
 		6360D6E11A6BA0F8001171ED /* OpenEntriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenEntriesViewController.m; sourceTree = "<group>"; };
 		6360D6E31A6BAD15001171ED /* Journal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journal.h; sourceTree = "<group>"; };
 		6360D6E41A6BAD15001171ED /* Journal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journal.m; sourceTree = "<group>"; };
+		636A44631AA6BF590013DEF9 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		636A44661AA6CA7D0013DEF9 /* BackEndComunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackEndComunicator.h; sourceTree = "<group>"; };
+		636A44671AA6CA7D0013DEF9 /* BackEndComunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackEndComunicator.m; sourceTree = "<group>"; };
+		636A44691AA6D2AA0013DEF9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		636A446B1AA6D2B80013DEF9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		636A446D1AA6D2C50013DEF9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		636A446F1AA6D2D80013DEF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		636A44721AA6D49C0013DEF9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		636A44731AA6D49C0013DEF9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C0245E641A76E9B9008BDD90 /* Quotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quotes.h; sourceTree = "<group>"; };
 		C0245E651A76E9B9008BDD90 /* Quotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quotes.m; sourceTree = "<group>"; };
 		C069B84F1A8D1FD90002428E /* RatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingViewController.h; sourceTree = "<group>"; };
@@ -136,6 +155,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636A44701AA6D2D80013DEF9 /* Foundation.framework in Frameworks */,
+				636A446E1AA6D2C50013DEF9 /* CoreData.framework in Frameworks */,
+				636A446C1AA6D2B80013DEF9 /* UIKit.framework in Frameworks */,
+				636A446A1AA6D2AA0013DEF9 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +172,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		635532FF1AA754A100AF865B /* InternetManager */ = {
+			isa = PBXGroup;
+			children = (
+				636A44721AA6D49C0013DEF9 /* Reachability.h */,
+				636A44731AA6D49C0013DEF9 /* Reachability.m */,
+			);
+			name = InternetManager;
+			sourceTree = "<group>";
+		};
+		635533001AA754BF00AF865B /* LoginControllers */ = {
+			isa = PBXGroup;
+			children = (
+				635533011AA754F100AF865B /* LoginViewController.h */,
+				635533021AA754F100AF865B /* LoginViewController.m */,
+			);
+			name = LoginControllers;
+			sourceTree = "<group>";
+		};
 		6360D65E1A6B5D98001171ED = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +198,7 @@
 				6360D67A1A6B5D98001171ED /* Images.xcassets */,
 				6360D6711A6B5D98001171ED /* iCope.xcdatamodeld */,
 				6360D6691A6B5D98001171ED /* iCope */,
+				636A44711AA6D2E10013DEF9 /* Framworks */,
 				6360D6861A6B5D98001171ED /* iCopeTests */,
 				6360D6681A6B5D98001171ED /* Products */,
 			);
@@ -176,6 +218,9 @@
 			children = (
 				6360D66E1A6B5D98001171ED /* AppDelegate.h */,
 				6360D66F1A6B5D98001171ED /* AppDelegate.m */,
+				635533001AA754BF00AF865B /* LoginControllers */,
+				635532FF1AA754A100AF865B /* InternetManager */,
+				636A44651AA6CA290013DEF9 /* DBManagers */,
 				C069B84E1A8D1F990002428E /* RatingScreen */,
 				6360D6931A6B5DBA001171ED /* DBObjects */,
 				6360D6941A6B5DD6001171ED /* PhysicalActivityControllers */,
@@ -261,6 +306,7 @@
 		6360D6961A6B5E3A001171ED /* MusicControllers */ = {
 			isa = PBXGroup;
 			children = (
+				636A44631AA6BF590013DEF9 /* pause.png */,
 				6360D6AE1A6B5F26001171ED /* fastforward.png */,
 				6360D6AF1A6B5F26001171ED /* play.png */,
 				6360D6B01A6B5F26001171ED /* rewind.png */,
@@ -352,6 +398,26 @@
 				6360D6A81A6B5F11001171ED /* EditViewController.m */,
 			);
 			name = WorkoutSummary;
+			sourceTree = "<group>";
+		};
+		636A44651AA6CA290013DEF9 /* DBManagers */ = {
+			isa = PBXGroup;
+			children = (
+				636A44661AA6CA7D0013DEF9 /* BackEndComunicator.h */,
+				636A44671AA6CA7D0013DEF9 /* BackEndComunicator.m */,
+			);
+			name = DBManagers;
+			sourceTree = "<group>";
+		};
+		636A44711AA6D2E10013DEF9 /* Framworks */ = {
+			isa = PBXGroup;
+			children = (
+				636A446F1AA6D2D80013DEF9 /* Foundation.framework */,
+				636A446D1AA6D2C50013DEF9 /* CoreData.framework */,
+				636A446B1AA6D2B80013DEF9 /* UIKit.framework */,
+				636A44691AA6D2AA0013DEF9 /* SystemConfiguration.framework */,
+			);
+			name = Framworks;
 			sourceTree = "<group>";
 		};
 		C069B84E1A8D1F990002428E /* RatingScreen */ = {
@@ -446,6 +512,7 @@
 				6360D6791A6B5D98001171ED /* Main.storyboard in Resources */,
 				6360D6B41A6B5F26001171ED /* play.png in Resources */,
 				6360D6B31A6B5F26001171ED /* fastforward.png in Resources */,
+				636A44641AA6BF590013DEF9 /* pause.png in Resources */,
 				6360D67E1A6B5D98001171ED /* LaunchScreen.xib in Resources */,
 				6360D6B51A6B5F26001171ED /* rewind.png in Resources */,
 				6360D67B1A6B5D98001171ED /* Images.xcassets in Resources */,
@@ -486,11 +553,14 @@
 				6360D6E51A6BAD15001171ED /* Journal.m in Sources */,
 				6360D6C61A6B5F32001171ED /* UIViewController+RNSwipeViewController.m in Sources */,
 				634FFC761A75A2BA00F24DF6 /* Exercises.m in Sources */,
+				635533031AA754F100AF865B /* LoginViewController.m in Sources */,
 				6360D66D1A6B5D98001171ED /* main.m in Sources */,
 				6360D6C51A6B5F32001171ED /* UIView+Sizes.m in Sources */,
+				636A44681AA6CA7D0013DEF9 /* BackEndComunicator.m in Sources */,
 				6360D6C31A6B5F32001171ED /* RNDirectionPanGestureRecognizer.m in Sources */,
 				6360D6A41A6B5F09001171ED /* MachinesViewController.m in Sources */,
 				6360D6CC1A6B5F43001171ED /* SettingsViewController.m in Sources */,
+				636A44741AA6D49C0013DEF9 /* Reachability.m in Sources */,
 				6360D6DA1A6B5F59001171ED /* RightViewController.m in Sources */,
 				635352831A6F61B80030F5CE /* OpenEntriesTableViewCell.m in Sources */,
 				6360D6CD1A6B5F43001171ED /* DrawingViewController.m in Sources */,

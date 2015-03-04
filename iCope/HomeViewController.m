@@ -20,6 +20,8 @@
 
 @implementation HomeViewController
 
+
+@synthesize greetingLbl;
 @synthesize musicBtn;
 @synthesize readingBtn;
 @synthesize drawingBtn;
@@ -106,11 +108,42 @@
     else if (timeOfDayInHours > 12 && timeOfDayInHours < 18) return afternoonGreeting;
     else return eveningGreeting;
 }
+/*
+// Checks if we have an internet connection or not
+- (void)testInternetConnection
+{
+    internetReachableFoo = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    // Internet is reachable
+    internetReachableFoo.reachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Yayyy, we have the interwebs!");
+        });
+    };
+    
+    // Internet is not reachable
+    internetReachableFoo.unreachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Someone broke the internet :(");
+        });
+    };
+    
+    [internetReachableFoo startNotifier];
+}*/
 
 - (void)viewDidLoad {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     [super viewDidLoad];
-    //[self showRatingScreen];
+    /*[self testInternetConnection];
+    if([internetReachableFoo isReachable])
+        [connection setHidden:YES];
+    else
+        [connection setHidden:NO];
+    */
     // Do any additional setup after loading the view.
     currentTime = [self Time];
     [self initBackground];

@@ -50,7 +50,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.viewController = [[RatingViewController alloc] init];
+    self.viewController = [[LoginViewController alloc] init];
     
     self.navCtrl = [[UINavigationController alloc] initWithRootViewController: self.viewController];
     //[self.navCtrl setNavigationBarHidden:NO animated:YES];
