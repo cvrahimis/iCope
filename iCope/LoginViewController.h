@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
+#import "BackEndComunicator.h"
+#import "AppDelegate.h"
+#import "RatingViewController.h"
 
 @interface LoginViewController : UIViewController<UITextFieldDelegate>{
     UIImageView *background;
@@ -17,7 +21,10 @@
     UIButton *cancelBtn;
     UIScrollView *scrollView;
     UITextField *activeField;
+    UILabel *connectionLbl;
+    Reachability *internetReach;
 }
+@property (strong, nonatomic) Reachability *internetReach;
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) UITextField *activeField;
 @property (strong, nonatomic) UIImageView *background;
@@ -25,6 +32,6 @@
 @property (strong, nonatomic) UITextField *passwordTF;
 @property (strong, nonatomic) UIButton *loginBtn;
 @property (strong, nonatomic) UIButton *cancelBtn;
-
+@property (strong, nonatomic) UILabel *connectionLbl;
 
 @end

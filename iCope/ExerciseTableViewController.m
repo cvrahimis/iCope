@@ -70,13 +70,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return fetchedObjects.count;
 }

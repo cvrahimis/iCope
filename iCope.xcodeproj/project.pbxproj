@@ -13,6 +13,11 @@
 		634FFCC21A7616D100F24DF6 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FFCC11A7616D100F24DF6 /* ExerciseViewController.m */; };
 		635352831A6F61B80030F5CE /* OpenEntriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */; };
 		635533031AA754F100AF865B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635533021AA754F100AF865B /* LoginViewController.m */; };
+		635533061AA7AFF000AF865B /* ButtonActivations.m in Sources */ = {isa = PBXBuildFile; fileRef = 635533051AA7AFF000AF865B /* ButtonActivations.m */; };
+		635533091AA7AFF100AF865B /* RatingScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 635533081AA7AFF100AF865B /* RatingScreen.m */; };
+		6355330C1AA7AFF100AF865B /* Activities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355330B1AA7AFF100AF865B /* Activities.m */; };
+		635533151AA8019200AF865B /* Therapist.m in Sources */ = {isa = PBXBuildFile; fileRef = 635533141AA8019200AF865B /* Therapist.m */; };
+		635533181AA8019200AF865B /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 635533171AA8019200AF865B /* Patient.m */; };
 		6360D66D1A6B5D98001171ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66C1A6B5D98001171ED /* main.m */; };
 		6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66F1A6B5D98001171ED /* AppDelegate.m */; };
 		6360D6731A6B5D98001171ED /* iCope.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6711A6B5D98001171ED /* iCope.xcdatamodeld */; };
@@ -77,6 +82,16 @@
 		635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenEntriesTableViewCell.m; sourceTree = "<group>"; };
 		635533011AA754F100AF865B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		635533021AA754F100AF865B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		635533041AA7AFF000AF865B /* ButtonActivations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonActivations.h; sourceTree = "<group>"; };
+		635533051AA7AFF000AF865B /* ButtonActivations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonActivations.m; sourceTree = "<group>"; };
+		635533071AA7AFF100AF865B /* RatingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingScreen.h; sourceTree = "<group>"; };
+		635533081AA7AFF100AF865B /* RatingScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingScreen.m; sourceTree = "<group>"; };
+		6355330A1AA7AFF100AF865B /* Activities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activities.h; sourceTree = "<group>"; };
+		6355330B1AA7AFF100AF865B /* Activities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activities.m; sourceTree = "<group>"; };
+		635533131AA8019200AF865B /* Therapist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Therapist.h; sourceTree = "<group>"; };
+		635533141AA8019200AF865B /* Therapist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Therapist.m; sourceTree = "<group>"; };
+		635533161AA8019200AF865B /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
+		635533171AA8019200AF865B /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
 		6360D6671A6B5D98001171ED /* iCope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6360D66B1A6B5D98001171ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6360D66C1A6B5D98001171ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -270,6 +285,16 @@
 				634FFC751A75A2BA00F24DF6 /* Exercises.m */,
 				C0245E641A76E9B9008BDD90 /* Quotes.h */,
 				C0245E651A76E9B9008BDD90 /* Quotes.m */,
+				6355330A1AA7AFF100AF865B /* Activities.h */,
+				6355330B1AA7AFF100AF865B /* Activities.m */,
+				635533071AA7AFF100AF865B /* RatingScreen.h */,
+				635533081AA7AFF100AF865B /* RatingScreen.m */,
+				635533041AA7AFF000AF865B /* ButtonActivations.h */,
+				635533051AA7AFF000AF865B /* ButtonActivations.m */,
+				635533161AA8019200AF865B /* Patient.h */,
+				635533171AA8019200AF865B /* Patient.m */,
+				635533131AA8019200AF865B /* Therapist.h */,
+				635533141AA8019200AF865B /* Therapist.m */,
 			);
 			name = DBObjects;
 			sourceTree = "<group>";
@@ -545,11 +570,16 @@
 				6360D6C71A6B5F32001171ED /* UIApplication+AppDimensions.m in Sources */,
 				6360D6E21A6BA0F8001171ED /* OpenEntriesViewController.m in Sources */,
 				6360D6D01A6B5F4D001171ED /* ReadingViewController.m in Sources */,
+				6355330C1AA7AFF100AF865B /* Activities.m in Sources */,
 				6360D6D91A6B5F59001171ED /* HomeViewController.m in Sources */,
 				6360D6B61A6B5F26001171ED /* MusicViewController.m in Sources */,
+				635533151AA8019200AF865B /* Therapist.m in Sources */,
 				6360D6AA1A6B5F11001171ED /* EditViewController.m in Sources */,
+				635533091AA7AFF100AF865B /* RatingScreen.m in Sources */,
 				634FFC701A7596D600F24DF6 /* ExerciseTableViewController.m in Sources */,
 				6360D6AD1A6B5F1B001171ED /* JournalViewController.m in Sources */,
+				635533061AA7AFF000AF865B /* ButtonActivations.m in Sources */,
+				635533181AA8019200AF865B /* Patient.m in Sources */,
 				6360D6E51A6BAD15001171ED /* Journal.m in Sources */,
 				6360D6C61A6B5F32001171ED /* UIViewController+RNSwipeViewController.m in Sources */,
 				634FFC761A75A2BA00F24DF6 /* Exercises.m in Sources */,

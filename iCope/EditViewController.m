@@ -20,6 +20,7 @@
 //@synthesize context;
 //@synthesize workoutHist;
 @synthesize dates;
+@synthesize background;
 
 - (id) init
 {

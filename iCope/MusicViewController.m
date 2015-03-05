@@ -24,7 +24,8 @@
 @synthesize currentPosition;
 @synthesize background;
 @synthesize songInfo;
-
+@synthesize duration;
+@synthesize musicPlayer;
 
 -(id)init{
     if(self = [super init])
@@ -311,7 +312,7 @@
 {
     if ([musicPlayer playbackState] == MPMusicPlaybackStatePlaying) {
         [musicPlayer pause];
-        MPMediaItem *mediaItem;
+        //MPMediaItem *mediaItem;
     }
     else
     {
@@ -324,12 +325,12 @@
     [musicPlayer skipToNextItem];
 }
 
--(NSInteger *) Time {
+-(int) Time {
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH"];
     NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
-    NSInteger *timeOfDayInHours = [timeOfDayInHoursString integerValue];
+    int timeOfDayInHours = [timeOfDayInHoursString integerValue];
     return timeOfDayInHours;
 }
 

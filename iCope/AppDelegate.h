@@ -10,8 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "Exercises.h"
 #import "Quotes.h"
-#import "RatingViewController.h"
 #import "LoginViewController.h"
+#import "BackEndComunicator.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     Exercises *exercise;
@@ -21,12 +21,14 @@
     NSArray *mainImg;
     NSArray *quotes;
     NSArray *authors;
+    UIViewController *viewController;
+    BackEndComunicator *bec;
 }
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) BackEndComunicator *bec;
 @property (strong, nonatomic) UINavigationController *navCtrl;
-@property (strong, nonatomic) LoginViewController *viewController;
+@property (strong, nonatomic) UIViewController *viewController;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

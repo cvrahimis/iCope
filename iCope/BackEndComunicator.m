@@ -54,14 +54,18 @@
 }
 
 -(BOOL) isPatientAndTherapistOnDevice{
-    return YES;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Patient" inManagedObjectContext: _managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error = nil;
+    NSArray *patient = [_managedObjectContext executeFetchRequest:fetchRequest error: &error];
+    
+    if ([patient count] > 0)
+        return YES;
+    return NO;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    // A response has been received, this is where we initialize the instance var you created
-    // so that we can append data to it in the didReceiveData method
-    // Furthermore, this method is called each time there is a redirect so reinitializing it
-    // also serves to clear it
     NSLog(@"%s", __PRETTY_FUNCTION__);
     _responseData = [[NSMutableData alloc] init];
 }
@@ -69,8 +73,34 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     // Append the new data to the instance variable you declared
     NSLog(@"%s", __PRETTY_FUNCTION__);
+    
     [_responseData appendData:data];
     result = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    NSArray *phpData = [result componentsSeparatedByString: @","];
+    
+    Therapist *therapist = [NSEntityDescription
+                                      insertNewObjectForEntityForName:@"Therapist"
+                                      inManagedObjectContext:_managedObjectContext];
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterNoStyle;
+    therapist.therapistId = [f numberFromString:[phpData objectAtIndex:1]];
+    therapist.therapistFirstName = [phpData objectAtIndex:6];
+    therapist.therapistLastName = [phpData objectAtIndex:7];
+    
+    Patient *patient = [NSEntityDescription insertNewObjectForEntityForName:@"Patient" inManagedObjectContext:_managedObjectContext];
+    patient.patientId = [f numberFromString:[phpData objectAtIndex:0]];
+    patient.therapistId = [f numberFromString:[phpData objectAtIndex:1]];
+    patient.patientLogin = [phpData objectAtIndex:2];
+    patient.patientPassword = [phpData objectAtIndex:3];
+    patient.patientFirstName = [phpData objectAtIndex:4];
+    patient.patientLastName = [phpData objectAtIndex:5];
+    patient.therapist = therapist;
+    [therapist addPatientObject: patient];
+    
+    NSError *error;
+    if (![_managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection

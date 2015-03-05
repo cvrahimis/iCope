@@ -865,7 +865,7 @@ static CGFloat kRNSwipeDefaultDuration = 0.3f;
                 _centerContainer.top = [self _filterTop:translate.y];
                 _activeContainer.top = _bottomOriginal.origin.y + [self _filterTop:translate.y];
                 
-                NSInteger percent = MIN(fabsf(_centerContainer.top / self.bottomVisibleHeight) * 100, 100);
+                //NSInteger percent = MIN(fabsf(_centerContainer.top / self.bottomVisibleHeight) * 100, 100);
                 /*if ([self.bottomViewController conformsToProtocol:@protocol(RNRevealViewControllerProtocol)]) {
                     [((id<RNRevealViewControllerProtocol>)self.bottomViewController) changedPercentReveal:percent];
                 }*/
@@ -877,7 +877,7 @@ static CGFloat kRNSwipeDefaultDuration = 0.3f;
                 _centerContainer.top = [self _filterBottom:translate.y];
                 _activeContainer.top = _bottomOriginal.origin.y + [self _filterBottom:translate.y];
                 
-                NSInteger percent = MIN(fabsf(_centerContainer.top / self.bottomVisibleHeight) * 100, 100);
+                //NSInteger percent = MIN(fabsf(_centerContainer.top / self.bottomVisibleHeight) * 100, 100);
                 /*if ([self.bottomViewController conformsToProtocol:@protocol(RNRevealViewControllerProtocol)]) {
                     [((id<RNRevealViewControllerProtocol>)self.bottomViewController) changedPercentReveal:percent];
                 }*/

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
+#import "Therapist.h"
+#import "Patient.h"
 
 @interface BackEndComunicator : NSObject<NSURLConnectionDelegate>
 {
@@ -26,7 +28,7 @@
 
 - (BOOL) loginWithUserName:(NSString*) username andPassword:(NSString*) password;
 
-
+-(BOOL) isPatientAndTherapistOnDevice;
 
 
 @end

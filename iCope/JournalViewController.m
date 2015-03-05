@@ -145,7 +145,7 @@
 
 -(void) open{
     NSLog(@"%s",__PRETTY_FUNCTION__);
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    //UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     //OpenEntriesViewController * oevc = [mainStoryboard instantiateViewControllerWithIdentifier:@"openEntriesViewController"];
     //OpenEntriesViewController *oevc = [[OpenEntriesViewController alloc] init];
     //[self presentViewController:oevc animated:YES completion:nil];
@@ -169,12 +169,12 @@
     //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(NSInteger *) Time {
+-(int) Time {
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH"];
     NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
-    NSInteger *timeOfDayInHours = [timeOfDayInHoursString integerValue];
+    int timeOfDayInHours = [timeOfDayInHoursString integerValue];
     return timeOfDayInHours;
 }
 

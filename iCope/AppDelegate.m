@@ -17,6 +17,9 @@
 @synthesize exerciseImgs;
 @synthesize mainImg;
 @synthesize exercise;
+@synthesize quotes;
+@synthesize authors;
+@synthesize bec;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -49,8 +52,11 @@
     }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    self.viewController = [[LoginViewController alloc] init];
+    bec = [[BackEndComunicator alloc] initWithManagedObjectContext:_managedObjectContext];
+    if ([bec isPatientAndTherapistOnDevice])
+        self.viewController = [[RatingViewController alloc] init];
+    else
+        self.viewController = [[LoginViewController alloc] init];
     
     self.navCtrl = [[UINavigationController alloc] initWithRootViewController: self.viewController];
     //[self.navCtrl setNavigationBarHidden:NO animated:YES];

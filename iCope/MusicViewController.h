@@ -26,7 +26,7 @@
     MPMusicPlayerController *musicPlayer;
     UIView *songInfo;
     NSNumber *duration;
-    NSInteger *currentTime;
+    int currentTime;
 }
 
 @property(nonatomic, strong) UIButton *playButton;
