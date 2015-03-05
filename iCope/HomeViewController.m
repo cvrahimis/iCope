@@ -20,7 +20,7 @@
 
 @implementation HomeViewController
 
-
+@synthesize bec;
 @synthesize greetingLbl;
 @synthesize musicBtn;
 @synthesize readingBtn;
@@ -56,10 +56,16 @@
 
 // Method so strings only have to be created once.
 -(void) initStrings {
-    name = @"Michael"; // User should set their name upon completion of first time setup.
-    morningGreeting = [NSString stringWithFormat:@"Good Morning %@", name];
-    afternoonGreeting = [NSString stringWithFormat:@"Good Afternoon %@", name];
-    eveningGreeting = [NSString stringWithFormat:@"Good Evening %@", name];
+    if ([bec isPatientAndTherapistOnDevice]) {
+        Patient *patient = [bec getPatientOnDevice];
+        name = [@" " stringByAppendingString:[patient valueForKey:@"patientFirstName"]];
+    }
+    else
+        name = @"";
+    
+    morningGreeting = [[NSString stringWithFormat:@"Good Morning"] stringByAppendingString:name];
+    afternoonGreeting = [[NSString stringWithFormat:@"Good Afternoon"] stringByAppendingString:name];
+    eveningGreeting = [[NSString stringWithFormat:@"Good Evening"] stringByAppendingString:name];
 }
 
 -(void) initLabels {
@@ -108,58 +114,20 @@
     else if (timeOfDayInHours > 12 && timeOfDayInHours < 18) return afternoonGreeting;
     else return eveningGreeting;
 }
-/*
-// Checks if we have an internet connection or not
-- (void)testInternetConnection
-{
-    internetReachableFoo = [Reachability reachabilityWithHostname:@"www.google.com"];
-    
-    // Internet is reachable
-    internetReachableFoo.reachableBlock = ^(Reachability*reach)
-    {
-        // Update the UI on the main thread
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"Yayyy, we have the interwebs!");
-        });
-    };
-    
-    // Internet is not reachable
-    internetReachableFoo.unreachableBlock = ^(Reachability*reach)
-    {
-        // Update the UI on the main thread
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"Someone broke the internet :(");
-        });
-    };
-    
-    [internetReachableFoo startNotifier];
-}*/
 
 - (void)viewDidLoad {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     [super viewDidLoad];
-    /*[self testInternetConnection];
-    if([internetReachableFoo isReachable])
-        [connection setHidden:YES];
-    else
-        [connection setHidden:NO];
-    */
-    // Do any additional setup after loading the view.
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    bec = [[BackEndComunicator alloc] initWithManagedObjectContext:appDelegate.managedObjectContext];
+    
     currentTime = [self Time];
     [self initBackground];
     [self initStrings];
     [self initLabels];
     [self initButtons];
-    //[self showRatingScreen];
-    //background.userInteractionEnabled = YES;
-    //contentView.frame = CGRectMake(0, 0, frameWidth, frameHeight);
 }
-
-/*-(void) showRatingScreen {
-    NSLog(@"%s ================== Rating Button Pressed", __PRETTY_FUNCTION__);
-    RatingViewController *ratingVC = [[RatingViewController alloc] init];
-    [self.navigationController pushViewController:ratingVC animated:YES];
-}*/
 
 - (IBAction)activityPress:(id)sender {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];

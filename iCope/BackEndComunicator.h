@@ -30,5 +30,6 @@
 
 -(BOOL) isPatientAndTherapistOnDevice;
 
+-(Patient*) getPatientOnDevice;
 
 @end

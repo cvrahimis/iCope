@@ -14,6 +14,7 @@
 #import "ExerciseTableViewController.h"
 #import "ReadingViewController.h"
 #import "RatingViewController.h"
+#import "BackEndComunicator.h"
 
 @interface HomeViewController : UIViewController{
     UILabel *home;
@@ -24,10 +25,10 @@
     NSString *afternoonGreeting;
     NSString *eveningGreeting;
     int currentTime;
-    
+    BackEndComunicator *bec;
 }
 
-
+@property (strong, nonatomic) BackEndComunicator *bec;
 @property (strong, nonatomic) IBOutlet UILabel *greetingLbl;
 @property (strong, nonatomic) IBOutlet UIImageView *contentImgView;
 @property (strong, nonatomic) IBOutlet UIButton *musicBtn;

@@ -23,6 +23,7 @@
     UITextField *activeField;
     UILabel *connectionLbl;
     Reachability *internetReach;
+    UILabel *appName;
 }
 @property (strong, nonatomic) Reachability *internetReach;
 @property (strong, nonatomic) UIScrollView *scrollView;
@@ -33,5 +34,6 @@
 @property (strong, nonatomic) UIButton *loginBtn;
 @property (strong, nonatomic) UIButton *cancelBtn;
 @property (strong, nonatomic) UILabel *connectionLbl;
+@property (strong, nonatomic) UILabel *appName;
 
 @end

@@ -20,6 +20,7 @@
 @synthesize scrollView;
 @synthesize connectionLbl;
 @synthesize internetReach;
+@synthesize appName;
 
 -(id) init{
     if(self = [super init])
@@ -45,6 +46,14 @@
         self.scrollView.userInteractionEnabled = YES;
         [self.scrollView addGestureRecognizer:singleTap];
         [self.view addSubview:scrollView];
+        
+        appName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight *.1)];
+        appName.center = CGPointMake(frameWidth / 2, frameHeight * .15);
+        appName.text = @"App Name";
+        [appName setFont:[UIFont systemFontOfSize:36]];
+        appName.textColor = [UIColor whiteColor];
+        appName.textAlignment = NSTextAlignmentCenter;
+        [scrollView addSubview:appName];
         
         usernameTF = [[UITextField alloc] initWithFrame: CGRectMake(0, 0, frameWidth*.65, frameHeight * .1)];
         usernameTF.center = CGPointMake(frameWidth * .5, frameHeight * .3);

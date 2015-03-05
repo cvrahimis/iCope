@@ -53,6 +53,19 @@
     return YES;
 }
 
+-(Patient*) getPatientOnDevice
+{
+    if([self isPatientAndTherapistOnDevice]){
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Patient" inManagedObjectContext: _managedObjectContext];
+        [fetchRequest setEntity:entity];
+        NSError *error = nil;
+        Patient *patient = [[_managedObjectContext executeFetchRequest:fetchRequest error: &error] objectAtIndex:0];
+        return patient;
+    }
+    return nil;
+}
+
 -(BOOL) isPatientAndTherapistOnDevice{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Patient" inManagedObjectContext: _managedObjectContext];
