@@ -46,11 +46,8 @@
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:postData];
-    NSURLConnection *conn = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    if(!conn) {
-        return NO;
-    }
-    return YES;
+    NSData *serverData = [NSURLConnection sendSynchronousRequest: request returningResponse:nil error:nil];
+    return [self insertPatientandTherapistToDevice:serverData];
 }
 
 -(Patient*) getPatientOnDevice
@@ -64,6 +61,42 @@
         return patient;
     }
     return nil;
+}
+
+-(BOOL) insertPatientandTherapistToDevice:(NSData*) data{
+    // Append the new data to the instance variable you declared
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    [_responseData appendData:data];
+    result = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    NSArray *phpData = [result componentsSeparatedByString: @","];
+    if([phpData count] != 8)
+    {
+        Therapist *therapist = [NSEntityDescription insertNewObjectForEntityForName:@"Therapist" inManagedObjectContext:_managedObjectContext];
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        f.numberStyle = NSNumberFormatterNoStyle;
+        therapist.therapistId = [f numberFromString:[phpData objectAtIndex:1]];
+        therapist.therapistFirstName = [phpData objectAtIndex:6];
+        therapist.therapistLastName = [phpData objectAtIndex:7];
+    
+        Patient *patient = [NSEntityDescription insertNewObjectForEntityForName:@"Patient" inManagedObjectContext:_managedObjectContext];
+        patient.patientId = [f numberFromString:[phpData objectAtIndex:0]];
+        patient.therapistId = [f numberFromString:[phpData objectAtIndex:1]];
+        patient.patientLogin = [phpData objectAtIndex:2];
+        patient.patientPassword = [phpData objectAtIndex:3];
+        patient.patientFirstName = [phpData objectAtIndex:4];
+        patient.patientLastName = [phpData objectAtIndex:5];
+        patient.therapist = therapist;
+        [therapist addPatientObject: patient];
+    
+        NSError *error;
+        if (![_managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+            return NO;
+        }
+        return YES;
+    }
+    return NO;
 }
 
 -(BOOL) isPatientAndTherapistOnDevice{
@@ -84,7 +117,7 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    // Append the new data to the instance variable you declared
+    /*// Append the new data to the instance variable you declared
     NSLog(@"%s", __PRETTY_FUNCTION__);
     
     [_responseData appendData:data];
@@ -113,7 +146,7 @@
     NSError *error;
     if (![_managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
+    }*/
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection

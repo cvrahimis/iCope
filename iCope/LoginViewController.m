@@ -137,7 +137,20 @@
         AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         BackEndComunicator *bec = [[BackEndComunicator alloc] initWithManagedObjectContext:appDelegate.managedObjectContext];
         if (![bec isPatientAndTherapistOnDevice]) {
-            if ([bec loginWithUserName:usernameTF.text andPassword:passwordTF.text]) {
+            
+            UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0,0,50,50)];
+            spinner.center = CGPointMake(frameWidth / 2, frameHeight / 2);
+            spinner.color = [UIColor blueColor];
+            
+            [scrollView addSubview:spinner];
+            __block BOOL loginSuccess = NO;
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [spinner startAnimating];
+            });
+            loginSuccess = [bec loginWithUserName:usernameTF.text andPassword:passwordTF.text];
+            [spinner removeFromSuperview];
+            
+            if (loginSuccess) {
                 
                 RatingViewController *rvc = [[RatingViewController alloc] init];
                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
@@ -147,6 +160,11 @@
                                    animated:YES
                                  completion:nil];
 
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Login" message:@"username or password is incorrect"  delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+                [alert show];
             }
         }
         else
