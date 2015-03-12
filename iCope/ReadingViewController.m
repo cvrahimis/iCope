@@ -63,7 +63,8 @@
 -(void) formatLabels {
     q = [quotes objectAtIndex:count];
     aQuote = [q valueForKey:@"quote"];
-    lineCount = [aQuote length]/15+1;
+    NSUInteger temp = [aQuote length] / 15 + 1;
+    lineCount = (int) temp;
     quoteLbl.numberOfLines = lineCount;
     [UIView transitionWithView:quoteLbl duration:.7f options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionTransitionFlipFromTop animations:^{
         quoteLbl.text = aQuote;
@@ -73,12 +74,12 @@
     else count = 0;
 }
 
--(int) Time {
+-(long) Time {
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH"];
     NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
-    int timeOfDayInHours = [timeOfDayInHoursString integerValue];
+    long timeOfDayInHours = [timeOfDayInHoursString integerValue];
     return timeOfDayInHours;
 }
 

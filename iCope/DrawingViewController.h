@@ -10,7 +10,7 @@
 #import "SettingsViewController.h"
 #import "RatingViewController.h"
 
-@interface DrawingViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate> {
+@interface DrawingViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     
     CGPoint lastPoint;
     CGFloat red;

@@ -129,7 +129,7 @@
 {
     [super viewDidLoad];
     
-    musicPlayer = [MPMusicPlayerController iPodMusicPlayer];
+    musicPlayer = [MPMusicPlayerController systemMusicPlayer];
     
     [volume setValue:[musicPlayer volume]];
     
@@ -276,7 +276,7 @@
     mediaPicker.allowsPickingMultipleItems = YES;
     mediaPicker.prompt = @"Select songs to play";
     
-    [self presentModalViewController:mediaPicker animated:YES];
+    [self presentViewController:mediaPicker animated:YES completion:nil];
     mediaPicker = nil;
 }
 
@@ -288,13 +288,13 @@
         [musicPlayer setQueueWithItemCollection: mediaItemCollection];
         [musicPlayer play];
     }
-    [self dismissModalViewControllerAnimated: YES];
+    [self dismissViewControllerAnimated: YES completion:nil];
 }
 
 
 - (void) mediaPickerDidCancel: (MPMediaPickerController *) mediaPicker
 {
-    [self dismissModalViewControllerAnimated: YES];
+    [self dismissViewControllerAnimated: YES completion:nil];
 }
 
 #pragma mark - Controls
@@ -325,12 +325,12 @@
     [musicPlayer skipToNextItem];
 }
 
--(int) Time {
+-(long) Time {
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH"];
     NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
-    int timeOfDayInHours = [timeOfDayInHoursString integerValue];
+    long timeOfDayInHours = [timeOfDayInHoursString integerValue];
     return timeOfDayInHours;
 }
 

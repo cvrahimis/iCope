@@ -25,10 +25,6 @@
 		6360D67B1A6B5D98001171ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6360D67A1A6B5D98001171ED /* Images.xcassets */; };
 		6360D67E1A6B5D98001171ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6360D67C1A6B5D98001171ED /* LaunchScreen.xib */; };
 		6360D68A1A6B5D98001171ED /* iCopeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6891A6B5D98001171ED /* iCopeTests.m */; };
-		6360D6A11A6B5F02001171ED /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6A01A6B5F02001171ED /* MovieViewController.m */; };
-		6360D6A41A6B5F09001171ED /* MachinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6A31A6B5F09001171ED /* MachinesViewController.m */; };
-		6360D6A91A6B5F11001171ED /* WorkoutSumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6A61A6B5F11001171ED /* WorkoutSumViewController.m */; };
-		6360D6AA1A6B5F11001171ED /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6A81A6B5F11001171ED /* EditViewController.m */; };
 		6360D6AD1A6B5F1B001171ED /* JournalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6AC1A6B5F1B001171ED /* JournalViewController.m */; };
 		6360D6B31A6B5F26001171ED /* fastforward.png in Resources */ = {isa = PBXBuildFile; fileRef = 6360D6AE1A6B5F26001171ED /* fastforward.png */; };
 		6360D6B41A6B5F26001171ED /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 6360D6AF1A6B5F26001171ED /* play.png */; };
@@ -104,15 +100,6 @@
 		6360D6831A6B5D98001171ED /* iCopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCopeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6360D6881A6B5D98001171ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6360D6891A6B5D98001171ED /* iCopeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCopeTests.m; sourceTree = "<group>"; };
-		6360D69E1A6B5F02001171ED /* ViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDelegate.h; sourceTree = "<group>"; };
-		6360D69F1A6B5F02001171ED /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
-		6360D6A01A6B5F02001171ED /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
-		6360D6A21A6B5F09001171ED /* MachinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MachinesViewController.h; sourceTree = "<group>"; };
-		6360D6A31A6B5F09001171ED /* MachinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MachinesViewController.m; sourceTree = "<group>"; };
-		6360D6A51A6B5F11001171ED /* WorkoutSumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSumViewController.h; sourceTree = "<group>"; };
-		6360D6A61A6B5F11001171ED /* WorkoutSumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSumViewController.m; sourceTree = "<group>"; };
-		6360D6A71A6B5F11001171ED /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
-		6360D6A81A6B5F11001171ED /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		6360D6AB1A6B5F1B001171ED /* JournalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JournalViewController.h; sourceTree = "<group>"; };
 		6360D6AC1A6B5F1B001171ED /* JournalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JournalViewController.m; sourceTree = "<group>"; };
 		6360D6AE1A6B5F26001171ED /* fastforward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fastforward.png; sourceTree = "<group>"; };
@@ -302,9 +289,6 @@
 		6360D6941A6B5DD6001171ED /* PhysicalActivityControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6360D69B1A6B5EC6001171ED /* VideoPlayFunction */,
-				6360D69C1A6B5ED4001171ED /* ExerciseOptionsControllers */,
-				6360D69D1A6B5EE9001171ED /* WorkoutSummary */,
 				634FFC6E1A7596D600F24DF6 /* ExerciseTableViewController.h */,
 				634FFC6F1A7596D600F24DF6 /* ExerciseTableViewController.m */,
 				634FFC711A75970200F24DF6 /* ExerciseTableViewCell.h */,
@@ -393,36 +377,6 @@
 				6360D6D81A6B5F59001171ED /* MainViewController.m */,
 			);
 			name = MainControllers;
-			sourceTree = "<group>";
-		};
-		6360D69B1A6B5EC6001171ED /* VideoPlayFunction */ = {
-			isa = PBXGroup;
-			children = (
-				6360D69E1A6B5F02001171ED /* ViewControllerDelegate.h */,
-				6360D69F1A6B5F02001171ED /* MovieViewController.h */,
-				6360D6A01A6B5F02001171ED /* MovieViewController.m */,
-			);
-			name = VideoPlayFunction;
-			sourceTree = "<group>";
-		};
-		6360D69C1A6B5ED4001171ED /* ExerciseOptionsControllers */ = {
-			isa = PBXGroup;
-			children = (
-				6360D6A21A6B5F09001171ED /* MachinesViewController.h */,
-				6360D6A31A6B5F09001171ED /* MachinesViewController.m */,
-			);
-			name = ExerciseOptionsControllers;
-			sourceTree = "<group>";
-		};
-		6360D69D1A6B5EE9001171ED /* WorkoutSummary */ = {
-			isa = PBXGroup;
-			children = (
-				6360D6A51A6B5F11001171ED /* WorkoutSumViewController.h */,
-				6360D6A61A6B5F11001171ED /* WorkoutSumViewController.m */,
-				6360D6A71A6B5F11001171ED /* EditViewController.h */,
-				6360D6A81A6B5F11001171ED /* EditViewController.m */,
-			);
-			name = WorkoutSummary;
 			sourceTree = "<group>";
 		};
 		636A44651AA6CA290013DEF9 /* DBManagers */ = {
@@ -558,7 +512,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6360D6A91A6B5F11001171ED /* WorkoutSumViewController.m in Sources */,
 				6360D6DB1A6B5F59001171ED /* LeftViewController.m in Sources */,
 				6360D6731A6B5D98001171ED /* iCope.xcdatamodeld in Sources */,
 				C069B8511A8D1FD90002428E /* RatingViewController.m in Sources */,
@@ -574,7 +527,6 @@
 				6360D6D91A6B5F59001171ED /* HomeViewController.m in Sources */,
 				6360D6B61A6B5F26001171ED /* MusicViewController.m in Sources */,
 				635533151AA8019200AF865B /* Therapist.m in Sources */,
-				6360D6AA1A6B5F11001171ED /* EditViewController.m in Sources */,
 				635533091AA7AFF100AF865B /* RatingScreen.m in Sources */,
 				634FFC701A7596D600F24DF6 /* ExerciseTableViewController.m in Sources */,
 				6360D6AD1A6B5F1B001171ED /* JournalViewController.m in Sources */,
@@ -588,13 +540,11 @@
 				6360D6C51A6B5F32001171ED /* UIView+Sizes.m in Sources */,
 				636A44681AA6CA7D0013DEF9 /* BackEndComunicator.m in Sources */,
 				6360D6C31A6B5F32001171ED /* RNDirectionPanGestureRecognizer.m in Sources */,
-				6360D6A41A6B5F09001171ED /* MachinesViewController.m in Sources */,
 				6360D6CC1A6B5F43001171ED /* SettingsViewController.m in Sources */,
 				636A44741AA6D49C0013DEF9 /* Reachability.m in Sources */,
 				6360D6DA1A6B5F59001171ED /* RightViewController.m in Sources */,
 				635352831A6F61B80030F5CE /* OpenEntriesTableViewCell.m in Sources */,
 				6360D6CD1A6B5F43001171ED /* DrawingViewController.m in Sources */,
-				6360D6A11A6B5F02001171ED /* MovieViewController.m in Sources */,
 				6360D6C41A6B5F32001171ED /* RNSwipeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

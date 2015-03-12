@@ -15,7 +15,7 @@
     int count;
     int lineCount;
     NSString *aQuote;
-    int currentTime;
+    long currentTime;
     Quotes *q;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *background;

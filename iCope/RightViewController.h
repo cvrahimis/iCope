@@ -10,7 +10,7 @@
 #import "RNRevealViewControllerProtocol.h"
 
 @interface RightViewController : UIViewController <RNRevealViewControllerProtocol> {
-    int currentTime;
+    long currentTime;
 }
 
 -(id) init;

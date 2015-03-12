@@ -22,6 +22,7 @@
 @synthesize internetReach;
 @synthesize appName;
 
+
 -(id) init{
     if(self = [super init])
     {
@@ -231,13 +232,13 @@
 }
 
 
--(int) Time {
+-(long) Time {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH"];
     NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
-    int timeOfDayInHours = [timeOfDayInHoursString intValue];
+    long timeOfDayInHours = [timeOfDayInHoursString integerValue];
     return timeOfDayInHours;
 }
 

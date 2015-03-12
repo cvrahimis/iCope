@@ -21,14 +21,14 @@
     NSArray *mainImg;
     NSArray *quotes;
     NSArray *authors;
-    UIViewController *viewController;
+    UIViewController<UINavigationControllerDelegate> *viewController;
     BackEndComunicator *bec;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) BackEndComunicator *bec;
 @property (strong, nonatomic) UINavigationController *navCtrl;
-@property (strong, nonatomic) UIViewController *viewController;
+@property (strong, nonatomic) UIViewController<UINavigationControllerDelegate> *viewController;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

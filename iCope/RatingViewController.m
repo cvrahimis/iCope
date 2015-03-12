@@ -173,13 +173,13 @@
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
--(int) Time {
+-(long) Time {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH"];
     NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
-    int timeOfDayInHours = [timeOfDayInHoursString integerValue];
+    long timeOfDayInHours = [timeOfDayInHoursString integerValue];
     return timeOfDayInHours;
 }
 

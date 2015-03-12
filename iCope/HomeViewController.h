@@ -24,7 +24,7 @@
     NSString *morningGreeting;
     NSString *afternoonGreeting;
     NSString *eveningGreeting;
-    int currentTime;
+    long currentTime;
     BackEndComunicator *bec;
 }
 

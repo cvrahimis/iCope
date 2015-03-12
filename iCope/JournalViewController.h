@@ -15,7 +15,7 @@
 @interface JournalViewController : UIViewController <OpenEntriesViewControllerDelegate>{
     NSString *title;
     NSString *entry;
-    int currentTime;
+    long currentTime;
 }
 
 @property (strong, nonatomic) IBOutlet UIImageView *background;

@@ -12,9 +12,9 @@
 #import "AppDelegate.h"
 #import "RatingViewController.h"
 
-@interface LoginViewController : UIViewController<UITextFieldDelegate>{
+@interface LoginViewController : UIViewController<UITextFieldDelegate, UINavigationControllerDelegate>{
     UIImageView *background;
-    int currentTime;
+    long currentTime;
     UITextField *usernameTF;
     UITextField *passwordTF;
     UIButton *loginBtn;

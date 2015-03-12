@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MainViewController.h"
 
-@interface RatingViewController : UIViewController{
-    int currentTime;
+@interface RatingViewController : UIViewController<UINavigationControllerDelegate>{
+    long currentTime;
     UIButton *emotionBtns[9];
     UIImageView *background;
     UIButton *doneBtn;

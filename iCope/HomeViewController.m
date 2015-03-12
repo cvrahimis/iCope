@@ -93,12 +93,12 @@
 }
 
 // Method returns todays current hour.
--(int) Time {
+-(long) Time {
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH"];
     NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
-    int timeOfDayInHours = [timeOfDayInHoursString integerValue];
+    long timeOfDayInHours = [timeOfDayInHoursString integerValue];
     return timeOfDayInHours;
 }
 

@@ -20,7 +20,7 @@
 @synthesize quotes;
 @synthesize authors;
 @synthesize bec;
-
+@synthesize viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"%s", __PRETTY_FUNCTION__);

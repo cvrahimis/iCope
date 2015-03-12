@@ -654,7 +654,7 @@
         <!--Exercise View Controller-->
         <scene sceneID="m35-Xm-6zH">
             <objects>
-                <viewController id="IXf-th-X2d" customClass="ExerciseViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="exerciseViewController" id="IXf-th-X2d" customClass="ExerciseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aHB-o4-olR"/>
                         <viewControllerLayoutGuide type="bottom" id="NZ2-R4-Q5g"/>
