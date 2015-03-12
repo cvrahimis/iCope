@@ -105,6 +105,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
     self.navigationItem.title = @"Drawing";
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     NSLog(@"%f",self.navigationController.navigationBar.frame.size.height);
