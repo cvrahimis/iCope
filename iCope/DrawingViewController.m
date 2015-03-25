@@ -397,15 +397,18 @@
 
 - (void)settings {
     NSLog(@"%s",__PRETTY_FUNCTION__);
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    SettingsViewController * settingsVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    //UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    //SettingsViewController *settingsVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    SettingsViewController *settingsVC = [[SettingsViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+
     settingsVC.delegate = self;
     settingsVC.brush = brush;
     settingsVC.opacity = opacity;
     settingsVC.red = red;
     settingsVC.green = green;
     settingsVC.blue = blue;
-    [self presentViewController:settingsVC animated:YES completion:nil];
+    [self presentViewController:navigationController animated:YES completion:nil];
     //[self.navigationController pushViewController:settingsVC animated:YES];
     
 }

@@ -14,19 +14,21 @@
 
 @interface SettingsViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UISlider *brushControl;
-@property (weak, nonatomic) IBOutlet UISlider *opacityControl;
-@property (weak, nonatomic) IBOutlet UIImageView *brushPreview;
-@property (weak, nonatomic) IBOutlet UIImageView *opacityPreview;
-@property (weak, nonatomic) IBOutlet UILabel *brushValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *opacityValueLabel;
-@property (weak, nonatomic) id<SettingsViewControllerDelegate> delegate;
-@property (weak, nonatomic) IBOutlet UISlider *redControl;
-@property (weak, nonatomic) IBOutlet UISlider *greenControl;
-@property (weak, nonatomic) IBOutlet UISlider *blueControl;
-@property (weak, nonatomic) IBOutlet UILabel *redLabel;
-@property (weak, nonatomic) IBOutlet UILabel *greenLabel;
-@property (weak, nonatomic) IBOutlet UILabel *blueLabel;
+@property (strong, nonatomic) IBOutlet UISlider *brushControl;
+@property (strong, nonatomic) IBOutlet UISlider *opacityControl;
+@property (strong, nonatomic) IBOutlet UIImageView *brushPreview;
+@property (strong, nonatomic) IBOutlet UIImageView *opacityPreview;
+@property (strong, nonatomic) IBOutlet UILabel *brushValueLabel;
+@property (strong, nonatomic) IBOutlet UILabel *opacityValueLabel;
+@property (strong, nonatomic) id<SettingsViewControllerDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UISlider *redControl;
+@property (strong, nonatomic) IBOutlet UISlider *greenControl;
+@property (strong, nonatomic) IBOutlet UISlider *blueControl;
+@property (strong, nonatomic) IBOutlet UILabel *redLabel;
+@property (strong, nonatomic) IBOutlet UILabel *greenLabel;
+@property (strong, nonatomic) IBOutlet UILabel *blueLabel;
+@property (strong, nonatomic) UILabel *brushLbl;
+@property (strong, nonatomic) UILabel *opacityLbl;
 
 @property CGFloat brush;
 @property CGFloat opacity;
