@@ -486,7 +486,7 @@
             NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
         }
     }
-    if(exit)
+    //if(exit)
         [bec sendActivities];
 }
 

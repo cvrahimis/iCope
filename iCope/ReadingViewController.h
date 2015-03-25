@@ -19,6 +19,7 @@
     Quotes *q;
     NSDate *startTime;
     NSDate *endTime;
+    UIView *backTint;
 }
 
 
@@ -29,6 +30,7 @@
 @property (strong, nonatomic) UILabel *authorLbl;
 @property (strong, nonatomic) NSDate *startTime;
 @property (strong, nonatomic) NSDate *endTime;
+@property (strong, nonatomic) UIView *backTint;
 
 - (IBAction)nextBtnPress:(id)sender;
 

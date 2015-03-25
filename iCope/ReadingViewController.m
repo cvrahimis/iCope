@@ -18,12 +18,21 @@
 @synthesize authorLbl;
 @synthesize startTime;
 @synthesize endTime;
+@synthesize backTint;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    backTint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight)];
+    backTint.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:.2];
+    [self.view addSubview:backTint];
+    [self.view sendSubviewToBack:backTint];
+    [self.view sendSubviewToBack:background];
+    
     count = 0;
     currentTime = [self Time];
-    quoteLbl = [[UILabel alloc] initWithFrame:CGRectMake((frameWidth / 2) - ((frameWidth * .95) / 2), self.navigationController.navigationBar.frame.size.height, frameWidth * .95, frameHeight * .6)];
+    quoteLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .95, frameHeight * .6)];
+    quoteLbl.center = CGPointMake(frameWidth / 2, frameHeight * .4);
     startTime = [NSDate date];
     
     
@@ -60,7 +69,10 @@
     authorLbl.font = [UIFont fontWithName: @"Cochin-BoldItalic" size: 20];
     quoteLbl.textAlignment = NSTextAlignmentCenter;
     authorLbl.textAlignment = NSTextAlignmentCenter;
-    quoteLbl.textColor = [UIColor whiteColor];
+    quoteLbl.textColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.];
+    
+    quoteLbl.adjustsFontSizeToFitWidth = YES;
+    //[quoteLbl sizeToFit];
     authorLbl.textColor = [UIColor whiteColor];
     //quoteLbl.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:.3];
 }
@@ -68,7 +80,7 @@
 -(void) formatLabels {
     q = [quotes objectAtIndex:count];
     aQuote = [q valueForKey:@"quote"];
-    NSUInteger temp = [aQuote length]/15+1;
+    NSUInteger temp = [aQuote length]/18+1;
     lineCount = (int) temp;
     quoteLbl.numberOfLines = lineCount;
     [UIView transitionWithView:quoteLbl duration:.7f options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionTransitionFlipFromTop animations:^{
@@ -77,6 +89,9 @@
     } completion:nil];
     if (count < quotes.count-1) count++;
     else count = 0;
+    quoteLbl.adjustsFontSizeToFitWidth = YES;
+    //[quoteLbl sizeToFit];
+    //quoteLbl.center = CGPointMake(frameWidth / 2, frameHeight * .3);
 }
 
 -(long) Time {

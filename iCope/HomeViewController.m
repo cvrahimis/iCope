@@ -69,7 +69,7 @@
             [self.view addSubview: activityBtns[i]];
         }
         
-        ratingBtn = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+        /*ratingBtn = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         [ratingBtn setFrame:CGRectMake(0, 0, frameWidth * .5, frameHeight * .06)];
         [ratingBtn setCenter:CGPointMake(frameWidth / 2, frameHeight * .95)];
         ratingBtn.backgroundColor = [UIColor yellowColor];
@@ -80,7 +80,7 @@
         [ratingBtn.titleLabel setFont:[UIFont systemFontOfSize: 20]];
         [ratingBtn setTitle:@"Exit To Rating" forState:UIControlStateNormal];
         [ratingBtn addTarget:self action:@selector(ratingScreen) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview: ratingBtn];
+        [self.view addSubview: ratingBtn];*/
     }
     return self;
 }
