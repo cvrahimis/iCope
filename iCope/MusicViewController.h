@@ -10,7 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "RatingViewController.h"
 
-@interface MusicViewController : UIViewController<MPMediaPickerControllerDelegate> {
+@interface MusicViewController : UIViewController<MPMediaPickerControllerDelegate, UIAlertViewDelegate> {
     UIButton *playButton;
     UIButton *rewind;
     UIButton *fastforward;

@@ -223,7 +223,8 @@
         case 3:
         {
             NSLog(@"%s ================== Journal Button Pressed", __PRETTY_FUNCTION__);
-            JournalViewController *journal = [mainStoryboard instantiateViewControllerWithIdentifier:@"journalViewController"];
+            //JournalViewController *journal = [mainStoryboard instantiateViewControllerWithIdentifier:@"journalViewController"];
+            JournalViewController *journal = [[JournalViewController alloc] init];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:journal];
             [self.navigationController popToRootViewControllerAnimated:YES];
             //now present this navigation controller modally

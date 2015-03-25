@@ -37,26 +37,26 @@
         
         startTime = [NSDate date];
         
-        playButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 100, 100)];
-        playButton.center = CGPointMake(frameWidth / 2, frameHeight * .8);
+        playButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, frameWidth * .4, frameWidth * .4)];
+        playButton.center = CGPointMake(frameWidth / 2, frameHeight * .9);
         [playButton setImage: [UIImage imageNamed: @"play.png"] forState: UIControlStateNormal];
         [playButton addTarget: self action:@selector(playPause:) forControlEvents: UIControlEventTouchDown];
         [self.view addSubview: playButton];
         
-        fastforward = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 100, 100)];
-        fastforward.center = CGPointMake(frameWidth * .8, frameHeight * .8);
+        fastforward = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, frameWidth * .4, frameWidth * .4)];
+        fastforward.center = CGPointMake(frameWidth * .8, frameHeight * .9);
         [fastforward setImage: [UIImage imageNamed: @"fastforward.png"] forState: UIControlStateNormal];
         [fastforward addTarget: self action:@selector(nextSong:) forControlEvents: UIControlEventTouchDown];
         [self.view addSubview: fastforward];
         
-        rewind = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 100, 100)];
-        rewind.center = CGPointMake(frameWidth * .2, frameHeight * .8);
+        rewind = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, frameWidth * .4, frameWidth * .4)];
+        rewind.center = CGPointMake(frameWidth * .2, frameHeight * .9);
         [rewind setImage: [UIImage imageNamed: @"rewind.png"] forState: UIControlStateNormal];
         [rewind addTarget: self action:@selector(previousSong:) forControlEvents: UIControlEventTouchDown];
         [self.view addSubview: rewind];
         
         volume = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .7, 30)];
-        volume.center = CGPointMake(frameWidth / 2, frameHeight * .7);
+        volume.center = CGPointMake(frameWidth / 2, frameHeight * .8);
         volume.backgroundColor = [UIColor clearColor];
         volume.minimumValue = 0.0f;
         volume.maximumValue = 1.0f;
@@ -70,38 +70,40 @@
          [self.view addSubview: currentPosition];
          */
         
-        songInfo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .4, frameHeight * .2)];
-        songInfo.center = CGPointMake(frameWidth * .5, frameHeight * .55);
+        songInfo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight * .2)];
+        songInfo.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:.2];
+        songInfo.center = CGPointMake(frameWidth * .5, frameHeight * .65);
         //songInfo.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:songInfo];
         
-        songTitle = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frameWidth * .4, frameHeight * .5)];
+        songTitle = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frameWidth, frameHeight * .5)];
         songTitle.center = CGPointMake(self.songInfo.bounds.size.width * .5, self.songInfo.bounds.size.height * .2);
         songTitle.text = @"Title: ";
-        songTitle.textAlignment = NSTextAlignmentLeft;
+        songTitle.textAlignment = NSTextAlignmentCenter;
         songTitle.font = [UIFont fontWithName: @"Helvetica" size: 20];
-        songTitle.textColor = [UIColor greenColor];
+        songTitle.textColor = [UIColor whiteColor];
         [songInfo addSubview: songTitle];
         
-        artist = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frameWidth * .4, frameHeight * .2)];
+        artist = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frameWidth, frameHeight * .2)];
         artist.center = CGPointMake(self.songInfo.bounds.size.width * .5, self.songInfo.bounds.size.height * .4);
         artist.text = @"Artist: ";
-        artist.textAlignment = NSTextAlignmentLeft;
+        artist.textAlignment = NSTextAlignmentCenter;
         artist.font = [UIFont fontWithName: @"Helvetica" size: 20];
-        artist.textColor = [UIColor greenColor];
+        artist.textColor = [UIColor whiteColor];
         [songInfo addSubview: artist];
         
-        album = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frameWidth * .4, frameHeight * .6)];
+        album = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frameWidth, frameHeight * .6)];
         album.center = CGPointMake(self.songInfo.bounds.size.width * .5, self.songInfo.bounds.size.height * .6);
         album.text = @"Album: ";
-        album.textAlignment = NSTextAlignmentLeft;
+        album.textAlignment = NSTextAlignmentCenter
+        ;
         album.font = [UIFont fontWithName: @"Helvetica" size: 20];
-        album.textColor = [UIColor greenColor];
+        album.textColor = [UIColor whiteColor];
         [songInfo addSubview: album];
         
         showMediaPicker = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         showMediaPicker.frame = CGRectMake(0, 0, frameWidth*.6, frameHeight * .05);
-        showMediaPicker.center = CGPointMake(frameWidth * .5, frameHeight * .42);
+        showMediaPicker.center = CGPointMake(frameWidth * .5, frameHeight * .5);
         showMediaPicker.opaque = YES;
         showMediaPicker.layer.cornerRadius = 12;
         showMediaPicker.clipsToBounds = YES;
@@ -114,7 +116,7 @@
         [self.view addSubview: showMediaPicker];
         
         albumCover = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .6, frameHeight * .3)];
-        albumCover.center = CGPointMake(frameWidth /2, frameHeight * .2);
+        albumCover.center = CGPointMake(frameWidth /2, frameHeight * .3);
         //albumCover.image = [UIImage imageNamed:@"bluredDumbBells.png"];
         //albumCover.backgroundColor = [UIColor whiteColor];
         [self.view addSubview: albumCover];
@@ -162,7 +164,19 @@
     
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // the user clicked OK
+    if (buttonIndex == 0) {
+        [musicPlayer stop];
+    }
+}
+
 -(void) done{
+    if([musicPlayer playbackState] == MPMusicPlaybackStatePlaying)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Do you want to keep playing music?"  delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        [alert show];
+    }
     
     endTime = [NSDate date];
     NSTimeInterval timeDifference = [endTime timeIntervalSinceDate:startTime];

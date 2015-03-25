@@ -7,7 +7,8 @@
 //
 
 #import "JournalViewController.h"
-
+#define frameWidth self.view.frame.size.width
+#define frameHeight self.view.frame.size.height
 @interface JournalViewController ()
 
 @end
@@ -23,7 +24,33 @@
 -(id) init{
     if(self = [super init])
     {
+        background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight)];
+        [self initBackground];
+        [self.view addSubview:background];
         
+        titleTF = [[UITextField alloc] initWithFrame: CGRectMake(0, 0, frameWidth * .6, frameHeight *.08)];
+        titleTF.placeholder = @"Title";
+        titleTF.backgroundColor = [UIColor whiteColor];
+        titleTF.center = CGPointMake(frameWidth / 2, frameHeight * .15);
+        [self.view addSubview:titleTF];
+        
+        entryTV = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .7, frameHeight * .4)];
+        entryTV.center = CGPointMake(frameWidth / 2, frameHeight * .5);
+        [self.view addSubview:entryTV];
+        
+        saveBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .27, frameHeight * .07)];
+        saveBtn.center = CGPointMake(frameWidth /2, frameHeight * .8);
+        saveBtn.backgroundColor = [UIColor blueColor];
+        saveBtn.layer.cornerRadius = 10;
+        saveBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
+        saveBtn.showsTouchWhenHighlighted = YES;
+        [saveBtn setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+        [saveBtn.titleLabel setFont:[UIFont systemFontOfSize: 17]];
+        [saveBtn setTitle: @"Save" forState: UIControlStateNormal];
+        saveBtn.userInteractionEnabled = YES;
+        [saveBtn addTarget:self action:@selector(savePress:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:saveBtn];
+
     }
     return self;
 }

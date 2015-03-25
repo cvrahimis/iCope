@@ -62,7 +62,7 @@
                 emotionBtns[count].tag = count;
                 emotionBtns[count].showsTouchWhenHighlighted = YES;
                 [emotionBtns[count] setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
-                [emotionBtns[count].titleLabel setFont:[UIFont systemFontOfSize: 18]];
+                [emotionBtns[count].titleLabel setFont:[UIFont systemFontOfSize: 17]];
                 [emotionBtns[count] setTitle: [titles objectAtIndex: count] forState: UIControlStateNormal];
                 
                 emotionBtns[count].userInteractionEnabled = YES;

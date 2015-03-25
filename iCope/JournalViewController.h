@@ -13,7 +13,7 @@
 #import "OpenEntriesViewControllerDelegate.h"
 #import "RatingViewController.h"
 
-@interface JournalViewController : UIViewController <OpenEntriesViewControllerDelegate>{
+@interface JournalViewController : UIViewController <OpenEntriesViewControllerDelegate, UITextViewDelegate>{
     NSString *title;
     NSString *entry;
     long currentTime;
