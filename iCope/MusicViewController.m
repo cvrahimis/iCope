@@ -26,12 +26,16 @@
 @synthesize songInfo;
 @synthesize duration;
 @synthesize musicPlayer;
+@synthesize startTime;
+@synthesize endTime;
 
 -(id)init{
     if(self = [super init])
     {
         currentTime = [self Time];
         [self initBackground];
+        
+        startTime = [NSDate date];
         
         playButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 100, 100)];
         playButton.center = CGPointMake(frameWidth / 2, frameHeight * .8);
@@ -62,9 +66,9 @@
         [self.view addSubview: volume];
         
         /*currentPosition = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .7, 30)];//initWithProgressViewStyle: UIProgressViewStyleDefault];
-        currentPosition.center = CGPointMake(frameWidth / 2, frameHeight * .75);
-        [self.view addSubview: currentPosition];
-        */
+         currentPosition.center = CGPointMake(frameWidth / 2, frameHeight * .75);
+         [self.view addSubview: currentPosition];
+         */
         
         songInfo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .4, frameHeight * .2)];
         songInfo.center = CGPointMake(frameWidth * .5, frameHeight * .55);
@@ -86,7 +90,7 @@
         artist.font = [UIFont fontWithName: @"Helvetica" size: 20];
         artist.textColor = [UIColor greenColor];
         [songInfo addSubview: artist];
-
+        
         album = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frameWidth * .4, frameHeight * .6)];
         album.center = CGPointMake(self.songInfo.bounds.size.width * .5, self.songInfo.bounds.size.height * .6);
         album.text = @"Album: ";
@@ -94,7 +98,7 @@
         album.font = [UIFont fontWithName: @"Helvetica" size: 20];
         album.textColor = [UIColor greenColor];
         [songInfo addSubview: album];
-
+        
         showMediaPicker = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         showMediaPicker.frame = CGRectMake(0, 0, frameWidth*.6, frameHeight * .05);
         showMediaPicker.center = CGPointMake(frameWidth * .5, frameHeight * .42);
@@ -108,7 +112,7 @@
         [showMediaPicker setTitle:@"Show Media Picker" forState:UIControlStateNormal];
         [showMediaPicker addTarget:self action:@selector(showMediaPicker:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview: showMediaPicker];
-
+        
         albumCover = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .6, frameHeight * .3)];
         albumCover.center = CGPointMake(frameWidth /2, frameHeight * .2);
         //albumCover.image = [UIImage imageNamed:@"bluredDumbBells.png"];
@@ -159,7 +163,22 @@
 }
 
 -(void) done{
+    
+    endTime = [NSDate date];
+    NSTimeInterval timeDifference = [endTime timeIntervalSinceDate:startTime];
+    NSInteger seconds = timeDifference;
+    NSInteger hours = seconds / 3600;
+    seconds = seconds - (hours * 3600);
+    NSInteger minuets = seconds / 60;
+    seconds = seconds - (minuets * 60);
+    
+    
     RatingViewController *rvc = [[RatingViewController alloc]init];
+    rvc.duration = [[[[[[NSString stringWithFormat:@"%li", (long)hours] stringByAppendingString:@" hours "] stringByAppendingString:[NSString stringWithFormat:@"%li", (long)minuets]] stringByAppendingString:@" minuets " ] stringByAppendingString:[NSString stringWithFormat:@"%li", (long)seconds]] stringByAppendingString:@" seconds"];
+    rvc.time = startTime;
+    rvc.activity = @"Music";
+    
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
     
     //now present this navigation controller modally
@@ -168,10 +187,11 @@
                      completion:nil];
 }
 
+
 /*- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}*/
+ {
+ return (interfaceOrientation == UIInterfaceOrientationPortrait);
+ }*/
 
 - (void) registerMediaPlayerNotifications
 {
@@ -320,7 +340,7 @@
     }
 }
 
-- (IBAction)nextSong:(id)sender 
+- (IBAction)nextSong:(id)sender
 {
     [musicPlayer skipToNextItem];
 }

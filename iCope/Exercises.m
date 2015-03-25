@@ -2,7 +2,7 @@
 //  Exercises.m
 //  iCope
 //
-//  Created by Costas Simiharv on 1/25/15.
+//  Created by Costas Simiharv on 3/25/15.
 //  Copyright (c) 2015 cvrahimis. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 @implementation Exercises
 
 @dynamic exerciseName;
-@dynamic pictures;
 @dynamic mainPicture;
+@dynamic pictures;
 
 @end

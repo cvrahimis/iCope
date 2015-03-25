@@ -16,7 +16,7 @@
 @end
 
 @implementation RatingViewController
-@synthesize background, doneBtn, topLbl, bottonLbl, okBtn, happyBtn, thermometer, mesurmentView;
+@synthesize background, doneBtn, topLbl, bottonLbl, okBtn, happyBtn, thermometer, mesurmentView, mood, exit, bec, duration, time, activity;
 
 -(id) init{
     if(self = [super init]){
@@ -50,7 +50,7 @@
             {
                 emotionBtns[count] = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .27, frameHeight * .07)];
                 
-
+                
                 if (col == 2)
                     emotionBtns[count].center = CGPointMake(frameWidth /2, height);
                 else
@@ -110,7 +110,7 @@
         [happyBtn addTarget:self action:@selector(btnPress:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:happyBtn];
         [self.view bringSubviewToFront:happyBtn];
-
+        
         bottomLbl = [[UILabel alloc] initWithFrame: CGRectMake(0,0, frameWidth, frameHeight * .1)];
         bottomLbl.center = CGPointMake(frameWidth / 2, frameHeight * .55);
         bottomLbl.text = @"Urge to self injure?";
@@ -120,7 +120,7 @@
         bottomLbl.textColor = [UIColor whiteColor];
         [self.view addSubview: bottomLbl];
         
-        mesurmentView = [[UIView alloc] initWithFrame:CGRectMake(frameWidth * .2, frameHeight * .672, frameWidth * .05, frameHeight * .055)];
+        mesurmentView = [[UIView alloc] initWithFrame:CGRectMake(frameWidth * .2, frameHeight * .672, frameWidth * .05, (frameHeight * .08) * .7)];
         mesurmentView.backgroundColor = [UIColor redColor];
         [self.view addSubview:mesurmentView];
         
@@ -146,6 +146,13 @@
         [self.view addSubview:doneBtn];
         [self.view bringSubviewToFront:doneBtn];
         
+        section = (frameWidth * .722) / 9;
+        urge = floor(mesurmentView.frame.size.width / section) + 1;
+        
+        swiped = NO;
+        moodPressed = NO;
+        mood = @"";
+        
     }
     return self;
 }
@@ -161,6 +168,7 @@
 }
 
 -(void) initBackground {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     if (currentTime < 12) background.image = [UIImage imageNamed:@"Morning"];
     else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"Afternoon"];
     else background.image = [UIImage imageNamed:@"Evening"];
@@ -196,6 +204,8 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 1:
@@ -208,6 +218,8 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 2:
@@ -220,6 +232,8 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 3:
@@ -232,6 +246,8 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 4:
@@ -244,6 +260,8 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 5:
@@ -256,6 +274,8 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 6:
@@ -268,6 +288,8 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 7:
@@ -280,6 +302,8 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 8:
@@ -292,6 +316,8 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 9:
@@ -304,6 +330,8 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 10:
@@ -316,6 +344,8 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 11:
@@ -328,20 +358,14 @@
             }
             selectedBtn = sender;
             selectedBtn.backgroundColor = [UIColor colorWithRed:.75 green:1 blue:.75 alpha:.5];
+            mood = selectedBtn.titleLabel.text;
+            moodPressed = YES;
             break;
         }
         case 12:
         {
             NSLog(@"%s button 12", __PRETTY_FUNCTION__);
-            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                                     bundle: nil];
-            MainViewController *mvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainViewController"];
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mvc];
-            
-            //now present this navigation controller modally
-            [self presentViewController:navigationController
-                               animated:YES
-                             completion:nil];
+            [self exitLogic];
             break;
         }
         default:
@@ -349,16 +373,143 @@
     }
 }
 
+-(void) toMenuController{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    //UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    //HomeViewController *mvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"homeViewController"];
+    HomeViewController *mvc = [[HomeViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mvc];
+    
+    //now present this navigation controller modally
+    [self presentViewController:navigationController
+                       animated:YES
+                     completion:nil];
+}
+
+-(void) exitLogic{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    if(!exit){
+        if (swiped && moodPressed) {
+            [self insertData];
+            [self toMenuController];
+        }
+        else if (swiped && !moodPressed)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mood not selected" message:@"You must select a mood"  delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if (!swiped && moodPressed)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You did not change the thermometer" message:@"Are you sure you want to keep it the same?"  delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+            [alert show];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Must select mood and urge" message:@""  delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }
+    else
+    {
+        if (swiped && moodPressed) {
+            [self insertData];
+            //home button press programmatically
+            UIApplication *app = [UIApplication sharedApplication];
+            [app performSelector:@selector(suspend)];
+        }
+        else if (swiped && !moodPressed)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mood not selected" message:@"You must select a mood"  delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if (!swiped && moodPressed)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You did not change the thermometer" message:@"Are you sure you want to keep it the same?"  delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+            [alert show];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Must select mood and urge" message:@""  delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }
+    
+}
+
+-(void) insertData{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    bec = [[BackEndComunicator alloc] initWithManagedObjectContext:appDelegate.managedObjectContext];
+    Patient *patient = [bec getPatientOnDevice];
+    Therapist *therapist = [bec getTherapistOnDevice];
+    NSNumber *pid = @([[patient valueForKey:@"patientId"] integerValue]);
+    NSNumber *tid = @([[patient valueForKey:@"therapistId"] intValue]);
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/d/yyyy hh:mm a"];
+    
+    
+    
+    if(pid && tid)
+    {
+        Activities *activities = [NSEntityDescription insertNewObjectForEntityForName:@"Activities" inManagedObjectContext:appDelegate.managedObjectContext];
+        activities.patientId = pid;
+        activities.therapistId = tid;
+        if(exit)
+            activities.activity = @"Exit Rating";
+        else if(activity)
+            activities.activity = activity;
+        else
+            activities.activity = @"Entrance Rating";
+        activities.mood = mood;
+        activities.urge = [NSNumber numberWithInt:urge];
+        if (time)
+        {
+            NSString *t = [formatter stringFromDate:time];
+            activities.time = t;
+        }
+        else
+        {
+            NSString *t = [formatter stringFromDate:[NSDate date]];
+            activities.time = t;
+        }
+        
+        if (duration)
+            activities.duration = duration;
+        else
+            activities.duration = @"0 hours 0 minuets 0 seconds";
+        activities.patient = patient;
+        activities.therapist = therapist;
+        
+        NSError *error;
+        if (![appDelegate.managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+    }
+    if(exit)
+        [bec sendActivities];
+}
+
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // the user clicked OK
+    if (buttonIndex == 1) {
+        [self insertData];
+        [self toMenuController];
+    }
+}
+
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if ([[event allTouches] count] == 1)
     {
         pos = [[touches anyObject] locationInView: thermometer];
-        swiped = NO;
     }
 }
 
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    swiped = YES;
     CGPoint current = [[touches anyObject] locationInView: thermometer];
     if ((pos.x - current.x) < 0)
     {
@@ -374,10 +525,13 @@
         else
             mesurmentView.frame = CGRectMake(frameWidth * .2, frameHeight * .671 , mesurmentView.frame.size.width -5, mesurmentView.frame.size.height);
     }
+    pos = current;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    }
+    urge = floor(mesurmentView.frame.size.width / section) + 1;
+    [self.view makeToast:[NSString stringWithFormat:@"%i", urge] duration:3.0 position:[NSValue valueWithCGPoint:CGPointMake(frameWidth / 2, frameHeight * .8)]];
+}
 
 
 

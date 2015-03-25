@@ -13,8 +13,12 @@
 
 @interface ExerciseTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>{
     NSArray *fetchedObjects;
+    NSDate *startTime;
+    NSDate *endTime;
 }
 
 @property (strong, nonatomic) NSArray *fetchedObjects;
+@property (strong, nonatomic) NSDate *startTime;
+@property (strong, nonatomic) NSDate *endTime;
 
 @end

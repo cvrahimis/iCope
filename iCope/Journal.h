@@ -2,7 +2,7 @@
 //  Journal.h
 //  iCope
 //
-//  Created by Costas Simiharv on 1/18/15.
+//  Created by Costas Simiharv on 3/25/15.
 //  Copyright (c) 2015 cvrahimis. All rights reserved.
 //
 
@@ -12,8 +12,8 @@
 
 @interface Journal : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * entry;
 @property (nonatomic, retain) NSString * date;
+@property (nonatomic, retain) NSString * entry;
+@property (nonatomic, retain) NSString * title;
 
 @end

@@ -30,7 +30,7 @@
                                                  target:self
                                                  action:@selector(done)];
         
-        appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        AppDelegate* appDelegate = [AppDelegate sharedAppdelegate];
         managedObjectContext = appDelegate.managedObjectContext;
         //================================================================Fetch From Core Data
         /*NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -98,7 +98,7 @@
     self.navigationItem.title = @"Open";
     self.navigationController.navigationBar.translucent = NO;
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-
+    
 }
 
 -(void) done{
@@ -121,18 +121,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSLog(@"%s",__PRETTY_FUNCTION__);
     /*NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
-    [dateformate setDateFormat:@"dd/MM/YYYY"];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"Journal" inManagedObjectContext:managedObjectContext];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date = %@", [dates objectAtIndex:section]];
-    [fetchRequest setEntity:entity];
-    [fetchRequest setPredicate:predicate];
-    NSError *error = nil;
-    numRowSection = [managedObjectContext executeFetchRequest:fetchRequest error: &error];*/
+     [dateformate setDateFormat:@"dd/MM/YYYY"];
+     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+     NSEntityDescription *entity = [NSEntityDescription
+     entityForName:@"Journal" inManagedObjectContext:managedObjectContext];
+     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date = %@", [dates objectAtIndex:section]];
+     [fetchRequest setEntity:entity];
+     [fetchRequest setPredicate:predicate];
+     NSError *error = nil;
+     numRowSection = [managedObjectContext executeFetchRequest:fetchRequest error: &error];*/
     
     NSMutableArray *temp = [dateGroups objectForKey:[dates objectAtIndex:section]];
-
+    
     return temp.count;
 }
 
@@ -158,7 +158,7 @@
     
     NSArray *temp = [dateGroups objectForKey:sectionTitle];
     Journal *journal = [temp objectAtIndex: indexPath.row];
-        
+    
     if (journal.title == nil)
         cell.textLabel.text = @"\t This is not Working";
     else
@@ -189,30 +189,30 @@
 
 // Override to support editing the table view.
 /*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%s",__PRETTY_FUNCTION__);
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        
-    }   
-}*/
+ NSLog(@"%s",__PRETTY_FUNCTION__);
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ 
+ }
+ }*/
 
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 
 @end

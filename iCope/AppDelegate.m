@@ -53,10 +53,11 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     bec = [[BackEndComunicator alloc] initWithManagedObjectContext:_managedObjectContext];
-    //if ([bec isPatientAndTherapistOnDevice])
-        self.viewController = [[RatingViewController alloc] init];
-    //else
-        //self.viewController = [[LoginViewController alloc] init];
+    /*if ([bec isPatientAndTherapistOnDevice])
+     self.viewController = [[RatingViewController alloc] init];
+     else
+     self.viewController = [[LoginViewController alloc] init];*/
+    self.viewController = [[RatingViewController alloc] init];//debug
     
     self.navCtrl = [[UINavigationController alloc] initWithRootViewController: self.viewController];
     //[self.navCtrl setNavigationBarHidden:NO animated:YES];
@@ -125,6 +126,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
++(AppDelegate*)sharedAppdelegate
+{
+    return (AppDelegate*)[[UIApplication sharedApplication] delegate];
 }
 
 #pragma mark - Core Data stack

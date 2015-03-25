@@ -16,12 +16,15 @@
 @synthesize quotes;
 @synthesize nextBtn;
 @synthesize authorLbl;
+@synthesize startTime;
+@synthesize endTime;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     count = 0;
     currentTime = [self Time];
     quoteLbl = [[UILabel alloc] initWithFrame:CGRectMake((frameWidth / 2) - ((frameWidth * .95) / 2), self.navigationController.navigationBar.frame.size.height, frameWidth * .95, frameHeight * .6)];
+    startTime = [NSDate date];
     
     
     authorLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .95, frameHeight * .2)];
@@ -57,13 +60,15 @@
     authorLbl.font = [UIFont fontWithName: @"Cochin-BoldItalic" size: 20];
     quoteLbl.textAlignment = NSTextAlignmentCenter;
     authorLbl.textAlignment = NSTextAlignmentCenter;
+    quoteLbl.textColor = [UIColor whiteColor];
+    authorLbl.textColor = [UIColor whiteColor];
     //quoteLbl.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:.3];
 }
 
 -(void) formatLabels {
     q = [quotes objectAtIndex:count];
     aQuote = [q valueForKey:@"quote"];
-    NSUInteger temp = [aQuote length] / 15 + 1;
+    NSUInteger temp = [aQuote length]/15+1;
     lineCount = (int) temp;
     quoteLbl.numberOfLines = lineCount;
     [UIView transitionWithView:quoteLbl duration:.7f options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionTransitionFlipFromTop animations:^{
@@ -84,7 +89,22 @@
 }
 
 -(void) done{
+    
+    endTime = [NSDate date];
+    NSTimeInterval timeDifference = [endTime timeIntervalSinceDate:startTime];
+    NSInteger seconds = timeDifference;
+    NSInteger hours = seconds / 3600;
+    seconds = seconds - (hours * 3600);
+    NSInteger minuets = seconds / 60;
+    seconds = seconds - (minuets * 60);
+    
+    
     RatingViewController *rvc = [[RatingViewController alloc]init];
+    rvc.duration = [[[[[[NSString stringWithFormat:@"%li", (long)hours] stringByAppendingString:@" hours "] stringByAppendingString:[NSString stringWithFormat:@"%li", (long)minuets]] stringByAppendingString:@" minuets " ] stringByAppendingString:[NSString stringWithFormat:@"%li", (long)seconds]] stringByAppendingString:@" seconds"];
+    rvc.time = startTime;
+    rvc.activity = @"Reading";
+    
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
     
     //now present this navigation controller modally

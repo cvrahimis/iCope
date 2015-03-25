@@ -9,16 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Journal.h"
+#import "OpenEntriesViewControllerDelegate.h"
 
-@protocol OpenEntriesViewControllerDelegate <NSObject>
-- (void)closeOpenEntries:(id)sender;
-@end
+
 
 @interface OpenEntriesViewController : UITableViewController{
     NSArray *dates;
     NSArray *results;
     NSArray *numRowSection;
-    AppDelegate *appDelegate;
+    //AppDelegate *appDelegate;
     NSManagedObjectContext *managedObjectContext;
     NSMutableDictionary *dateGroups;
     NSString *entry;

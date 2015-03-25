@@ -24,21 +24,23 @@
     NSString *morningGreeting;
     NSString *afternoonGreeting;
     NSString *eveningGreeting;
+    UIButton *activityBtns[5];
     long currentTime;
     BackEndComunicator *bec;
+    UIButton *ratingBtn;
 }
 
 @property (strong, nonatomic) BackEndComunicator *bec;
-@property (strong, nonatomic) IBOutlet UILabel *greetingLbl;
-@property (strong, nonatomic) IBOutlet UIImageView *contentImgView;
-@property (strong, nonatomic) IBOutlet UIButton *musicBtn;
-@property (strong, nonatomic) IBOutlet UIButton *readingBtn;
-@property (strong, nonatomic) IBOutlet UIButton *drawingBtn;
-@property (strong, nonatomic) IBOutlet UIButton *journalBtn;
-@property (strong, nonatomic) IBOutlet UIButton *excerciseBtn;
-@property (strong, nonatomic) IBOutlet UIButton *ratingBtn;
+@property (strong, nonatomic) UILabel *greetingLbl;
+@property (strong, nonatomic) UIImageView *contentImgView;
+@property (strong, nonatomic) UIButton *ratingBtn;
+/*@property (strong, nonatomic) UIButton *musicBtn;
+ @property (strong, nonatomic) UIButton *readingBtn;
+ @property (strong, nonatomic) UIButton *drawingBtn;
+ @property (strong, nonatomic) UIButton *journalBtn;
+ @property (strong, nonatomic) UIButton *excerciseBtn;*/
 
 -(id) init;
-- (IBAction)activityPress:(id)sender;
+-(void)activityPress:(id)sender;
 
 @end

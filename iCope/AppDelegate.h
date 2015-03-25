@@ -44,7 +44,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
++(AppDelegate*)sharedAppdelegate;
 
 
 @end
-

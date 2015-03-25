@@ -27,6 +27,8 @@
     UIView *songInfo;
     NSNumber *duration;
     long currentTime;
+    NSDate *startTime;
+    NSDate *endTime;
 }
 
 @property(nonatomic, strong) UIButton *playButton;
@@ -44,6 +46,8 @@
 @property (nonatomic, strong) MPMusicPlayerController *musicPlayer;
 @property (nonatomic, strong) UIView *songInfo;
 @property (nonatomic, strong) NSNumber *duration;
+@property (strong, nonatomic) NSDate *startTime;
+@property (strong, nonatomic) NSDate *endTime;
 
 - (IBAction)showMediaPicker:(id)sender;
 - (IBAction)volumeChanged:(id)sender;

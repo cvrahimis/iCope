@@ -2,7 +2,7 @@
 //  Patient.m
 //  iCope
 //
-//  Created by Costas Simiharv on 3/4/15.
+//  Created by Costas Simiharv on 3/25/15.
 //  Copyright (c) 2015 cvrahimis. All rights reserved.
 //
 
@@ -20,8 +20,8 @@
 @dynamic patientLogin;
 @dynamic patientPassword;
 @dynamic therapistId;
+@dynamic activity;
+@dynamic buttonActivations;
 @dynamic therapist;
-@dynamic patientActivity;
-@dynamic patientButtonActivations;
 
 @end

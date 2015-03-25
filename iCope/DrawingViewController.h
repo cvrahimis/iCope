@@ -23,11 +23,15 @@
     UIButton *topBtns[4];
     BOOL openSave;
     NSArray *colors;
+    NSDate *startTime;
+    NSDate *endTime;
 }
 
 @property (strong, nonatomic) UIImageView *mainImage;
 @property (strong, nonatomic) UIImageView *tempDrawImage;
 @property (strong, nonatomic) NSArray *colors;
+@property (strong, nonatomic) NSDate *startTime;
+@property (strong, nonatomic) NSDate *endTime;
 
 
 - (IBAction)pencilPressed:(id)sender;

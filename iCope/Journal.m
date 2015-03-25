@@ -2,7 +2,7 @@
 //  Journal.m
 //  iCope
 //
-//  Created by Costas Simiharv on 1/18/15.
+//  Created by Costas Simiharv on 3/25/15.
 //  Copyright (c) 2015 cvrahimis. All rights reserved.
 //
 
@@ -11,8 +11,8 @@
 
 @implementation Journal
 
-@dynamic title;
-@dynamic entry;
 @dynamic date;
+@dynamic entry;
+@dynamic title;
 
 @end

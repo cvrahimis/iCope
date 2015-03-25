@@ -11,6 +11,7 @@
 #import "Reachability.h"
 #import "Therapist.h"
 #import "Patient.h"
+#import "Activities.h"
 
 @interface BackEndComunicator : NSObject<NSURLConnectionDelegate>
 {
@@ -31,5 +32,9 @@
 -(BOOL) isPatientAndTherapistOnDevice;
 
 -(Patient*) getPatientOnDevice;
+
+-(Therapist*) getTherapistOnDevice;
+
+-(void) sendActivities;
 
 @end

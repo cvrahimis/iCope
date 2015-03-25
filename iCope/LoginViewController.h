@@ -14,7 +14,7 @@
 
 @interface LoginViewController : UIViewController<UITextFieldDelegate, UINavigationControllerDelegate>{
     UIImageView *background;
-    long currentTime;
+    int currentTime;
     UITextField *usernameTF;
     UITextField *passwordTF;
     UIButton *loginBtn;
@@ -37,3 +37,4 @@
 @property (strong, nonatomic) UILabel *appName;
 
 @end
+

@@ -17,12 +17,19 @@
     NSString *aQuote;
     long currentTime;
     Quotes *q;
+    NSDate *startTime;
+    NSDate *endTime;
 }
+
+
 @property (strong, nonatomic) IBOutlet UIImageView *background;
 @property (strong, nonatomic) UILabel *quoteLbl;
 @property (strong, nonatomic) NSArray *quotes;
 @property (strong, nonatomic) IBOutlet UIButton *nextBtn;
 @property (strong, nonatomic) UILabel *authorLbl;
+@property (strong, nonatomic) NSDate *startTime;
+@property (strong, nonatomic) NSDate *endTime;
+
 - (IBAction)nextBtnPress:(id)sender;
 
 @end

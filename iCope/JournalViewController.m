@@ -17,6 +17,8 @@
 @synthesize saveBtn;
 @synthesize titleTF;
 @synthesize entryTV;
+@synthesize startTime;
+@synthesize endTime;
 
 -(id) init{
     if(self = [super init])
@@ -28,6 +30,9 @@
 
 - (void)viewDidLoad {
     NSLog(@"%s",__PRETTY_FUNCTION__);
+    
+    startTime = [NSDate date];
+    
     [super viewDidLoad];
     currentTime = [self Time];
     [self initBackground];
@@ -61,12 +66,12 @@
     else
     {
         AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];;
-    
+        
         NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
-    
+        
         NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
         [dateformate setDateFormat:@"MM/dd/YYYY"];
-    
+        
         Journal *journal = [NSEntityDescription insertNewObjectForEntityForName: @"Journal" inManagedObjectContext: managedObjectContext];
         [journal setValue:titleTF.text forKey:@"title"];
         [journal setValue:entryTV.text forKey:@"entry"];
@@ -93,7 +98,7 @@
             [alert show];
         }
     }
-
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -133,8 +138,22 @@
 }
 
 -(void) done{
-    NSLog(@"%s",__PRETTY_FUNCTION__);
+    
+    endTime = [NSDate date];
+    NSTimeInterval timeDifference = [endTime timeIntervalSinceDate:startTime];
+    NSInteger seconds = timeDifference;
+    NSInteger hours = seconds / 3600;
+    seconds = seconds - (hours * 3600);
+    NSInteger minuets = seconds / 60;
+    seconds = seconds - (minuets * 60);
+    
+    
     RatingViewController *rvc = [[RatingViewController alloc]init];
+    rvc.duration = [[[[[[NSString stringWithFormat:@"%li", (long)hours] stringByAppendingString:@" hours "] stringByAppendingString:[NSString stringWithFormat:@"%li", (long)minuets]] stringByAppendingString:@" minuets " ] stringByAppendingString:[NSString stringWithFormat:@"%li", (long)seconds]] stringByAppendingString:@" seconds"];
+    rvc.time = startTime;
+    rvc.activity = @"Writing";
+    
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
     
     //now present this navigation controller modally

@@ -2,7 +2,7 @@
 //  Therapist.h
 //  iCope
 //
-//  Created by Costas Simiharv on 3/4/15.
+//  Created by Costas Simiharv on 3/25/15.
 //  Copyright (c) 2015 cvrahimis. All rights reserved.
 //
 
@@ -16,21 +16,16 @@
 @property (nonatomic, retain) NSString * therapistFirstName;
 @property (nonatomic, retain) NSNumber * therapistId;
 @property (nonatomic, retain) NSString * therapistLastName;
-@property (nonatomic, retain) NSSet *therapistBtnAct;
-@property (nonatomic, retain) Activities *therapistActivities;
-@property (nonatomic, retain) NSSet *patient;
+@property (nonatomic, retain) Patient *patient;
+@property (nonatomic, retain) Activities *activity;
+@property (nonatomic, retain) NSSet *buttonActivations;
 @end
 
 @interface Therapist (CoreDataGeneratedAccessors)
 
-- (void)addTherapistBtnActObject:(ButtonActivations *)value;
-- (void)removeTherapistBtnActObject:(ButtonActivations *)value;
-- (void)addTherapistBtnAct:(NSSet *)values;
-- (void)removeTherapistBtnAct:(NSSet *)values;
-
-- (void)addPatientObject:(Patient *)value;
-- (void)removePatientObject:(Patient *)value;
-- (void)addPatient:(NSSet *)values;
-- (void)removePatient:(NSSet *)values;
+- (void)addButtonActivationsObject:(ButtonActivations *)value;
+- (void)removeButtonActivationsObject:(ButtonActivations *)value;
+- (void)addButtonActivations:(NSSet *)values;
+- (void)removeButtonActivations:(NSSet *)values;
 
 @end

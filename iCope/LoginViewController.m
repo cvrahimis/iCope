@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "UIView+RNActivityView.h"
 #define frameWidth self.view.frame.size.width
 #define frameHeight self.view.frame.size.height
 
@@ -22,7 +23,6 @@
 @synthesize internetReach;
 @synthesize appName;
 
-
 -(id) init{
     if(self = [super init])
     {
@@ -33,7 +33,7 @@
         [self initBackground];
         [self.view addSubview:background];
         
-        connectionLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .7, frameHeight * .1)];
+        connectionLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight * .1)];
         connectionLbl.center = CGPointMake(frameWidth / 2, self.navigationController.navigationBar.frame.size.height + ((frameHeight * .1) / 2));
         connectionLbl.backgroundColor = [UIColor redColor];
         connectionLbl.textColor = [UIColor whiteColor];
@@ -50,20 +50,21 @@
         
         appName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight *.1)];
         appName.center = CGPointMake(frameWidth / 2, frameHeight * .15);
-        appName.text = @"App Name";
-        [appName setFont:[UIFont systemFontOfSize:36]];
+        appName.text = @"iSoothe";
+        [appName setFont:[UIFont systemFontOfSize:40]];
         appName.textColor = [UIColor whiteColor];
         appName.textAlignment = NSTextAlignmentCenter;
         [scrollView addSubview:appName];
         
-        usernameTF = [[UITextField alloc] initWithFrame: CGRectMake(0, 0, frameWidth*.65, frameHeight * .1)];
+        usernameTF = [[UITextField alloc] initWithFrame: CGRectMake(0, 0, frameWidth*.65, frameHeight * .08)];
         usernameTF.center = CGPointMake(frameWidth * .5, frameHeight * .3);
         usernameTF.borderStyle = UITextBorderStyleRoundedRect;
+        usernameTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
         usernameTF.placeholder = @"Username";
         usernameTF.delegate = self;
         [scrollView addSubview:usernameTF];
         
-        passwordTF = [[UITextField alloc] initWithFrame: CGRectMake(0, 0, frameWidth*.65, frameHeight * .1)];
+        passwordTF = [[UITextField alloc] initWithFrame: CGRectMake(0, 0, frameWidth*.65, frameHeight * .08)];
         passwordTF.center = CGPointMake(frameWidth * .5, frameHeight * .45);
         passwordTF.secureTextEntry = YES;
         passwordTF.borderStyle = UITextBorderStyleRoundedRect;
@@ -72,7 +73,7 @@
         [scrollView addSubview:passwordTF];
         
         loginBtn = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-        loginBtn.frame = CGRectMake(0, 0, frameWidth*.65, frameHeight * .1);
+        loginBtn.frame = CGRectMake(0, 0, frameWidth*.65, frameHeight * .08);
         loginBtn.center = CGPointMake(frameWidth * .5, frameHeight * .6);
         loginBtn.opaque = YES;
         loginBtn.layer.cornerRadius = 12;
@@ -86,7 +87,7 @@
         [scrollView addSubview:loginBtn];
         
         cancelBtn = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-        cancelBtn.frame = CGRectMake(0, 0, frameWidth*.65, frameHeight * .1);
+        cancelBtn.frame = CGRectMake(0, 0, frameWidth*.65, frameHeight * .08);
         cancelBtn.center = CGPointMake(frameWidth * .5, frameHeight * .75);
         cancelBtn.opaque = YES;
         cancelBtn.layer.cornerRadius = 12;
@@ -105,31 +106,31 @@
     return self;
 }
 
- // Checks if we have an internet connection or not
- - (void)testInternetConnection
- {
-     internetReach = [Reachability reachabilityWithHostname:@"www.google.com"];
- 
-     // Internet is reachable
-     internetReach.reachableBlock = ^(Reachability*reach)
-     {
-         // Update the UI on the main thread
-         dispatch_async(dispatch_get_main_queue(), ^{
-             NSLog(@"Yayyy, we have the interwebs!");
-         });
-     };
- 
-     // Internet is not reachable
-     internetReach.unreachableBlock = ^(Reachability*reach)
-     {
-         // Update the UI on the main thread
-         dispatch_async(dispatch_get_main_queue(), ^{
-             NSLog(@"Someone broke the internet :(");
-         });
-     };
- 
-     [internetReach startNotifier];
- }
+// Checks if we have an internet connection or not
+- (void)testInternetConnection
+{
+    internetReach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    // Internet is reachable
+    internetReach.reachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Internet Connection!");
+        });
+    };
+    
+    // Internet is not reachable
+    internetReach.unreachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"No Internet Connection");
+        });
+    };
+    
+    [internetReach startNotifier];
+}
 
 -(void)userLogin{
     if(![usernameTF.text isEqualToString:@""] && ![passwordTF.text isEqualToString:@""])
@@ -138,35 +139,32 @@
         AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         BackEndComunicator *bec = [[BackEndComunicator alloc] initWithManagedObjectContext:appDelegate.managedObjectContext];
         if (![bec isPatientAndTherapistOnDevice]) {
-            
-            UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0,0,50,50)];
-            spinner.center = CGPointMake(frameWidth / 2, frameHeight / 2);
-            spinner.color = [UIColor blueColor];
-            
-            [scrollView addSubview:spinner];
             __block BOOL loginSuccess = NO;
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                [spinner startAnimating];
-            });
-            loginSuccess = [bec loginWithUserName:usernameTF.text andPassword:passwordTF.text];
-            [spinner removeFromSuperview];
+            [self hideKeyBoard];
+            [self.view showActivityViewWithLabel:@"Logging In"];
             
-            if (loginSuccess) {
-                
-                RatingViewController *rvc = [[RatingViewController alloc] init];
-                UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
-                [self.navigationController popToRootViewControllerAnimated:YES];
-                //now present this navigation controller modally
-                [self presentViewController:navigationController
-                                   animated:YES
-                                 completion:nil];
-
-            }
-            else
-            {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Login" message:@"username or password is incorrect"  delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-                [alert show];
-            }
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                loginSuccess = [bec loginWithUserName:usernameTF.text andPassword:passwordTF.text];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.4 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                    if (loginSuccess) {
+                        [self.view hideActivityView];
+                        RatingViewController *rvc = [[RatingViewController alloc] init];
+                        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
+                        [self.navigationController popToRootViewControllerAnimated:YES];
+                        //now present this navigation controller modally
+                        [self presentViewController:navigationController
+                                           animated:YES
+                                         completion:nil];
+                        
+                    }
+                    else
+                    {
+                        [self.view hideActivityView];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Login" message:@"username or password is incorrect"  delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                });
+            });
         }
         else
         {
@@ -216,6 +214,7 @@
     {
         [scrollView setContentOffset:CGPointMake(0,0) animated:YES];
         [passwordTF resignFirstResponder];
+        [self userLogin];
         return YES;
     }
     
@@ -232,13 +231,13 @@
 }
 
 
--(long) Time {
+-(int) Time {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH"];
     NSString *timeOfDayInHoursString = [dateFormatter stringFromDate:date];
-    long timeOfDayInHours = [timeOfDayInHoursString integerValue];
+    int timeOfDayInHours = [timeOfDayInHoursString intValue];
     return timeOfDayInHours;
 }
 

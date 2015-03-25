@@ -19,6 +19,8 @@
 @synthesize mainImage;
 @synthesize tempDrawImage;
 @synthesize colors;
+@synthesize startTime;
+@synthesize endTime;
 
 
 -(id) init
@@ -31,6 +33,9 @@
         brush = 10.0;
         opacity = 1.0;
         openSave = YES;
+        
+        startTime = [NSDate date];
+        
         self.navigationItem.rightBarButtonItem = self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                                                                           initWithTitle:@"Save"
                                                                                           style:UIBarButtonItemStyleDone
@@ -39,11 +44,11 @@
         
         
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                    initWithTitle:@"Done"
-                                    style:UIBarButtonItemStyleDone
-                                    target:self
-                                    action:@selector(done)];
-
+                                                 initWithTitle:@"Done"
+                                                 style:UIBarButtonItemStyleDone
+                                                 target:self
+                                                 action:@selector(done)];
+        
         mainImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight)];
         mainImage.backgroundColor = [UIColor whiteColor];
         mainImage.tintColor = [UIColor clearColor];
@@ -53,16 +58,16 @@
         
         //colors
         colors = @[[UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1],
-                            [UIColor colorWithRed:105.0/255.0 green:105.0/255.0 blue:105.0/255.0 alpha:1],
-                            [UIColor colorWithRed:255.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1],
-                            [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:255.0/255.0 alpha:1],
-                            [UIColor colorWithRed:102.0/255.0 green:204.0/255.0 blue:0.0/255.0 alpha:1],
-                            [UIColor colorWithRed:102.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1],
-                            [UIColor colorWithRed:51.0/255.0 green:204.0/255.0 blue:255.0/255.0 alpha:1],
-                            [UIColor colorWithRed:160.0/255.0 green:82.0/255.0 blue:45.0/255.0 alpha:1],
-                            [UIColor colorWithRed:255.0/255.0 green:102.0/255.0 blue:0.0/255.0 alpha:1],
-                            [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1]
-                            ];
+                   [UIColor colorWithRed:105.0/255.0 green:105.0/255.0 blue:105.0/255.0 alpha:1],
+                   [UIColor colorWithRed:255.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1],
+                   [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:255.0/255.0 alpha:1],
+                   [UIColor colorWithRed:102.0/255.0 green:204.0/255.0 blue:0.0/255.0 alpha:1],
+                   [UIColor colorWithRed:102.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1],
+                   [UIColor colorWithRed:51.0/255.0 green:204.0/255.0 blue:255.0/255.0 alpha:1],
+                   [UIColor colorWithRed:160.0/255.0 green:82.0/255.0 blue:45.0/255.0 alpha:1],
+                   [UIColor colorWithRed:255.0/255.0 green:102.0/255.0 blue:0.0/255.0 alpha:1],
+                   [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1]
+                   ];
         
         CGFloat btnHeight = frameHeight * .1;
         CGFloat btnWidth = frameWidth / colors.count;
@@ -81,7 +86,7 @@
             [self.view addSubview: colorBtns[i]];
         }
         
-    
+        
     }
     return self;
 }
@@ -105,8 +110,6 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    
     self.navigationItem.title = @"Drawing";
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     NSLog(@"%f",self.navigationController.navigationBar.frame.size.height);
@@ -136,7 +139,22 @@
 }
 
 -(void) done{
+    
+    endTime = [NSDate date];
+    NSTimeInterval timeDifference = [endTime timeIntervalSinceDate:startTime];
+    NSInteger seconds = timeDifference;
+    NSInteger hours = seconds / 3600;
+    seconds = seconds - (hours * 3600);
+    NSInteger minuets = seconds / 60;
+    seconds = seconds - (minuets * 60);
+    
+    
     RatingViewController *rvc = [[RatingViewController alloc]init];
+    rvc.duration = [[[[[[NSString stringWithFormat:@"%li", (long)hours] stringByAppendingString:@" hours "] stringByAppendingString:[NSString stringWithFormat:@"%li", (long)minuets]] stringByAppendingString:@" minuets " ] stringByAppendingString:[NSString stringWithFormat:@"%li", (long)seconds]] stringByAppendingString:@" seconds"];
+    rvc.time = startTime;
+    rvc.activity = @"Drawing";
+    
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
     
     //now present this navigation controller modally
@@ -144,6 +162,7 @@
                        animated:YES
                      completion:nil];
 }
+
 
 -(void)openPicture{
     NSLog(@"%s",__PRETTY_FUNCTION__);
@@ -156,7 +175,7 @@
                                 otherButtonTitles:@"Taking a Photo", @"Selecting From Gallary" , nil];
     
     [alertMenu showInView:mainImage];
-
+    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -291,13 +310,13 @@
                 [self presentViewController:picker animated:YES completion:NULL];
                 break;
         }
-
+        
     }
     else
     {
         NSLog(@"%s Saving",__PRETTY_FUNCTION__);
         if(buttonIndex == 0) {
-        
+            
             UIGraphicsBeginImageContextWithOptions(self.mainImage.bounds.size, NO, 0.0);
             [self.mainImage.image drawInRect:CGRectMake(0, 0, self.mainImage.frame.size.width, self.mainImage.frame.size.height)];
             UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
