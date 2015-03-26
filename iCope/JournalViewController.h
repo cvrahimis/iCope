@@ -13,20 +13,25 @@
 #import "OpenEntriesViewControllerDelegate.h"
 #import "RatingViewController.h"
 
-@interface JournalViewController : UIViewController <OpenEntriesViewControllerDelegate, UITextViewDelegate>{
+@interface JournalViewController : UIViewController <OpenEntriesViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>{
     NSString *title;
     NSString *entry;
     long currentTime;
     NSDate *startTime;
     NSDate *endTime;
+    UIScrollView *scrollView;
+    
 }
 
-@property (strong, nonatomic) IBOutlet UIImageView *background;
-@property (strong, nonatomic) IBOutlet UITextField *titleTF;
-@property (strong, nonatomic) IBOutlet UITextView *entryTV;
-@property (strong, nonatomic) IBOutlet UIButton *saveBtn;
+@property (strong, nonatomic) UIImageView *background;
+@property (strong, nonatomic) UITextField *titleTF;
+@property (strong, nonatomic) UITextView *entryTV;
+@property (strong, nonatomic) UIButton *saveBtn;
 @property (strong, nonatomic) NSDate *startTime;
 @property (strong, nonatomic) NSDate *endTime;
-- (IBAction)savePress:(id)sender;
+@property (strong, nonatomic) UIScrollView *scrollView;
+
+
+- (void)savePress:(id)sender;
 //- (void)closeOpenEntries:(id)sender;
 @end

@@ -135,7 +135,7 @@
 {
     [super viewDidLoad];
     
-    musicPlayer = [MPMusicPlayerController systemMusicPlayer];
+    musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
     
     [volume setValue:[musicPlayer volume]];
     

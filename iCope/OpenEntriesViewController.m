@@ -21,9 +21,10 @@
 @synthesize title;
 @synthesize delegate;
 
+
 -(id) init{
     if(self = [super init])
-    {
+    {        
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                                  initWithTitle:@"Done"
                                                  style:UIBarButtonItemStyleDone
@@ -103,7 +104,9 @@
 
 -(void) done{
     NSLog(@"%s",__PRETTY_FUNCTION__);
-    [self dismissViewControllerAnimated:YES completion:nil];
+    entry = @"";
+    title = @"";
+    [self.delegate closeOpenEntries:self];
 }
 
 - (void)didReceiveMemoryWarning {

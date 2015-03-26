@@ -20,26 +20,44 @@
 @synthesize entryTV;
 @synthesize startTime;
 @synthesize endTime;
+@synthesize scrollView;
 
 -(id) init{
     if(self = [super init])
     {
+        currentTime = [self Time];
+        startTime = [NSDate date];
+        
         background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight)];
         [self initBackground];
         [self.view addSubview:background];
         
+        scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight)];
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)];
+        singleTap.numberOfTapsRequired = 1;
+        self.scrollView.userInteractionEnabled = YES;
+        [self.scrollView addGestureRecognizer:singleTap];
+        [self.view addSubview:scrollView];
+        
         titleTF = [[UITextField alloc] initWithFrame: CGRectMake(0, 0, frameWidth * .6, frameHeight *.08)];
         titleTF.placeholder = @"Title";
         titleTF.backgroundColor = [UIColor whiteColor];
-        titleTF.center = CGPointMake(frameWidth / 2, frameHeight * .15);
-        [self.view addSubview:titleTF];
+        titleTF.layer.borderWidth = 0.5f;
+        titleTF.layer.borderColor = [[UIColor blackColor] CGColor];
+        titleTF.delegate = self;
+        titleTF.center = CGPointMake(frameWidth / 2, frameHeight * .1);
+        [scrollView addSubview:titleTF];
         
         entryTV = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .7, frameHeight * .4)];
-        entryTV.center = CGPointMake(frameWidth / 2, frameHeight * .5);
-        [self.view addSubview:entryTV];
+        entryTV.center = CGPointMake(frameWidth / 2, frameHeight * .35);
+        entryTV.selectedRange = NSMakeRange(0, 0);
+        entryTV.layer.borderWidth = 0.5f;
+        entryTV.layer.borderColor = [[UIColor blackColor] CGColor];
+        entryTV.delegate = self;
+        [scrollView addSubview:entryTV];
         
         saveBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .27, frameHeight * .07)];
-        saveBtn.center = CGPointMake(frameWidth /2, frameHeight * .8);
+        saveBtn.center = CGPointMake(frameWidth /2, frameHeight * .65);
         saveBtn.backgroundColor = [UIColor blueColor];
         saveBtn.layer.cornerRadius = 10;
         saveBtn.layer.borderColor=[[UIColor colorWithRed:.7 green:.9 blue:1 alpha:1] CGColor];
@@ -49,28 +67,14 @@
         [saveBtn setTitle: @"Save" forState: UIControlStateNormal];
         saveBtn.userInteractionEnabled = YES;
         [saveBtn addTarget:self action:@selector(savePress:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:saveBtn];
-
+        [scrollView addSubview:saveBtn];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     NSLog(@"%s",__PRETTY_FUNCTION__);
-    
-    startTime = [NSDate date];
-    
     [super viewDidLoad];
-    currentTime = [self Time];
-    [self initBackground];
-    entryTV.layer.borderWidth = 0.5f;
-    entryTV.layer.borderColor = [[UIColor blackColor] CGColor];
-    titleTF.placeholder = @"Title";
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)];
-    singleTap.numberOfTapsRequired = 1;
-    self.background.userInteractionEnabled = YES;
-    [self.background addGestureRecognizer:singleTap];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,9 +83,9 @@
     
 }
 
-- (IBAction)savePress:(id)sender {
+- (void)savePress:(id)sender {
     NSLog(@"%s",__PRETTY_FUNCTION__);
-    if([entryTV.text isEqualToString:@""] && [titleTF.text isEqualToString:@""])
+    if([entryTV.text isEqualToString:@""] || [titleTF.text isEqualToString:@""])
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                         message:@"There is no title or entry"
@@ -92,40 +96,86 @@
     }
     else
     {
-        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];;
-        
-        NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
-        
-        NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
-        [dateformate setDateFormat:@"MM/dd/YYYY"];
-        
-        Journal *journal = [NSEntityDescription insertNewObjectForEntityForName: @"Journal" inManagedObjectContext: managedObjectContext];
-        [journal setValue:titleTF.text forKey:@"title"];
-        [journal setValue:entryTV.text forKey:@"entry"];
-        [journal setValue:[dateformate stringFromDate:[NSDate date]] forKey:@"date"];
-        NSError *error = nil;
-        if([managedObjectContext save: &error])
+        NSArray *fetchedObjs = [self returnJournalIfExist];
+            
+        if([fetchedObjs count] > 0)
         {
-            NSLog(@"Successsfully added %@",titleTF.text);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success"
-                                                            message:[@"Saved " stringByAppendingString:titleTF.text]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title already Exists"
+                                                            message:@"Do you want to overwrite?"
+                                                            delegate:self
+                                                    cancelButtonTitle:@"No"
+                                                    otherButtonTitles:@"Yes", nil];
             [alert show];
         }
         else
         {
-            NSLog(@"Could Not add %@",titleTF.text);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed"
-                                                            message:[@"Could not save " stringByAppendingString:titleTF.text]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            AppDelegate *appDelegate = [AppDelegate sharedAppdelegate];
+            NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+            
+            NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+            [dateformate setDateFormat:@"MM/dd/YYYY"];
+            
+            Journal *journal = [NSEntityDescription insertNewObjectForEntityForName: @"Journal" inManagedObjectContext: managedObjectContext];
+            [journal setValue:titleTF.text forKey:@"title"];
+            [journal setValue:entryTV.text forKey:@"entry"];
+            [journal setValue:[dateformate stringFromDate:[NSDate date]] forKey:@"date"];
+            NSError *error = nil;
+            if([managedObjectContext save: &error])
+            {
+                NSLog(@"Successsfully added %@",titleTF.text);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success"
+                                                                message:[@"Saved " stringByAppendingString:titleTF.text]
+                                                                delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles:nil];
+                [alert show];
+            }
+            else
+            {
+                NSLog(@"Could Not add %@",titleTF.text);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed"
+                                                                message:[@"Could not save " stringByAppendingString:titleTF.text]
+                                                                delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles:nil];
+                [alert show];
+            }
         }
+            
     }
     
+}
+
+-(NSArray *) returnJournalIfExist{
+    AppDelegate *appDelegate = [AppDelegate sharedAppdelegate];
+    
+    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Journal" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setFetchLimit:1];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title ==[c] %@", titleTF.text];
+    [fetchRequest setPredicate:predicate];
+    NSError *error = nil;
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error: &error];
+    return fetchedObjects;
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    //YES
+    if (buttonIndex == 1) {
+        Journal *journal = [[self returnJournalIfExist] objectAtIndex:0];
+        [journal setValue:entryTV.text forKey:@"entry"];
+        AppDelegate *appDelegate = [AppDelegate sharedAppdelegate];
+        NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+        NSError *error = nil;
+        if([managedObjectContext save: &error])
+        {
+            NSLog(@"%@", [[[@"Successsfully updated title: " stringByAppendingString:[journal valueForKey:@"title"]]stringByAppendingString:@" with entry: "] stringByAppendingString:[journal valueForKey:@"entry"]]);
+        }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -152,16 +202,21 @@
 -(void)hideKeyBoard
 {
     [self.view endEditing:YES];
+    [scrollView setContentOffset:CGPointMake(0,0) animated:YES];
 }
-
 - (BOOL) textFieldShouldReturn: (UITextField *) txtField {
     [txtField resignFirstResponder];
-    return YES;
+    [entryTV becomeFirstResponder];
+    return NO;
 }
 
 -(BOOL)textViewShouldReturn: (UITextView *) txtView{
     [txtView resignFirstResponder];
     return YES;
+}
+
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    [scrollView setContentOffset:CGPointMake(0, [scrollView convertPoint:CGPointZero fromView:textView].y - 5)];
 }
 
 -(void) done{
@@ -203,6 +258,8 @@
     //[self presentViewController:navigationController animated:YES completion:nil];
     
     OpenEntriesViewController *oevc = [[OpenEntriesViewController alloc] init];
+    oevc.entry = entryTV.text;
+    oevc.title = titleTF.text;
     [oevc setDelegate:self];
     [self.navigationController pushViewController:oevc animated:YES];
 }

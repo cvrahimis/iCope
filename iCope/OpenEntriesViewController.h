@@ -22,6 +22,7 @@
     NSMutableDictionary *dateGroups;
     NSString *entry;
     NSString *title;
+
 }
 @property (strong, nonatomic) NSArray *dates;
 @property (strong, nonatomic) NSString *entry;
@@ -29,5 +30,6 @@
 @property (strong, nonatomic) NSArray *results;
 @property (strong, nonatomic) NSMutableDictionary *dateGroups;
 @property (strong, nonatomic) id<OpenEntriesViewControllerDelegate> delegate;
+
 
 @end
