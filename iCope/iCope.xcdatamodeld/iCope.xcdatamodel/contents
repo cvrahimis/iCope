@@ -21,6 +21,7 @@
         <relationship name="therapist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Therapist" inverseName="buttonActivations" inverseEntity="Therapist" syncable="YES"/>
     </entity>
     <entity name="Exercises" representedClassName="Exercises" syncable="YES">
+        <attribute name="descriptions" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="exerciseName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mainPicture" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pictures" optional="YES" attributeType="String" syncable="YES"/>
@@ -56,7 +57,7 @@
     <elements>
         <element name="Activities" positionX="-441" positionY="440" width="128" height="193"/>
         <element name="ButtonActivations" positionX="-110" positionY="389" width="128" height="133"/>
-        <element name="Exercises" positionX="-63" positionY="9" width="128" height="88"/>
+        <element name="Exercises" positionX="-63" positionY="9" width="128" height="105"/>
         <element name="Journal" positionX="-261" positionY="0" width="128" height="90"/>
         <element name="Patient" positionX="225" positionY="461" width="128" height="178"/>
         <element name="Quotes" positionX="144" positionY="27" width="128" height="75"/>

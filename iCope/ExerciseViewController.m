@@ -15,6 +15,7 @@
 @synthesize scrollView;
 @synthesize pageControl;
 @synthesize exercises;
+@synthesize descriptions;
 
 -(id) initWithExercise:(Exercises*) ex{
     if(self = [super init])
@@ -59,6 +60,14 @@
             [ex setImage:[UIImage imageNamed:pictures[i]]];
             [scrollView addSubview: ex];
         }
+        
+        descriptions = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight * .3)];
+        descriptions.center = CGPointMake(frameWidth / 2, frameWidth + (frameHeight * .1));
+        descriptions.text = [exercises valueForKey:@"descriptions"];
+        descriptions.numberOfLines = 2;
+        descriptions.textAlignment = NSTextAlignmentCenter;
+        descriptions.textColor = [UIColor blackColor];
+        [self.view addSubview:descriptions];
     }
     return self;
 }

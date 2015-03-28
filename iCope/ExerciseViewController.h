@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, BTPopUpBorderStyle) {
     UIScrollView *scrollView;
     UIPageControl * pageControl;
     Exercises *exercises;
+    UILabel *descriptions;
 }
 
 @property (strong, nonatomic) UIScrollView *scrollView;
@@ -40,7 +41,7 @@ typedef NS_ENUM(NSInteger, BTPopUpBorderStyle) {
 //@property (strong, nonatomic) BTPopUpStyle *popUpStyle;
 //@property (strong, nonatomic) BTPopUpBorderStyle *popUpBorderStyle;
 @property (strong, nonatomic) Exercises *exercises;
-
+@property (strong, nonatomic) UILabel *descriptions;
 
 -(id) initWithExercise:(Exercises*) ex;
 

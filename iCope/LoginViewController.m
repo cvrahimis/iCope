@@ -145,26 +145,25 @@
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 loginSuccess = [bec loginWithUserName:usernameTF.text andPassword:passwordTF.text];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.4 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                    if (loginSuccess) {
-                        [self.view hideActivityView];
-                        RatingViewController *rvc = [[RatingViewController alloc] init];
-                        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
-                        [self.navigationController popToRootViewControllerAnimated:YES];
-                        //now present this navigation controller modally
-                        [self presentViewController:navigationController
-                                           animated:YES
-                                         completion:nil];
+                
+                if (loginSuccess)
+                {
+                    [self.view hideActivityView];
+                    RatingViewController *rvc = [[RatingViewController alloc] init];
+                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rvc];
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    //now present this navigation controller modally
+                    [self presentViewController:navigationController animated:YES completion:nil];
                         
-                    }
-                    else
-                    {
-                        [self.view hideActivityView];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Login" message:@"username or password is incorrect"  delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-                        [alert show];
-                    }
-                });
+                }
+                else
+                {
+                    [self.view hideActivityView];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Login" message:@"username or password is incorrect"  delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
             });
+            
         }
         else
         {
@@ -242,9 +241,9 @@
 }
 
 -(void) initBackground {
-    if (currentTime < 12) background.image = [UIImage imageNamed:@"Morning"];
-    else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"Afternoon"];
-    else background.image = [UIImage imageNamed:@"Evening"];
+    if (currentTime < 12) background.image = [UIImage imageNamed:@"Morning.jpg"];
+    else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"Afternoon.jpg"];
+    else background.image = [UIImage imageNamed:@"Evening.jpg"];
 }
 
 - (void)viewDidLoad {

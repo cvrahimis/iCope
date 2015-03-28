@@ -18,6 +18,7 @@
     Quotes *quote;
     NSArray *exerciseNames;
     NSArray *exerciseImgs;
+    NSArray *exerciseDesc;
     NSArray *mainImg;
     NSArray *quotes;
     NSArray *authors;
@@ -37,6 +38,7 @@
 
 @property (strong, nonatomic) NSArray *exerciseNames;
 @property (strong, nonatomic) NSArray *exerciseImgs;
+@property (strong, nonatomic) NSArray *exerciseDesc;
 @property (strong, nonatomic) NSArray *mainImg;
 @property (strong, nonatomic) NSArray *quotes;
 @property (strong, nonatomic) NSArray *authors;

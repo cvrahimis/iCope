@@ -12,6 +12,26 @@
 		634FFCC21A7616D100F24DF6 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FFCC11A7616D100F24DF6 /* ExerciseViewController.m */; };
 		635352831A6F61B80030F5CE /* OpenEntriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */; };
 		635533031AA754F100AF865B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635533021AA754F100AF865B /* LoginViewController.m */; };
+		63605D3F1AC6374500D440A0 /* morning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D3E1AC6374500D440A0 /* morning.jpg */; };
+		63605D421AC6374F00D440A0 /* afternoon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D401AC6374F00D440A0 /* afternoon.jpg */; };
+		63605D431AC6374F00D440A0 /* evening.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D411AC6374F00D440A0 /* evening.jpg */; };
+		63605D471AC6375D00D440A0 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 63605D441AC6375D00D440A0 /* play.png */; };
+		63605D481AC6375D00D440A0 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 63605D451AC6375D00D440A0 /* pause.png */; };
+		63605D491AC6375D00D440A0 /* rewind.png in Resources */ = {isa = PBXBuildFile; fileRef = 63605D461AC6375D00D440A0 /* rewind.png */; };
+		63605D4B1AC6376400D440A0 /* thermometer.png in Resources */ = {isa = PBXBuildFile; fileRef = 63605D4A1AC6376400D440A0 /* thermometer.png */; };
+		63605D4D1AC6377100D440A0 /* fastforward.png in Resources */ = {isa = PBXBuildFile; fileRef = 63605D4C1AC6377100D440A0 /* fastforward.png */; };
+		63605D591AC638B000D440A0 /* leglifts1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D4E1AC638B000D440A0 /* leglifts1.jpg */; };
+		63605D5A1AC638B000D440A0 /* backlifts3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D4F1AC638B000D440A0 /* backlifts3.jpg */; };
+		63605D5B1AC638B000D440A0 /* leglifts2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D501AC638B000D440A0 /* leglifts2.jpg */; };
+		63605D5C1AC638B000D440A0 /* plank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D511AC638B000D440A0 /* plank.jpg */; };
+		63605D5D1AC638B000D440A0 /* backlifts1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D521AC638B000D440A0 /* backlifts1.jpg */; };
+		63605D5E1AC638B000D440A0 /* backlifts2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D531AC638B000D440A0 /* backlifts2.jpg */; };
+		63605D5F1AC638B000D440A0 /* leglifts3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D541AC638B000D440A0 /* leglifts3.jpg */; };
+		63605D601AC638B000D440A0 /* crunches3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D551AC638B000D440A0 /* crunches3.jpg */; };
+		63605D611AC638B000D440A0 /* crunches2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D561AC638B000D440A0 /* crunches2.jpg */; };
+		63605D621AC638B000D440A0 /* crunches1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D571AC638B000D440A0 /* crunches1.jpg */; };
+		63605D631AC638B000D440A0 /* sideplank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D581AC638B000D440A0 /* sideplank.jpg */; };
+		63605D651AC6396C00D440A0 /* musicNote.png in Resources */ = {isa = PBXBuildFile; fileRef = 63605D641AC6396C00D440A0 /* musicNote.png */; };
 		6360D66D1A6B5D98001171ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66C1A6B5D98001171ED /* main.m */; };
 		6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66F1A6B5D98001171ED /* AppDelegate.m */; };
 		6360D6731A6B5D98001171ED /* iCope.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6711A6B5D98001171ED /* iCope.xcdatamodeld */; };
@@ -66,6 +86,26 @@
 		635352821A6F61B80030F5CE /* OpenEntriesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenEntriesTableViewCell.m; sourceTree = "<group>"; };
 		635533011AA754F100AF865B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		635533021AA754F100AF865B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		63605D3E1AC6374500D440A0 /* morning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = morning.jpg; sourceTree = "<group>"; };
+		63605D401AC6374F00D440A0 /* afternoon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = afternoon.jpg; sourceTree = "<group>"; };
+		63605D411AC6374F00D440A0 /* evening.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = evening.jpg; sourceTree = "<group>"; };
+		63605D441AC6375D00D440A0 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		63605D451AC6375D00D440A0 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		63605D461AC6375D00D440A0 /* rewind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewind.png; sourceTree = "<group>"; };
+		63605D4A1AC6376400D440A0 /* thermometer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thermometer.png; sourceTree = "<group>"; };
+		63605D4C1AC6377100D440A0 /* fastforward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fastforward.png; sourceTree = "<group>"; };
+		63605D4E1AC638B000D440A0 /* leglifts1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leglifts1.jpg; sourceTree = "<group>"; };
+		63605D4F1AC638B000D440A0 /* backlifts3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backlifts3.jpg; sourceTree = "<group>"; };
+		63605D501AC638B000D440A0 /* leglifts2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leglifts2.jpg; sourceTree = "<group>"; };
+		63605D511AC638B000D440A0 /* plank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plank.jpg; sourceTree = "<group>"; };
+		63605D521AC638B000D440A0 /* backlifts1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backlifts1.jpg; sourceTree = "<group>"; };
+		63605D531AC638B000D440A0 /* backlifts2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backlifts2.jpg; sourceTree = "<group>"; };
+		63605D541AC638B000D440A0 /* leglifts3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leglifts3.jpg; sourceTree = "<group>"; };
+		63605D551AC638B000D440A0 /* crunches3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crunches3.jpg; sourceTree = "<group>"; };
+		63605D561AC638B000D440A0 /* crunches2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crunches2.jpg; sourceTree = "<group>"; };
+		63605D571AC638B000D440A0 /* crunches1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crunches1.jpg; sourceTree = "<group>"; };
+		63605D581AC638B000D440A0 /* sideplank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sideplank.jpg; sourceTree = "<group>"; };
+		63605D641AC6396C00D440A0 /* musicNote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicNote.png; sourceTree = "<group>"; };
 		6360D6671A6B5D98001171ED /* iCope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6360D66B1A6B5D98001171ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6360D66C1A6B5D98001171ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -165,6 +205,33 @@
 			name = LoginControllers;
 			sourceTree = "<group>";
 		};
+		63605D3D1AC6372E00D440A0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				63605D641AC6396C00D440A0 /* musicNote.png */,
+				63605D4E1AC638B000D440A0 /* leglifts1.jpg */,
+				63605D4F1AC638B000D440A0 /* backlifts3.jpg */,
+				63605D501AC638B000D440A0 /* leglifts2.jpg */,
+				63605D511AC638B000D440A0 /* plank.jpg */,
+				63605D521AC638B000D440A0 /* backlifts1.jpg */,
+				63605D531AC638B000D440A0 /* backlifts2.jpg */,
+				63605D541AC638B000D440A0 /* leglifts3.jpg */,
+				63605D551AC638B000D440A0 /* crunches3.jpg */,
+				63605D561AC638B000D440A0 /* crunches2.jpg */,
+				63605D571AC638B000D440A0 /* crunches1.jpg */,
+				63605D581AC638B000D440A0 /* sideplank.jpg */,
+				63605D4C1AC6377100D440A0 /* fastforward.png */,
+				63605D4A1AC6376400D440A0 /* thermometer.png */,
+				63605D441AC6375D00D440A0 /* play.png */,
+				63605D451AC6375D00D440A0 /* pause.png */,
+				63605D461AC6375D00D440A0 /* rewind.png */,
+				63605D3E1AC6374500D440A0 /* morning.jpg */,
+				63605D401AC6374F00D440A0 /* afternoon.jpg */,
+				63605D411AC6374F00D440A0 /* evening.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		6360D65E1A6B5D98001171ED = {
 			isa = PBXGroup;
 			children = (
@@ -191,9 +258,9 @@
 		6360D6691A6B5D98001171ED /* iCope */ = {
 			isa = PBXGroup;
 			children = (
-				638FC2DE1AC28306003992FB /* Toasts */,
 				6360D66E1A6B5D98001171ED /* AppDelegate.h */,
 				6360D66F1A6B5D98001171ED /* AppDelegate.m */,
+				638FC2DE1AC28306003992FB /* Toasts */,
 				635533001AA754BF00AF865B /* LoginControllers */,
 				635532FF1AA754A100AF865B /* InternetManager */,
 				636A44651AA6CA290013DEF9 /* DBManagers */,
@@ -206,6 +273,7 @@
 				6360D6981A6B5E53001171ED /* DrawingControllers */,
 				6360D6991A6B5E63001171ED /* ReadingQuotesControllers */,
 				6360D69A1A6B5E74001171ED /* MainControllers */,
+				63605D3D1AC6372E00D440A0 /* Images */,
 				6360D66A1A6B5D98001171ED /* Supporting Files */,
 			);
 			path = iCope;
@@ -452,8 +520,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63605D471AC6375D00D440A0 /* play.png in Resources */,
+				63605D5C1AC638B000D440A0 /* plank.jpg in Resources */,
+				63605D5D1AC638B000D440A0 /* backlifts1.jpg in Resources */,
+				63605D431AC6374F00D440A0 /* evening.jpg in Resources */,
+				63605D621AC638B000D440A0 /* crunches1.jpg in Resources */,
+				63605D4D1AC6377100D440A0 /* fastforward.png in Resources */,
+				63605D481AC6375D00D440A0 /* pause.png in Resources */,
+				63605D651AC6396C00D440A0 /* musicNote.png in Resources */,
+				63605D591AC638B000D440A0 /* leglifts1.jpg in Resources */,
+				63605D5B1AC638B000D440A0 /* leglifts2.jpg in Resources */,
+				63605D3F1AC6374500D440A0 /* morning.jpg in Resources */,
+				63605D5E1AC638B000D440A0 /* backlifts2.jpg in Resources */,
+				63605D4B1AC6376400D440A0 /* thermometer.png in Resources */,
+				63605D5A1AC638B000D440A0 /* backlifts3.jpg in Resources */,
+				63605D491AC6375D00D440A0 /* rewind.png in Resources */,
+				63605D631AC638B000D440A0 /* sideplank.jpg in Resources */,
+				63605D5F1AC638B000D440A0 /* leglifts3.jpg in Resources */,
 				6360D6791A6B5D98001171ED /* Main.storyboard in Resources */,
 				6360D67E1A6B5D98001171ED /* LaunchScreen.xib in Resources */,
+				63605D611AC638B000D440A0 /* crunches2.jpg in Resources */,
+				63605D601AC638B000D440A0 /* crunches3.jpg in Resources */,
+				63605D421AC6374F00D440A0 /* afternoon.jpg in Resources */,
 				6360D67B1A6B5D98001171ED /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

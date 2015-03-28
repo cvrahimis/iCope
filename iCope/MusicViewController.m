@@ -370,9 +370,9 @@
 
 -(void) initBackground {
     background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight)];
-    if (currentTime < 12) background.image = [UIImage imageNamed:@"Morning"];
-    else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"Afternoon"];
-    else background.image = [UIImage imageNamed:@"Evening"];
+    if (currentTime < 12) background.image = [UIImage imageNamed:@"Morning.jpg"];
+    else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"Afternoon.jpg"];
+    else background.image = [UIImage imageNamed:@"Evening.jpg"];
     [self.view addSubview: background];
 }
 

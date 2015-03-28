@@ -21,6 +21,7 @@
 @synthesize authors;
 @synthesize bec;
 @synthesize viewController;
+@synthesize exerciseDesc;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"%s", __PRETTY_FUNCTION__);
@@ -33,9 +34,9 @@
     
     if (fetchedObjects.count == 0) {
         exerciseNames = @[@"Back lifts", @"Crunches", @"Leg lifts", @"Planks"];
-        exerciseImgs= @[@"backlifts1|backlifts2", @"crunches1|crunches2|crunches3", @"leglifts1|leglifts2|leglifts3", @"plank|sideplank"];
+        exerciseImgs= @[@"backlifts1.jpg|backlifts2.jpg", @"crunches1.jpg|crunches2.jpg|crunches3.jpg", @"leglifts1.jpg|leglifts2.jpg|leglifts3.jpg", @"plank.jpg|sideplank.jpg"];
         mainImg = @[@"backlifts1", @"crunches1", @"leglifts1", @"plank"];
-        
+        exerciseDesc = @[@"Lay down on your stomach and lift your hands and feet off the ground", @"Lay down on you back and use your abdominal muscles to lift your torso up", @"Lay down on you back and lift your feet into the air", @"Use your forearms and feet to keep your body off the ground"];
         [self setUpExerciseTable];
     }
     
@@ -80,11 +81,11 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     bec = [[BackEndComunicator alloc] initWithManagedObjectContext:_managedObjectContext];
-    /*if ([bec isPatientAndTherapistOnDevice])
+    if ([bec isPatientAndTherapistOnDevice])
      self.viewController = [[RatingViewController alloc] init];
      else
-     self.viewController = [[LoginViewController alloc] init];*/
-    self.viewController = [[RatingViewController alloc] init];//debug
+     self.viewController = [[LoginViewController alloc] init];
+    //self.viewController = [[RatingViewController alloc] init];//debug
     
     self.navCtrl = [[UINavigationController alloc] initWithRootViewController: self.viewController];
     //[self.navCtrl setNavigationBarHidden:NO animated:YES];
@@ -121,6 +122,7 @@
         [exercise setValue:exerciseNames[i] forKey:@"exerciseName"];
         [exercise setValue:exerciseImgs[i] forKey:@"pictures"];
         [exercise setValue:mainImg[i] forKey:@"mainPicture"];
+        [exercise setValue:exerciseDesc[i] forKey:@"descriptions"];
         
         NSError *error = nil;
         if([_managedObjectContext save: &error])
