@@ -57,7 +57,7 @@
         brushControl = [[UISlider alloc] initWithFrame: CGRectMake(0, 0, frameWidth * .5, frameHeight * .08)];
         brushControl.center = CGPointMake(frameWidth * .55, frameHeight * .2);
         brushControl.backgroundColor = [UIColor clearColor];
-        brushControl.minimumValue = 0.0f;
+        brushControl.minimumValue = 1.0f;
         brushControl.maximumValue = 100.0f;
         brushControl.value = 10.0f;
         brushControl.userInteractionEnabled = YES;
