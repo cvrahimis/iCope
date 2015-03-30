@@ -35,7 +35,7 @@
     if (fetchedObjects.count == 0) {
         exerciseNames = @[@"Back lifts", @"Crunches", @"Leg lifts", @"Planks"];
         exerciseImgs= @[@"backlifts1.jpg|backlifts2.jpg", @"crunches1.jpg|crunches2.jpg|crunches3.jpg", @"leglifts1.jpg|leglifts2.jpg|leglifts3.jpg", @"plank.jpg|sideplank.jpg"];
-        mainImg = @[@"backlifts1", @"crunches1", @"leglifts1", @"plank"];
+        mainImg = @[@"backlifts1.jpg", @"crunches1.jpg", @"leglifts1.jpg", @"plank.jpg"];
         exerciseDesc = @[@"Lay down on your stomach and lift your hands and feet off the ground", @"Lay down on you back and use your abdominal muscles to lift your torso up", @"Lay down on you back and lift your feet into the air", @"Use your forearms and feet to keep your body off the ground"];
         [self setUpExerciseTable];
     }
