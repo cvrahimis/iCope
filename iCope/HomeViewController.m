@@ -96,9 +96,9 @@
 }
 
 -(void) initBackground {
-    if (currentTime < 12) contentImgView.image = [UIImage imageNamed:@"Morning.jpg"];
-    else if (currentTime > 12 && currentTime < 18) contentImgView.image = [UIImage imageNamed:@"Afternoon.jpg"];
-    else contentImgView.image = [UIImage imageNamed:@"Evening.jpg"];
+    if (currentTime < 12) contentImgView.image = [UIImage imageNamed:@"morning.jpg"];
+    else if (currentTime > 12 && currentTime < 18) contentImgView.image = [UIImage imageNamed:@"afternoon.jpg"];
+    else contentImgView.image = [UIImage imageNamed:@"evening.jpg"];
 }
 
 // Method so strings only have to be created once.

@@ -282,9 +282,9 @@
 }
 
 -(void) initBackground {
-    if (currentTime < 12) background.image = [UIImage imageNamed:@"Morning.jpg"];
-    else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"Afternoon.jpg"];
-    else background.image = [UIImage imageNamed:@"Evening.jpg"];
+    if (currentTime < 12) background.image = [UIImage imageNamed:@"morning.jpg"];
+    else if (currentTime > 12 && currentTime < 18) background.image = [UIImage imageNamed:@"afternoon.jpg"];
+    else background.image = [UIImage imageNamed:@"evening.jpg"];
 }
 
 @end
