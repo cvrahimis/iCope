@@ -31,7 +31,6 @@
 		63605D611AC638B000D440A0 /* crunches2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D561AC638B000D440A0 /* crunches2.jpg */; };
 		63605D621AC638B000D440A0 /* crunches1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D571AC638B000D440A0 /* crunches1.jpg */; };
 		63605D631AC638B000D440A0 /* sideplank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63605D581AC638B000D440A0 /* sideplank.jpg */; };
-		63605D651AC6396C00D440A0 /* musicNote.png in Resources */ = {isa = PBXBuildFile; fileRef = 63605D641AC6396C00D440A0 /* musicNote.png */; };
 		6360D66D1A6B5D98001171ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66C1A6B5D98001171ED /* main.m */; };
 		6360D6701A6B5D98001171ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360D66F1A6B5D98001171ED /* AppDelegate.m */; };
 		6360D6731A6B5D98001171ED /* iCope.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6360D6711A6B5D98001171ED /* iCope.xcdatamodeld */; };
@@ -62,6 +61,8 @@
 		638FC2F31AC284C8003992FB /* Exercises.m in Sources */ = {isa = PBXBuildFile; fileRef = 638FC2F21AC284C8003992FB /* Exercises.m */; };
 		638FC2F61AC284C8003992FB /* Therapist.m in Sources */ = {isa = PBXBuildFile; fileRef = 638FC2F51AC284C8003992FB /* Therapist.m */; };
 		638FC2FD1AC28686003992FB /* Activities.m in Sources */ = {isa = PBXBuildFile; fileRef = 638FC2FC1AC28686003992FB /* Activities.m */; };
+		639BFDBD1ACBB4E700BAFCE4 /* doubleMusicNote.png in Resources */ = {isa = PBXBuildFile; fileRef = 639BFDBC1ACBB4E700BAFCE4 /* doubleMusicNote.png */; };
+		639BFDC31ACBBED300BAFCE4 /* MusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 639BFDC21ACBBED300BAFCE4 /* MusicTableViewCell.m */; };
 		C069B8511A8D1FD90002428E /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C069B8501A8D1FD90002428E /* RatingViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +106,6 @@
 		63605D561AC638B000D440A0 /* crunches2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crunches2.jpg; sourceTree = "<group>"; };
 		63605D571AC638B000D440A0 /* crunches1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crunches1.jpg; sourceTree = "<group>"; };
 		63605D581AC638B000D440A0 /* sideplank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sideplank.jpg; sourceTree = "<group>"; };
-		63605D641AC6396C00D440A0 /* musicNote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicNote.png; sourceTree = "<group>"; };
 		6360D6671A6B5D98001171ED /* iCope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6360D66B1A6B5D98001171ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6360D66C1A6B5D98001171ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -161,6 +161,9 @@
 		638FC2F51AC284C8003992FB /* Therapist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Therapist.m; sourceTree = "<group>"; };
 		638FC2FB1AC28686003992FB /* Activities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activities.h; sourceTree = "<group>"; };
 		638FC2FC1AC28686003992FB /* Activities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activities.m; sourceTree = "<group>"; };
+		639BFDBC1ACBB4E700BAFCE4 /* doubleMusicNote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doubleMusicNote.png; sourceTree = "<group>"; };
+		639BFDC11ACBBED300BAFCE4 /* MusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTableViewCell.h; sourceTree = "<group>"; };
+		639BFDC21ACBBED300BAFCE4 /* MusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTableViewCell.m; sourceTree = "<group>"; };
 		C069B84F1A8D1FD90002428E /* RatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingViewController.h; sourceTree = "<group>"; };
 		C069B8501A8D1FD90002428E /* RatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,7 +211,7 @@
 		63605D3D1AC6372E00D440A0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				63605D641AC6396C00D440A0 /* musicNote.png */,
+				639BFDBC1ACBB4E700BAFCE4 /* doubleMusicNote.png */,
 				63605D4E1AC638B000D440A0 /* leglifts1.jpg */,
 				63605D4F1AC638B000D440A0 /* backlifts3.jpg */,
 				63605D501AC638B000D440A0 /* leglifts2.jpg */,
@@ -358,6 +361,8 @@
 			children = (
 				6360D6B11A6B5F26001171ED /* MusicViewController.h */,
 				6360D6B21A6B5F26001171ED /* MusicViewController.m */,
+				639BFDC11ACBBED300BAFCE4 /* MusicTableViewCell.h */,
+				639BFDC21ACBBED300BAFCE4 /* MusicTableViewCell.m */,
 			);
 			name = MusicControllers;
 			sourceTree = "<group>";
@@ -527,7 +532,6 @@
 				63605D621AC638B000D440A0 /* crunches1.jpg in Resources */,
 				63605D4D1AC6377100D440A0 /* fastforward.png in Resources */,
 				63605D481AC6375D00D440A0 /* pause.png in Resources */,
-				63605D651AC6396C00D440A0 /* musicNote.png in Resources */,
 				63605D591AC638B000D440A0 /* leglifts1.jpg in Resources */,
 				63605D5B1AC638B000D440A0 /* leglifts2.jpg in Resources */,
 				63605D3F1AC6374500D440A0 /* morning.jpg in Resources */,
@@ -543,6 +547,7 @@
 				63605D601AC638B000D440A0 /* crunches3.jpg in Resources */,
 				63605D421AC6374F00D440A0 /* afternoon.jpg in Resources */,
 				6360D67B1A6B5D98001171ED /* Images.xcassets in Resources */,
+				639BFDBD1ACBB4E700BAFCE4 /* doubleMusicNote.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +573,7 @@
 				638FC2DD1AC282EA003992FB /* UIView+RNActivityView.m in Sources */,
 				634FFCC21A7616D100F24DF6 /* ExerciseViewController.m in Sources */,
 				6360D6E21A6BA0F8001171ED /* OpenEntriesViewController.m in Sources */,
+				639BFDC31ACBBED300BAFCE4 /* MusicTableViewCell.m in Sources */,
 				6360D6D01A6B5F4D001171ED /* ReadingViewController.m in Sources */,
 				638FC2FD1AC28686003992FB /* Activities.m in Sources */,
 				6360D6D91A6B5F59001171ED /* HomeViewController.m in Sources */,

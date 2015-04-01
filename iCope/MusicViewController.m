@@ -12,22 +12,24 @@
 
 @implementation MusicViewController
 
-@synthesize playButton;
-@synthesize rewind;
-@synthesize fastforward;
+@synthesize playButton, rewind, fastforward;
 @synthesize volume;
-@synthesize songTitle;
-@synthesize artist;
-@synthesize album;
-@synthesize albumCover;
-@synthesize showMediaPicker;
+//@synthesize songTitle;
+//@synthesize artist;
+//@synthesize album;
+//@synthesize albumCover;
+//@synthesize showMediaPicker;
 @synthesize currentPosition;
 @synthesize background;
-@synthesize songInfo;
+//@synthesize songInfo;
 @synthesize duration;
 @synthesize musicPlayer;
 @synthesize startTime;
 @synthesize endTime;
+@synthesize showMusic;
+@synthesize containerView;
+@synthesize musicTableView;
+@synthesize pickedSongs;
 
 -(id)init{
     if(self = [super init])
@@ -65,12 +67,23 @@
         [volume addTarget:self action:@selector(volumeChanged:) forControlEvents:UIControlEventValueChanged];
         [self.view addSubview: volume];
         
+        containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .8, frameHeight * .5)];
+        containerView.center = CGPointMake(frameWidth / 2, frameHeight * .4);
+        
+        musicTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .8, frameHeight * .5)];
+        musicTableView.dataSource = self;
+        [containerView addSubview: musicTableView];
+        [self.view addSubview:containerView];
+        
+        pickedSongs = [[NSArray alloc] init];
+        
+        
         /*currentPosition = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .7, 30)];//initWithProgressViewStyle: UIProgressViewStyleDefault];
          currentPosition.center = CGPointMake(frameWidth / 2, frameHeight * .75);
          [self.view addSubview: currentPosition];
          */
         
-        songInfo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight * .2)];
+        /*songInfo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight * .2)];
         songInfo.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:.2];
         songInfo.center = CGPointMake(frameWidth * .5, frameHeight * .65);
         //songInfo.backgroundColor = [UIColor whiteColor];
@@ -95,13 +108,13 @@
         album = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frameWidth, frameHeight * .6)];
         album.center = CGPointMake(self.songInfo.bounds.size.width * .5, self.songInfo.bounds.size.height * .6);
         album.text = @"Album: ";
-        album.textAlignment = NSTextAlignmentCenter
-        ;
+        album.textAlignment = NSTextAlignmentCenter;
+        
         album.font = [UIFont fontWithName: @"Helvetica" size: 20];
         album.textColor = [UIColor whiteColor];
         [songInfo addSubview: album];
-        
-        showMediaPicker = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+        */
+        /*showMediaPicker = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         showMediaPicker.frame = CGRectMake(0, 0, frameWidth*.6, frameHeight * .05);
         showMediaPicker.center = CGPointMake(frameWidth * .5, frameHeight * .5);
         showMediaPicker.opaque = YES;
@@ -113,19 +126,30 @@
         [showMediaPicker.titleLabel setFont:[UIFont systemFontOfSize: 22]];
         [showMediaPicker setTitle:@"Show Media Picker" forState:UIControlStateNormal];
         [showMediaPicker addTarget:self action:@selector(showMediaPicker:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview: showMediaPicker];
+        [self.view addSubview: showMediaPicker];*/
         
-        albumCover = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .6, frameHeight * .3)];
+       /* albumCover = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth * .6, frameHeight * .3)];
         albumCover.center = CGPointMake(frameWidth /2, frameHeight * .3);
         //albumCover.image = [UIImage imageNamed:@"bluredDumbBells.png"];
         //albumCover.backgroundColor = [UIColor whiteColor];
-        [self.view addSubview: albumCover];
+        [self.view addSubview: albumCover];*/
         
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                                  initWithTitle:@"Done"
                                                  style:UIBarButtonItemStyleDone
                                                  target:self
                                                  action:@selector(done)];
+        
+        UIImage *addBkg = [UIImage imageNamed:@"doubleMusicNote.png"];
+        addBkg = [self imageWithImage:addBkg scaledToSize: CGSizeMake(addBkg.size.width / 4, addBkg.size.height / 4)];
+        showMusic = [[UIBarButtonItem alloc] initWithImage:addBkg style:UIBarButtonItemStylePlain target:self action:@selector(showMediaPicker:)];
+                     //initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showMediaPicker:)];
+        
+        //UIImage *addBkg = [UIImage imageNamed:@"doubleMusicNote.png"];
+        //addBkg = [self imageWithImage:addBkg scaledToSize: CGSizeMake(frameWidth * .01, frameHeight * .03)];
+        //addBkg = [addBkg imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        //[showMusic setBackgroundImage:addBkg forState:UIControlStateNormal barMetrics:0];
+        self.navigationItem.rightBarButtonItem = showMusic;
         
     }
     return self;
@@ -232,17 +256,17 @@
 
 - (void) handle_NowPlayingItemChanged: (id) notification //displays song info title atrtist album
 {
-   	MPMediaItem *currentItem = [musicPlayer nowPlayingItem];
+   	/*MPMediaItem *currentItem = [musicPlayer nowPlayingItem];
     UIImage *artworkImage = [UIImage imageNamed:@"musicNote.png"];
     MPMediaItemArtwork *artwork = [currentItem valueForProperty: MPMediaItemPropertyArtwork];
     
     if (artwork) {
         artworkImage = [artwork imageWithSize: CGSizeMake (200, 200)];
-    }
+    }*/
     
-    [albumCover setImage:artworkImage];
+    //[albumCover setImage:artworkImage];
     
-    NSString *titleString = [currentItem valueForProperty:MPMediaItemPropertyTitle];
+    /*NSString *titleString = [currentItem valueForProperty:MPMediaItemPropertyTitle];
     if (titleString)
     {
         songTitle.text = [NSString stringWithFormat:@"Title: %@",titleString];
@@ -270,7 +294,7 @@
     else
     {
         album.text = @"Album: Unknown album";
-    }
+    }*/
     
 }
 
@@ -320,9 +344,14 @@
     if (mediaItemCollection)
     {
         [musicPlayer setQueueWithItemCollection: mediaItemCollection];
+        pickedSongs = mediaItemCollection.items;
+        //musicTableView.delegate = self;
+        [self.musicTableView reloadData];
         [musicPlayer play];
     }
+    
     [self dismissViewControllerAnimated: YES completion:nil];
+    
 }
 
 
@@ -375,5 +404,110 @@
     else background.image = [UIImage imageNamed:@"evening.jpg"];
     [self.view addSubview: background];
 }
+
+-(UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContext( newSize );
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *picture1 = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSData *imageData = UIImagePNGRepresentation(picture1);
+    UIImage *img=[UIImage imageWithData:imageData];
+    return img;
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    /*NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+     [dateformate setDateFormat:@"dd/MM/YYYY"];
+     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+     NSEntityDescription *entity = [NSEntityDescription
+     entityForName:@"Journal" inManagedObjectContext:managedObjectContext];
+     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date = %@", [dates objectAtIndex:section]];
+     [fetchRequest setEntity:entity];
+     [fetchRequest setPredicate:predicate];
+     NSError *error = nil;
+     numRowSection = [managedObjectContext executeFetchRequest:fetchRequest error: &error];*/
+    
+    //NSMutableArray *temp = [dateGroups objectForKey:[dates objectAtIndex:section]];
+    
+    return [pickedSongs count];
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil)
+        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier: CellIdentifier];
+    
+    MPMediaItem *currentItem = [pickedSongs objectAtIndex:indexPath.row];
+    if(currentItem)
+    {
+        MPMediaItemArtwork *artwork = [currentItem valueForProperty: MPMediaItemPropertyArtwork];
+        cell.imageView.image = [artwork imageWithSize:CGSizeMake (frameWidth * .2, frameWidth * .2)];
+        cell.textLabel.text = [NSString stringWithFormat: @"Title: %@", [currentItem valueForProperty:MPMediaItemPropertyTitle]];
+        cell.detailTextLabel.text = [NSString stringWithFormat: @"Artist: %@", [currentItem valueForProperty:MPMediaItemPropertyAlbumTitle]];
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    
+    
+}
+
+
+// Override to support conditional editing of the table view.
+// Return NO if you do not want the specified item to be editable.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    return YES;
+}
+
+
+
+// Override to support editing the table view.
+/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ NSLog(@"%s",__PRETTY_FUNCTION__);
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ 
+ }
+ }*/
+
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
 
 @end
