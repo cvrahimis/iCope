@@ -41,7 +41,12 @@
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/iCopeDBInserts/Login.php"]]];
+    //Request to run on simulator
+    //[request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/iCopeDBInserts/Login.php"]]];
+    //Request to run on device
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.1.13:8888/iCopeDBInserts/Login.php"]]];
+    //Request to run on iona server
+    //[request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://isoothe.cs.iona.edu/login.php"]]];
     [request setHTTPMethod:@"POST"];
     [request setTimeoutInterval:5];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -179,7 +184,13 @@
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/iCopeDBInserts/AddActivity.php"]]];
+        //Request for simulator
+        //[request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/iCopeDBInserts/AddActivity.php"]]];
+        //Request for device
+        [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.1.13:8888/iCopeDBInserts/AddActivity.php"]]];
+        //Request for Iona server
+        //[request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://isoothe.cs.iona.edu/AddActivity.php"]]];
+        
         [request setHTTPMethod:@"POST"];
         [request setTimeoutInterval:5];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];

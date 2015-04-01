@@ -81,12 +81,12 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     bec = [[BackEndComunicator alloc] initWithManagedObjectContext:_managedObjectContext];
-    /*if ([bec isPatientAndTherapistOnDevice])
+    if ([bec isPatientAndTherapistOnDevice])
      self.viewController = [[RatingViewController alloc] init];
     else
-     self.viewController = [[LoginViewController alloc] init];*/
+     self.viewController = [[LoginViewController alloc] init];
     
-    self.viewController = [[RatingViewController alloc] init];//debug
+    //self.viewController = [[RatingViewController alloc] init];//debug
     
     self.navCtrl = [[UINavigationController alloc] initWithRootViewController: self.viewController];
     //[self.navCtrl setNavigationBarHidden:NO animated:YES];
