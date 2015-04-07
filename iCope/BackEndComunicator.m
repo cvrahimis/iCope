@@ -44,7 +44,9 @@
     //Request to run on simulator
     //[request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/iCopeDBInserts/Login.php"]]];
     //Request to run on device
-    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.1.13:8888/iCopeDBInserts/Login.php"]]];
+    //[request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.1.13:8888/iCopeDBInserts/Login.php"]]];
+    //new request
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.1.13:8888/iSoothe/iSootheMobile/Login.php"]]];
     //Request to run on iona server
     //[request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://isoothe.cs.iona.edu/login.php"]]];
     [request setHTTPMethod:@"POST"];
@@ -187,7 +189,7 @@
         //Request for simulator
         //[request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/iCopeDBInserts/AddActivity.php"]]];
         //Request for device
-        [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.1.13:8888/iCopeDBInserts/AddActivity.php"]]];
+        [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.1.13:8888/iSoothe/iSootheMobile/AddActivity.php"]]];
         //Request for Iona server
         //[request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://isoothe.cs.iona.edu/AddActivity.php"]]];
         
